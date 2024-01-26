@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center"> 
   <img src="https://cdn.jsdelivr.net/gh/fre123-com/fre123-info-flow@main/.files/logo.png" width="100" height="100">
 </p>
 <h1 align="center">Fre123 Nav</h1>
