@@ -2236,14 +2236,6 @@
 				"upper_right_corner": {},
 				"details": [
 					{
-						"title": "百度网盘",
-						"url": "https://pan.baidu.com/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959e58c6f12.png",
-						"description": "支持文件的网络备份、同步和共享服务。空间大，速度快，安全稳定，支持教育网络加速，支持手机。",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "小白盘",
 						"url": "https://www.xiaobaipan.com/",
 						"icon": "https://img.fre123.com/i/2024/01/04/65959e3b06a27.jpg",
@@ -2280,6 +2272,28 @@
 						"url": "https://www.xuebapan.com/",
 						"icon": "https://img.fre123.com/i/2024/01/09/659c3bdd0de24.png",
 						"description": "学霸盘是百度网盘资源搜索引擎，提供抖音,短视频,课程,考研,PPT模板,电子书,会计,计算机等热门资源，实时检查无效资源，帮您更快捷的获取网盘资源下载信息。",
+						"suffix": false,
+						"is_show": true
+					}
+				]
+			},
+			{
+				"tab_name": "天翼云盘",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "雷鲸小站",
+						"url": "https://www.leijing.xyz/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/07/54070ecaec337623e86cefa6ea570a50-b92394.png",
+						"description": "天翼云盘资源分享站",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "海绵小站",
+						"url": "https://www.hmxz.org/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/07/823e77f704f3be1ef7939400f90609a1-8eedcc.png",
+						"description": "海绵小站提供天翼云盘资源下载服务，汇集了丰富的网盘资源，包括电影、音乐，通过网盘下载，您可以免费获取所需资源，尽情畅享",
 						"suffix": false,
 						"is_show": true
 					}
