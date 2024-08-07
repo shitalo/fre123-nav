@@ -16,12 +16,6 @@
 				"is_show": true
 			},
 			{
-				"name": "百度",
-				"url": "https://www.baidu.com/s?wd={keyword}",
-				"icon": "https://img.fre123.com/i/2023/11/26/656303de24efc.png",
-				"is_show": true
-			},
-			{
 				"name": "搜狗|微信",
 				"url": "https://weixin.sogou.com/weixin?query={keyword}",
 				"icon": "https://img.fre123.com/i/2024/02/20/65d4bc3f1dbcd.ico",
