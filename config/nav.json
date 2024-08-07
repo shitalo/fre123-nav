@@ -2297,34 +2297,10 @@
 				"upper_right_corner": {},
 				"details": [
 					{
-						"title": "QQ音乐",
-						"url": "https://y.qq.com/",
-						"icon": "https://img.fre123.com/i/2024/01/16/65a68615d5159.ico",
-						"description": "QQ音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载、空间背景音乐设置、MV观看等，是互联网音乐播放和下载的优选。",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "酷狗音乐",
-						"url": "https://www.kugou.com/yy/html/rank.html",
-						"icon": "https://img.fre123.com/i/2024/02/22/65d7620c34d85.webp",
-						"description": "酷狗音乐在线正版音乐网站，为您提供酷狗音乐播放器下载 、在线音乐试听下载，提供听书、长音频、频道、听小说和MV播放服务。酷狗音乐，就是歌多！小说相声也很多！场景音乐也很多！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "网易云音乐",
-						"url": "https://music.163.com/",
-						"icon": "https://img.fre123.com/i/2024/01/16/65a68678cb78e.ico",
-						"description": "网易云音乐是一款专注于发现与分享的音乐产品，依托专业音乐人、DJ、好友推荐及社交功能，为用户打造全新的音乐生活。",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "铜钟",
-						"url": "https://tonzhon.com/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985ed2a626a.png",
-						"description": "PC端免费音乐平台",
+						"title": "B仔",
+						"url": "https://lizhi.turkyden.com/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/07/e110f7d153f152b602dbeb3237f5c513-9d6830.png",
+						"description": "B仔音乐作品在线播放",
 						"suffix": false,
 						"is_show": true
 					},
@@ -2351,38 +2327,6 @@
 						"description": "一个简约的在线音乐播放器，具有音乐搜索、播放、每日推荐、私人FM、歌词显示、歌曲评论、网易云登录与云盘等功能",
 						"suffix": false,
 						"is_show": true
-					},
-					{
-						"title": "在线音乐播放器",
-						"url": "https://mp3.xsle.cn/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985f1618ea1.png",
-						"description": "一款开源的基于网易云音乐api的在线音乐播放器",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "MyFreeMP3",
-						"url": "https://music.liumingye.cn",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985eb383091.png",
-						"description": "免费的全网无损音乐下载站",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "LFAC 音乐盒",
-						"url": "http://box.flac.ltd/",
-						"icon": "https://img.fre123.com/i/2024/01/12/65a05264a8050.ico",
-						"description": "vip音乐解析下载,付费音乐解析mp3免费下载网，可下载收费音乐，免费下载收费歌曲！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "MusicFree",
-						"url": "https://musicfree.upup.fun/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985f063b29f.jpeg",
-						"description": "一个插件化的音乐播放器",
-						"suffix": false,
-						"is_show": false
 					}
 				]
 			},
