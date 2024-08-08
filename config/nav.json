@@ -566,6 +566,14 @@
 						"is_show": true
 					},
 					{
+						"title": "云盘资源分享社区",
+						"url": "https://www.yunpan1.wang/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/66ddb98df0c49067b7027fd1b1d82a4dc8956e.png",
+						"description": "提供不限于阿里云盘资源、夸克网盘资源等各类网盘资源分享",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "狸猫盘搜",
 						"url": "https://alipansou.com/",
 						"icon": "https://img.fre123.com/i/2024/01/04/65959eb813cb0.png",
@@ -877,6 +885,83 @@
 						"url": "http://thbt3.com/",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/e54035352fe6c2160f18087479132f0315a1e7.png",
 						"description": "一个磁力站",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "",
+						"url": "",
+						"icon": "",
+						"description": "",
+						"suffix": false,
+						"is_show": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"group_name": "工具资源",
+		"style": 1,
+		"style_des": "标准风格",
+		"tab_list": [
+			{
+				"tab_name": "综合工具",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "中科大测速",
+						"url": "https://test.ustc.edu.cn/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/62d5a42896b63c4fefad76841e94a1ed923bf6.ico",
+						"description": "中国科学技术大学网络测速网站",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "测速网",
+						"url": "https://myplugin.speedtest.cn/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/f4fbe0df4f20679871a2215134186fd52f3153.ico",
+						"description": "专业测网速",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "IPv6测试",
+						"url": "https://test-ipv6.com/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/cda7f22befdccbebda4c209158e0dfa376d085.ico",
+						"description": "测试你的浏览器和网络是否支持 IPv6，并显示你当前的 IPv4 和 IPv6 地址",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "SKK IP地址查看",
+						"url": "https://ip.skk.moe/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/44bc453b741add1a77d13909e4ad5fddf3a64d.ico",
+						"description": "skk聚合IP查看，可查看国内外网络的连通性及出口IP",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "IPCheck.ing",
+						"url": "https://ipcheck.ing/#",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/a6e12b595f6c94af8d0c3e86b27ac14b75102e.png",
+						"description": "聚合IP查看，可查看国内外出口IP、网络连通性、WebRTC测试",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "ITDOG",
+						"url": "https://www.itdog.cn/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/59c16876ab658b80f88a54f8cdb8c690dc4792.ico",
+						"description": "多地ping测试、多地tcping测试、网站测速、HTTP测速、API测速、路由追踪、在线MTR 、DNS查询等",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "Dynu网络工具",
+						"url": "https://www.dynu.com/zh-CN/NetworkTools",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/ab8ce46adae6addcd395e01e2988e3b0cd57ab.png",
+						"description": "免费的在线网络工具。traceroute，nslookup，反向查找，whois，ping，电子邮件调查，开放端口检查和DKIM向导等",
 						"suffix": false,
 						"is_show": true
 					},
