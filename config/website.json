@@ -57,36 +57,8 @@
 		}
 	},
 	"pendant": {
-		"is_show": false,
-		"list": [
-			{
-				"icon_class": "fab fa-weixin",
-				"icon_size": 20,
-				"icon_color": "#00b140",
-				"icon_hover_color": "#008733",
-				"text": "有兴趣加我进群聊聊",
-				"img": "https://img.fre123.com/i/2023/12/03/656c990d9fbb8.jpeg",
-				"url": ""
-			},
-			{
-				"icon_class": "fab fa-telegram-plane",
-				"icon_size": 20,
-				"icon_color": "#0088cc",
-				"icon_hover_color": "#085b85",
-				"text": "关注老胡TG信息流频道",
-				"img": "",
-				"url": "https://t.me/howie_weekly"
-			},
-			{
-				"icon_class": "fas fa-comment-dots",
-				"icon_size": 20,
-				"icon_color": "#0088cc",
-				"icon_hover_color": "#085b85",
-				"text": "FRE123 期待您的建议反馈",
-				"img": "",
-				"url": "https://txc.qq.com/products/617721"
-			}
-		]
+		"is_show": true,
+		"list": []
 	},
 	"footer": {
 		"right": {
