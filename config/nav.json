@@ -213,6 +213,14 @@
 						"description": "提供最新最全的电视剧电影在线观看",
 						"suffix": true,
 						"is_show": false
+					},
+					{
+						"title": "MX动漫",
+						"url": "https://www.mxdm.xyz/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/09/26/7cc822596f2dd373d8f0ef7326f521b6a332f8.ico",
+						"description": "专注在线动漫的樱花动漫备用网站",
+						"suffix": true,
+						"is_show": true
 					}
 				]
 			},
