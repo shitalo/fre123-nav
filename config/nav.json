@@ -13,21 +13,20 @@
 				"details": [
 					{
 						"title": "BTNULL 无名小站",
-						"url": "https://www.btnull.org",
+						"url": "https://www.gying.si",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561ae014e2de.png",
-						"description": "简单注册下，即可在线观看&下载影视资源，总体体验还是挺良心的",
+						"description": "已更名为观影，获取最新地址方式：发邮件到dizhi777@pm.me，自动回复地址",
 						"suffix": true,
 						"is_show": true
 					},
 					{
-						"title": "JoJo 影视",
-						"url": "https://jiohub.top",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561af1988649.png",
-						"description": "努力打造为最好的海外热门影视剧在线观看站点",
+						"title": "两个BT",
+						"url": "https://www.bttwo.net",
+						"icon": "https://img.fre123.com/i/2024/02/21/65d6091fa0321.ico",
+						"description": "两个BT免费为网友提交BT种子下载，免费电影资源下载，以及各种高清电影在线观看,最全的最新电视剧，最近上映热门电影下载。韩国电视剧、香港TVB电视剧、韩剧、日剧、美剧、动漫番剧。",
 						"suffix": true,
 						"is_show": true
 					},
-
 					{
 						"title": "注视影视",
 						"url": "https://gaze.run/",
@@ -37,26 +36,18 @@
 						"is_show": true
 					},
 					{
-						"title": "哔嘀影视",
-						"url": "https://www.bdys10.com/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b1775447b.png",
-						"description": "最新电影电视剧免费观看下载！",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "厂长资源",
-						"url": "https://www.czzy55.com/",
-						"icon": "https://img.fre123.com/i/2024/01/06/659829822ee33.jpg",
-						"description": "高清资源在线观看",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "HDmoli",
 						"url": "https://www.hdmoli.pro",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561ae6e55df8.png",
 						"description": "HDMOLI 提供免费、高品质、同时支持电脑和移动设备的影视剧在线观看网站",
+						"suffix": true,
+						"is_show": true
+					},
+					{
+						"title": "低端影视",
+						"url": "https://ddys.pro/",
+						"icon": "https://img.fre123.com/i/2023/11/25/6561aeddd0eb6.png",
+						"description": "超清在线视频站",
 						"suffix": true,
 						"is_show": true
 					},
@@ -85,14 +76,6 @@
 						"is_show": true
 					},
 					{
-						"title": "新视觉影院",
-						"url": "https://www.6080yy4.com",
-						"icon": "https://img.fre123.com/i/2024/02/19/65d22b0edebfe.ico",
-						"description": "新视觉影院为您提供各种最新的电影电视剧,韩国电视剧,日本动漫,泰剧,美剧,综艺,等在线免费观看,每日更新海量最新最热电影电视剧,新视觉影院给您更好的视频观看体验！",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "Free OK",
 						"url": "https://www.freeok.vip/",
 						"icon": "https://img.fre123.com/i/2024/01/06/6598318075d36.jpg",
@@ -109,42 +92,10 @@
 						"is_show": true
 					},
 					{
-						"title": "大米星球",
-						"url": "https://dmflm.com/",
-						"icon": "https://img.fre123.com/i/2023/12/14/657b1c91ce756.png",
-						"description": "免费高清电影大全",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "555电影",
-						"url": "https://5look.site/",
+						"url": "https://555dy.tv",
 						"icon": "https://img.fre123.com/i/2023/12/14/657b21e08c6f0.png",
 						"description": "每天更新热火欧美日韩剧",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "爱看影院",
-						"url": "https://www.3ayy.com/",
-						"icon": "https://img.fre123.com/i/2024/02/21/65d602f8a6edb.png",
-						"description": "爱看影院为您提供最新电影电视剧免费在线观看,热门综艺节目,动漫新番,最新电影预告等,每日更新最新电影、最新电视剧、电影下载、动漫,喜欢看电影就上爱看影视",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "乐子剧",
-						"url": "https://leziju.com/",
-						"icon": "https://img.fre123.com/i/2024/01/30/65b7da6163230.ico",
-						"description": "乐子剧leziju是一个免费网络短剧在线播放平台",
-						"suffix": true,
-						"is_show": false
-					},
-					{
-						"title": "臭蛋蛋影视",
-						"url": "https://cddys.me/",
-						"icon": "https://img.fre123.com/i/2024/02/18/65d22971ebce9.png",
-						"description": "臭蛋蛋影视-最全电影、电视剧、综艺、动漫、纪录片高清，蓝光影视随心看！",
 						"suffix": true,
 						"is_show": true
 					},
@@ -164,107 +115,41 @@
 						"suffix": true,
 						"is_show": true
 					},
-
 					{
-						"title": "影搜",
-						"url": "https://影搜.com/",
-						"icon": "https://img.fre123.com/i/2024/01/05/6597be6706aee.png",
-						"description": "全网海量影片数据",
+						"title": "快看美剧",
+						"url": "https://www.kmeiju.cc/",
+						"icon": "https://img.fre123.com/i/2024/02/21/65d6098d9e248.ico",
+						"description": "看美剧是一个专注外国影视剧高清在线点播的的网站!",
 						"suffix": true,
 						"is_show": true
 					},
 					{
-						"title": "视频啦",
-						"url": "https://www.shipinla.com/",
-						"icon": "https://img.fre123.com/i/2024/02/21/65d5f57181748.png",
-						"description": "网站以分享最新剧情为宗旨，集电影剧情介绍、电视剧分集剧情、演员表、影视资源的网站为一体综合型网站。",
+						"title": "臭蛋蛋影视",
+						"url": "https://cddys.me/",
+						"icon": "https://img.fre123.com/i/2024/02/18/65d22971ebce9.png",
+						"description": "臭蛋蛋影视-最全电影、电视剧、综艺、动漫、纪录片高清，蓝光影视随心看！",
 						"suffix": true,
 						"is_show": true
 					},
 					{
-						"title": "影视搜索引擎",
-						"url": "https://ys.urlsdh.com/so/",
-						"icon": "https://img.fre123.com/i/2024/01/15/65a421c243f94.ico",
-						"description": "影视搜索引擎",
-						"suffix": true,
-						"is_show": false
-					},
-					{
-						"title": "腐剧TV",
-						"url": "https://fujumtv.com/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65982b424d966.png",
-						"description": "最新腐剧在线观看",
-						"suffix": true,
-						"is_show": false
-					},
-
-					{
-						"title": "榜一短剧 🪜",
-						"url": "https://duanju.one/",
-						"icon": "https://img.fre123.com/i/2024/01/05/6597c0b5e3940.png",
-						"description": "各大平台热播短剧",
-						"suffix": true,
-						"is_show": false
-					},
-					{
-						"title": "素白白影视 🪜",
-						"url": "https://subaibai.vip/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65982a748d7cf.png",
-						"description": "提供最新最全的电视剧电影在线观看",
-						"suffix": true,
-						"is_show": false
-					},
-					{
-						"title": "MX动漫",
-						"url": "https://www.mxdm.xyz/",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/09/26/7cc822596f2dd373d8f0ef7326f521b6a332f8.ico",
-						"description": "专注在线动漫的樱花动漫备用网站",
+						"title": "549TV",
+						"url": "https://549.tv",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/2dcf9c8466e0551e583a3cf10c6d2fa3e366e8.png",
+						"description": "臭蛋蛋影视-最全电影、电视剧、综艺、动漫、纪录片高清，蓝光影视随心看！",
 						"suffix": true,
 						"is_show": true
 					}
 				]
 			},
 			{
-				"tab_name": "电影世界",
+				"tab_name": "影视下载",
 				"upper_right_corner": {},
 				"details": [
 					{
-						"title": "影搜",
-						"url": "https://影搜.com/",
-						"icon": "https://img.fre123.com/i/2024/01/05/6597be6706aee.png",
-						"description": "全网海量影片数据",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "搜片",
-						"url": "https://soupian.pro/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561aebd85f0c.png",
-						"description": "搜你想看的影片，每天搜集最新电影、电视剧、在线观看网址、蓝光高清正版免费看！",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "低端影视",
-						"url": "https://ddys.pro/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561aeddd0eb6.png",
-						"description": "超清在线视频站",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "磁力熊",
-						"url": "https://www.cilixiong.cc/",
+						"url": "https://www.cilixiong.cc",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561aef0bb22e.png",
 						"description": "磁力电影高清电影下载，豆瓣 Top250 高分高清电影磁力下载",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "电影天堂",
-						"url": "https://www.dy2018.com/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b0e16bb9e.png",
-						"description": "分享最新电影，高清电影、综艺、动漫、电视剧等下载",
 						"suffix": true,
 						"is_show": true
 					},
@@ -285,92 +170,6 @@
 						"is_show": true
 					},
 					{
-						"title": "此刻电影日历",
-						"url": "https://www.cikeee.cc/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561af2dbbb1c.png",
-						"description": "每天一部电影，电影爱好者的心灵港湾，在这里，发现电影，享受电影，分享电影",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "臭蛋蛋影视",
-						"url": "https://cddys.me/",
-						"icon": "https://img.fre123.com/i/2024/02/18/65d22971ebce9.png",
-						"description": "臭蛋蛋影视-最全电影、电视剧、综艺、动漫、纪录片高清，蓝光影视随心看！",
-						"suffix": true,
-						"is_show": false
-					},
-					{
-						"title": "皮皮虾资源",
-						"url": "https://ppxzy.net/",
-						"icon": "https://img.fre123.com/i/2024/01/19/65a9f21b00bca.jpg",
-						"description": "愿所有电影都能与你不期而遇",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "电影狗",
-						"url": "https://www.dianyinggou.com/",
-						"icon": "https://img.fre123.com/i/2023/12/14/6579e90936169.png",
-						"description": "专业电影搜索引擎",
-						"suffix": true,
-						"is_show": false
-					}
-				]
-			},
-			{
-				"tab_name": "美日韩剧",
-				"upper_right_corner": {},
-				"details": [
-					{
-						"title": "HDmoli",
-						"url": "https://www.hdmoli.pro",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561ae6e55df8.png",
-						"description": "HDMOLI 提供免费、高品质、同时支持电脑和移动设备的影视剧在线观看网站",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "LIBVIO",
-						"url": "https://www.libvio.me/",
-						"icon": "https://img.fre123.com/i/2024/01/06/659829e49995c.png",
-						"description": "海外影视资源为主的老牌在线影视资源网站",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "JoJo 影视",
-						"url": "https://jiohub.top/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561af1988649.png",
-						"description": "努力打造为最好的海外热门影视剧在线观看站点",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "低端影视",
-						"url": "https://ddys.pro/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561aeddd0eb6.png",
-						"description": "超清在线视频站",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "NO 视频",
-						"url": "https://www.novipnoad.net/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65983049921a2.png",
-						"description": "主打海外影视剧资源，不负追剧好时光。",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "在线之家",
-						"url": "https://www.zxzjhd.com/",
-						"icon": "https://img.fre123.com/i/2024/01/06/659830c0e152c.png",
-						"description": "在线观看最新美剧|最新韩剧|天天美剧|人人美剧",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "美剧天堂",
 						"url": "https://www.meijutt.tw/",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561b1683e2ca.png",
@@ -379,88 +178,10 @@
 						"is_show": true
 					},
 					{
-						"title": "秋爸日字",
-						"url": "https://qq88.info/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b18462068.png",
-						"description": "日剧下载网站",
-						"suffix": true,
-						"is_show": false
-					},
-					{
-						"title": "日剧跑",
-						"url": "https://www.rijupao.com/",
-						"icon": "https://img.fre123.com/i/2023/12/14/6579d8bfd3476.jpg",
-						"description": "热爱日剧，分享日剧。还有日影、动漫分享，百度网盘高清下载，迅雷高速下载。",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "韩饭网",
-						"url": "https://www.hanfan.cc/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b19c18889.png",
-						"description": "提供韩国电视剧、韩国电影、韩国综艺、节目表、音乐演出和明星时尚",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "两个BT",
-						"url": "https://www.bttwo.net/",
-						"icon": "https://img.fre123.com/i/2024/02/21/65d6091fa0321.ico",
-						"description": "两个BT免费为网友提交BT种子下载，免费电影资源下载，以及各种高清电影在线观看,最全的最新电视剧，最近上映热门电影下载。韩国电视剧、香港TVB电视剧、韩剧、日剧、美剧、动漫番剧。",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "快看美剧",
-						"url": "https://www.kmeiju.cc/",
-						"icon": "https://img.fre123.com/i/2024/02/21/65d6098d9e248.ico",
-						"description": "看美剧是一个专注外国影视剧高清在线点播的的网站!",
-						"suffix": true,
-						"is_show": true
-					}
-				]
-			},
-			{
-				"tab_name": "影视下载",
-				"upper_right_corner": {},
-				"details": [
-					{
-						"title": "海盗湾",
-						"url": "https://www.pirateproxy-bay.com/",
-						"icon": "https://img.fre123.com/i/2024/01/05/6597c20198e3b.png",
-						"description": "全世界最大的磁力搜索网站",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "音范丝",
-						"url": "https://www.yinfans.me/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b0a161eeb.png",
-						"description": "精选 4K 蓝光原盘下载",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "不太灵影视",
-						"url": "https://www.2bt0.com/",
+						"url": "https://www.butailing.com",
 						"icon": "https://img.fre123.com/i/2024/01/06/65983354c2ad9.png",
 						"description": "海外电影电视剧下载",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "磁力熊",
-						"url": "https://www.cilixiong.cc/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561aef0bb22e.png",
-						"description": "磁力电影高清电影下载，豆瓣 Top250 高分高清电影磁力下载",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "电影天堂",
-						"url": "https://www.dy2018.com/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b0e16bb9e.png",
-						"description": "分享最新电影，高清电影、综艺、动漫、电视剧等下载",
 						"suffix": true,
 						"is_show": true
 					},
@@ -473,58 +194,10 @@
 						"is_show": true
 					},
 					{
-						"title": "美剧天堂",
-						"url": "https://www.meijutt.tw/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b1683e2ca.png",
-						"description": "海量好看的美剧在线观看、最新美剧下载！",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "蚂蚁 4K",
-						"url": "https://www.mayi4k.com/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b1a7eb11e.png",
-						"description": "提供4K高清电影资源下载及最新电影下载服务",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "4K 影视论坛",
-						"url": "https://www.4khdr.cn/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b1ba0622b.png",
-						"description": "4K 电影美剧下载 ，HDR 杜比视界资源",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "迷客电影",
-						"url": "https://www.mini4k.net/",
-						"icon": "https://img.fre123.com/i/2023/12/16/657d3fd6549b7.png",
-						"description": "高清2160P 4K电影下载网站",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "秋爸日字",
-						"url": "https://qq88.info/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b18462068.png",
-						"description": "日剧下载网站",
-						"suffix": true,
-						"is_show": false
-					},
-					{
-						"title": "日剧跑",
-						"url": "https://www.rijupao.com/",
-						"icon": "https://img.fre123.com/i/2023/12/14/6579d8bfd3476.jpg",
-						"description": "热爱日剧，分享日剧。还有日影、动漫分享，百度网盘高清下载，迅雷高速下载。",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "韩饭网",
-						"url": "https://www.hanfan.cc/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b19c18889.png",
-						"description": "提供韩国电视剧、韩国电影、韩国综艺、节目表、音乐演出和明星时尚",
+						"title": "电影天堂",
+						"url": "http://www.dytt89.com",
+						"icon": "https://img.fre123.com/i/2023/11/25/6561b0e16bb9e.png",
+						"description": "分享最新电影，高清电影、综艺、动漫、电视剧等下载",
 						"suffix": true,
 						"is_show": true
 					},
@@ -541,14 +214,6 @@
 						"url": "https://yyets.click/search",
 						"icon": "https://img.fre123.com/i/2023/12/13/6579ced83bdae.png",
 						"description": "包含人人影视全部资源以及众多网友的网盘分享",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "迅雷电影天堂",
-						"url": "https://xunlei8.cc/",
-						"icon": "https://img.fre123.com/i/2024/01/23/65aec5d189579.png",
-						"description": "迅雷电影天堂 - 全球领先的高清电影下载平台，以丰富的内容、极致的下载体验、满足您最新电影迅雷下载和BT下载需求。每日更新720p、1080p，蓝光高清电影下载资源。",
 						"suffix": true,
 						"is_show": true
 					}
@@ -630,14 +295,6 @@
 						"is_show": true
 					},
 					{
-						"title": "小盘盘",
-						"url": "https://xpanpan.site/",
-						"icon": "https://img.fre123.com/i/2024/01/30/65b7dbf7a97b8.png",
-						"description": "小盘盘网盘搜索汇集了阿里云盘，移动云盘，夸克网盘，迅雷云盘等网盘，拥有视频，书籍，音乐，学习，软件等最全的网盘资源。",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "小白盘",
 						"url": "https://www.xiaobaipan.com/",
 						"icon": "https://img.fre123.com/i/2024/01/04/65959e3b06a27.jpg",
@@ -662,15 +319,6 @@
 						"is_show": true
 					},
 					{
-						"title": "奈斯搜索",
-						"url": "https://www.niceso.net/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959e928f34d.png",
-						"description": "坚持做最好用的阿里云盘资源搜索引擎，服务你我他，深藏功与名！",
-						"suffix": false,
-						"is_show": true
-					},
-
-					{
 						"title": "热盘搜",
 						"url": "http://www.repanso.com/",
 						"icon": "https://img.fre123.com/i/2024/01/04/65959edc21e8d.png",
@@ -683,94 +331,6 @@
 						"url": "https://www.upyunso.com/",
 						"icon": "https://img.fre123.com/i/2024/01/04/65959ec24f779.png",
 						"description": "体验最好的云盘资源搜索平台",
-						"suffix": false,
-						"is_show": true
-					},
-
-					{
-						"title": "BTSearch",
-						"url": "https://www.btsearch.love/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65986167ba527.png",
-						"description": "磁力搜索引擎",
-						"suffix": false,
-						"is_show": false
-					},
-
-					{
-						"title": "fastsoso",
-						"url": "https://www.fastsoso.cn/",
-						"icon": "https://img.fre123.com/i/2024/01/15/65a546c69f656.png",
-						"description": "fastsoso搜索支持百度云搜索，可快速搜索百度网盘资源中的有效连接，自动识别无效的百度云网盘资源，每天更新海量资源。",
-						"suffix": false,
-						"is_show": true
-					}
-				]
-			},
-			{
-				"tab_name": "阿里云盘",
-				"upper_right_corner": {},
-				"details": [
-					{
-						"title": "奈斯搜索",
-						"url": "https://www.niceso.net/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959e928f34d.png",
-						"description": "坚持做最好用的阿里云盘资源搜索引擎，服务你我他，深藏功与名！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "狸猫盘搜",
-						"url": "https://alipansou.com/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959eb813cb0.png",
-						"description": "猫狸云,阿里盘搜,最好用的阿里云盘资源搜索站,每天更新海量资源,失效资源实时删除",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "阿里云盘搜索器",
-						"url": "https://pan.justin3go.com/",
-						"icon": "https://img.fre123.com/i/2024/01/09/659c3bbb3c342.ico",
-						"description": "一款极简体验、优雅、现代化、资源丰富、免费、无需登录的阿里云盘搜索神器，来体验找寻资源的快乐吧~",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "秒搜",
-						"url": "https://miaosou.fun/",
-						"icon": "https://img.fre123.com/i/2024/01/15/65a42165e8b35.png",
-						"description": "秒搜,网盘搜索,最优秀的阿里云盘搜索服务的平台,收集各类阿里云盘资源提供一站式搜索功能,推动互联网优质资源的高效传递!全网千万级的云盘资源每日更新，包括考研,电影,动漫,视频,图书,软件,文档,音乐,等优质网盘资源",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "UP云搜",
-						"url": "https://www.upyunso.com/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959ec24f779.png",
-						"description": "体验最好的云盘资源搜索平台",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "YaPan",
-						"url": "https://yapan.io/",
-						"icon": "https://img.fre123.com/i/2024/01/16/65a55c4e7fe22.png",
-						"description": "Yapan - 网盘检索工具",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "SearchSearchGo",
-						"url": "https://ssgo.app/",
-						"icon": "https://img.fre123.com/i/2024/01/30/65b7db46bb861.png",
-						"description": "一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "阿里网盘",
-						"url": "https://tuier.wordpress.com/",
-						"icon": "https://img.fre123.com/i/2024/02/18/65d21fdd529b2.ico",
-						"description": "阿里网盘资源分享",
 						"suffix": false,
 						"is_show": true
 					}
@@ -793,6 +353,44 @@
 						"url": "https://www.hmxz.org/",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/07/823e77f704f3be1ef7939400f90609a1-8eedcc.png",
 						"description": "海绵小站提供天翼云盘资源下载服务，汇集了丰富的网盘资源，包括电影、音乐，通过网盘下载，您可以免费获取所需资源，尽情畅享",
+						"suffix": false,
+						"is_show": true
+					}
+				]
+			},
+			{
+				"tab_name": "阿里云盘",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "狸猫盘搜",
+						"url": "https://alipansou.com/",
+						"icon": "https://img.fre123.com/i/2024/01/04/65959eb813cb0.png",
+						"description": "猫狸云,阿里盘搜,最好用的阿里云盘资源搜索站,每天更新海量资源,失效资源实时删除",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "秒搜",
+						"url": "https://miaosou.fun/",
+						"icon": "https://img.fre123.com/i/2024/01/15/65a42165e8b35.png",
+						"description": "秒搜,网盘搜索,最优秀的阿里云盘搜索服务的平台,收集各类阿里云盘资源提供一站式搜索功能,推动互联网优质资源的高效传递!全网千万级的云盘资源每日更新，包括考研,电影,动漫,视频,图书,软件,文档,音乐,等优质网盘资源",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "UP云搜",
+						"url": "https://www.upyunso.com/",
+						"icon": "https://img.fre123.com/i/2024/01/04/65959ec24f779.png",
+						"description": "体验最好的云盘资源搜索平台",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "SearchSearchGo",
+						"url": "https://ssgo.app/",
+						"icon": "https://img.fre123.com/i/2024/01/30/65b7db46bb861.png",
+						"description": "一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧",
 						"suffix": false,
 						"is_show": true
 					}
@@ -873,14 +471,6 @@
 						"is_show": true
 					},
 					{
-						"title": "U9A9",
-						"url": "https://u9a9.com/",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/cb7ab11e2848e86656d1d074f9f18b001e4ae3.ico",
-						"description": "一个磁力站",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "U3C3",
 						"url": "https://u3c3.com/",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/fb669f4758e5bf97f36a757f5df0f96824b958.png",
@@ -938,6 +528,14 @@
 						"url": "https://myplugin.speedtest.cn/",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/f4fbe0df4f20679871a2215134186fd52f3153.ico",
 						"description": "专业测网速",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "Cloudflare Speed Test",
+						"url": "https://speed.cloudflare.com/",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/112ad5f84433e5f46d607f73fb64bd60a6fc23.ico",
+						"description": "Cloudflare网速测试",
 						"suffix": false,
 						"is_show": true
 					},
@@ -2105,22 +1703,6 @@
 				"upper_right_corner": {},
 				"details": [
 					{
-						"title": "苹果专区",
-						"url": "https://www.fre123.com/#软件工具_苹果专区",
-						"icon": "https://img.fre123.com/i/2024/01/17/65a6b6e043b45.ico",
-						"description": "MacOS 软件下载网站大全，持续更新！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "微软专区",
-						"url": "https://www.fre123.com/#软件工具_微软专区",
-						"icon": "https://img.fre123.com/i/2024/01/17/65a6b70ea384c.ico",
-						"description": "Windows 软件下载网站大全，持续更新！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "吾爱破解",
 						"url": "https://www.52pojie.cn/",
 						"icon": "https://img.fre123.com/i/2024/01/05/65981d4cd16ad.png",
@@ -2157,14 +1739,6 @@
 						"url": "https://www.ypojie.com/",
 						"icon": "https://img.fre123.com/i/2024/01/05/65981f482dacc.png",
 						"description": "网站专注无流氓绿色软件分享、游戏下载、电脑技术、经验教程为一体的站点、安全、纯净、放心、八年磨一剑，不忘初心只为给你最需要的内容。",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "微当下载",
-						"url": "https://weidown.com/",
-						"icon": "https://img.fre123.com/i/2024/01/05/65981d8498980.png",
-						"description": "免费的软件下载站，以官方软件、绿色软件、浏览器、单机游戏、手机软件、手机游戏等软件为主，全站下载提供cdn加速，让您享受满速下载的体验。",
 						"suffix": false,
 						"is_show": true
 					},
@@ -2466,26 +2040,10 @@
 						"is_show": true
 					},
 					{
-						"title": "简繁音乐",
-						"url": "https://pt.sayqz.com/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985eeb98d91.png",
-						"description": "一个简约的在线音乐播放器，具有音乐搜索、播放、每日推荐、私人FM、歌词显示、歌曲评论、网易云登录与云盘等功能",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "slider.kz",
-						"url": "https://hayqbhgr.slider.kz/",
-						"icon": "https://img.fre123.com/i/2024/02/23/65d77b4210861.png",
-						"description": "页面简洁，乐库资源丰富，支持搜索和下载全球音乐",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "TuneFree",
-						"url": "https://pt.sayqz.com/",
-						"icon": "https://img.fre123.com/i/2024/02/21/65d61358a37fb.ico",
-						"description": "一个简约的在线音乐播放器，具有音乐搜索、播放、每日推荐、私人FM、歌词显示、歌曲评论、网易云登录与云盘等功能",
+						"title": "李志音乐",
+						"url": "https://www.lizhinb.com/gequ",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/2b4a4f843129d18f500ce9a47e3800c27ed58f.jpeg",
+						"description": "点击封面可以在线播放",
 						"suffix": false,
 						"is_show": true
 					}
@@ -2520,14 +2078,6 @@
 						"is_show": true
 					},
 					{
-						"title": "Free MP3 Download",
-						"url": "https://free-mp3-download.net/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985e8fcc35f.png",
-						"description": "免费全网无损音乐下载工具",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "音乐仓库",
 						"url": "https://www.cangkus.com/music",
 						"icon": "https://img.fre123.com/i/2024/01/06/65985ea83e830.png",
@@ -2536,51 +2086,10 @@
 						"is_show": true
 					},
 					{
-						"title": "无损音乐网",
-						"url": "https://www.sq0527.cn/",
-						"icon": "https://img.fre123.com/i/2024/01/30/65b7dc73060ad.ico",
-						"description": "无损音乐网-Mp3歌曲免费下载,MP3免费下载,音乐免费下载.收录了网上最新歌曲和流行音乐,网络歌曲,好听的歌,非主流音乐,经典老歌,搞笑歌曲,英文歌曲等。是您寻找好听的歌首选网站。",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "HiFiNi音乐磁场",
 						"url": "https://hifini.com/",
 						"icon": "https://img.fre123.com/i/2024/01/06/65985edec2184.png",
 						"description": "音乐爱好者维护的无损音乐免费下载平台",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "MusicEnc",
-						"url": "https://www.musicenc.com/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985f26eb75f.png",
-						"description": "可以搜索试听歌曲，可保存音乐",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "猫耳FM",
-						"url": "https://www.missevan.com/sound/m/8",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985f5f48f53.jpg",
-						"description": "M站(猫耳FM)是第一家弹幕音图站,同时也是中国声优基地,在这里可以听电台,音乐,翻唱,小说和广播剧,用二次元声音连接三次元.",
-						"suffix": false,
-						"is_show": false
-					},
-					{
-						"title": "Lofi ICU音乐",
-						"url": "https://lofi.icu/",
-						"icon": "https://img.fre123.com/i/2024/01/06/65985f702d0bc.jpg",
-						"description": "一个提供高保真音乐和现场广播流精选的网站",
-						"suffix": false,
-						"is_show": true
-					},
-
-					{
-						"title": "dtshot",
-						"url": "https://www.dtshot.com/songs",
-						"icon": "https://img.fre123.com/i/2024/01/09/659c3f53de424.ico",
-						"description": "DTSHOT为您收集最新最全的免费无损音乐下载。flac、ape、wav、dsd、dts等格式的无损音乐，每日为您提供最新最全的无损音乐！",
 						"suffix": false,
 						"is_show": true
 					}
@@ -2597,14 +2106,6 @@
 				"tab_name": "免费壁纸",
 				"upper_right_corner": {},
 				"details": [
-					{
-						"title": "必应壁纸",
-						"url": "http://bimg.top/",
-						"icon": "https://img.fre123.com/i/2024/01/17/65a6b3015eba0.png",
-						"description": "超高质量的必应壁纸与必应美图，你可以查看每日精彩的官方必应壁纸，查看明天必应壁纸，也可下载必应4k壁纸，获取必应壁纸api,下载必应手机壁纸和进行必应壁纸投稿。",
-						"suffix": false,
-						"is_show": true
-					},
 					{
 						"title": "WallpaperCave",
 						"url": "https://wallpapercave.com/",
@@ -2663,22 +2164,6 @@
 						"description": "极简壁纸,4k高清电脑桌面壁纸图库,海量4k电脑壁纸,壁纸网站,美女,动漫,风景,4k高清,4k超清,电脑壁纸桌面",
 						"suffix": false,
 						"is_show": true
-					},
-					{
-						"title": "轻壁纸",
-						"url": "https://qingbizhi.com/",
-						"icon": "https://img.fre123.com/i/2024/01/17/65a6b51cce8c6.jpg",
-						"description": "轻壁纸是一个免费高清4K电脑壁纸分享站，专注分享精美高分辨率横屏电脑壁纸、4K高清壁纸！提供免费壁纸下载！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "1001FreeDownloads",
-						"url": "https://www.1001freedownloads.com/free-wallpapers/",
-						"icon": "https://img.fre123.com/i/2024/01/17/65a6c61683164.png",
-						"description": "1001FreeDownloads 支持免费下载照片、壁纸等",
-						"suffix": false,
-						"is_show": false
 					},
 					{
 						"title": "壁纸汇",
@@ -2765,14 +2250,6 @@
 						"description": "提供高清尺寸且品质优良的免费照片网站（无版权）",
 						"suffix": false,
 						"is_show": false
-					},
-					{
-						"title": "复网视觉",
-						"url": "https://photo.fuyeor.com/",
-						"icon": "https://img.fre123.com/i/2024/01/17/65a6c988b85c6.png",
-						"description": "在网站上分享上传你的优质图片！让世界各地的人发现并欣赏和使用你的摄影佳作。",
-						"suffix": false,
-						"is_show": true
 					}
 				]
 			}

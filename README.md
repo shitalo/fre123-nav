@@ -15,10 +15,6 @@
 
 ## 特性
 
-![Fre123 Nav](https://cdn.jsdelivr.net/gh/fre123-com/fre123-nav@main/.files/images/index.jpg)
-
-项目特点：
-
 - 简洁易用：界面简洁易用，支持一键部署
 - 拓展方便：导航数据完全由用户自定义控制
 - 技术支持：底部关注公众号加交流群
