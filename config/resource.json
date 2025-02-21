@@ -5,7 +5,7 @@
 		"list": [
 			{
 				"name": "必应",
-				"url": "https://cn.bing.com/search?q={keyword}",
+				"url": "https://cn.bing.com/search?type=2&q={keyword}",
 				"icon": "https://img.fre123.com/i/2023/11/26/65630386088eb.png",
 				"is_show": true
 			},
@@ -17,7 +17,7 @@
 			},
 			{
 				"name": "搜狗|微信",
-				"url": "https://weixin.sogou.com/weixin?query={keyword}",
+				"url": "https://weixin.sogou.com/weixin?query={keyword}&type=2",
 				"icon": "https://img.fre123.com/i/2024/02/20/65d4bc3f1dbcd.ico",
 				"is_show": true
 			},
@@ -31,19 +31,13 @@
 				"name": "presearch",
 				"url": "https://presearch.com/search?q={keyword}",
 				"icon": "https://img.fre123.com/i/2024/01/22/65ae2a5e16b04.png",
-				"is_show": true
+				"is_show": false
 			},
 			{
 				"name": "devv.ai",
 				"url": "https://devv.ai/zh/search/{keyword}",
 				"icon": "https://img.fre123.com/i/2024/01/25/65b26106a8645.png",
 				"is_show": true
-			},
-			{
-				"name": "nona",
-				"url": "https://www.nona.de?q={keyword}",
-				"icon": "https://img.fre123.com/i/2024/01/22/65ae2b62e27c0.png",
-				"is_show": false
 			},
 			{
 				"name": "yandex",
@@ -55,7 +49,7 @@
 	},
 	"movies": {
 		"name": "影视",
-		"is_show": true,
+		"is_show": false,
 		"list": [
 			{
 				"name": "注视影视",
@@ -109,7 +103,7 @@
 	},
 	"anime": {
 		"name": "番剧",
-		"is_show": true,
+		"is_show": false,
 		"list": [
 			{
 				"name": "动漫搜",
@@ -169,7 +163,7 @@
 	},
 	"caricature": {
 		"name": "漫画",
-		"is_show": true,
+		"is_show": false,
 		"list": [
 			{
 				"name": "包子漫画",
@@ -230,7 +224,7 @@
 
 	"ebook": {
 		"name": "书籍",
-		"is_show": true,
+		"is_show": false,
 		"list": [
 			{
 				"name": "微信读书",
@@ -278,7 +272,7 @@
 	},
 	"novels": {
 		"name": "小说",
-		"is_show": true,
+		"is_show": false,
 		"list": [
 			{
 				"name": "owllook",
@@ -326,7 +320,7 @@
 	},
 	"web_disk": {
 		"name": "网盘",
-		"is_show": true,
+		"is_show": false,
 		"list": [
 			{
 				"name": "海盗湾",
