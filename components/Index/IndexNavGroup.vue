@@ -139,21 +139,58 @@ const getTranslateX = () => {
 }
 getTranslateX()
 
-// 移动条移动
+// 移动条移动 原始方法
+// const slideTo = (tabIndex: number, name: string) => {
+// 	isHovering.value = true
+// 	let left = 0
+// 	initLeft.value = 0
+// 	for (let i = 0; i < tabIndex; i++) {
+// 		left += padding * 2 + name.length * fontSize
+// 	}
+// 	left += Math.round(padding + (name.length * fontSize * (1 - scale)) / 2)
+// 	const anchor = document.getElementById(`${classNamePrefixGroup}${props.idx}_anchor`)
+// 	if (anchor != null) {
+// 		anchor.style.transitionDuration = '0.3s'
+// 		anchor.style.transform = `translateX(${left}px)`
+// 	}
+// }
+
+// 移动条移动 DeepSeek R1
 const slideTo = (tabIndex: number, name: string) => {
-	isHovering.value = true
-	let left = 0
-	initLeft.value = 0
+	isHovering.value = true;
+	const anchor = document.getElementById(`${classNamePrefixGroup}${props.idx}_anchor`);
+	if (!anchor) return;
+
+	const ul = anchor.parentElement;
+	if (!ul) return;
+
+	// 获取所有 tab 的 li 元素，排除第一个锚点元素
+	const tabs = Array.from(ul.children).slice(1) as HTMLElement[];
+
+	if (tabIndex >= tabs.length) return;
+
+	// 获取 ul 的 gap（如果存在）
+	const ulStyles = window.getComputedStyle(ul);
+	const gap = ulStyles.gap.split(' ')[0]; // 提取水平方向的 gap
+	const gapValue = parseFloat(gap) || 0;
+
+	let left = 0;
 	for (let i = 0; i < tabIndex; i++) {
-		left += padding * 2 + name.length * fontSize
+		const tab = tabs[i];
+		left += tab.offsetWidth + gapValue; // 累加元素宽度和间隙
 	}
-	left += Math.round(padding + (name.length * fontSize * (1 - scale)) / 2)
-	const anchor = document.getElementById(`${classNamePrefixGroup}${props.idx}_anchor`)
-	if (anchor != null) {
-		anchor.style.transitionDuration = '0.3s'
-		anchor.style.transform = `translateX(${left}px)`
-	}
-}
+
+	// 当前悬停的 tab 元素
+	const currentTab = tabs[tabIndex];
+	const currentWidth = currentTab.offsetWidth;
+
+	// 设置锚点宽度与当前元素一致
+	// anchor.style.width = `${currentWidth}px`;
+	// 应用平滑移动
+	anchor.style.transitionDuration = '0.3s';
+	anchor.style.transform = `translateX(${left}px)`;
+};
+
 
 // 返回原位置
 const slideBack = (name: string) => {
