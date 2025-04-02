@@ -6,10 +6,7 @@
 		"tab_list": [
 			{
 				"tab_name": "在线影视",
-				"upper_right_corner": {
-					"title": "🔥短剧搜索>>>",
-					"url": "https://www.quark.so/res/new/duanju"
-				},
+				"upper_right_corner": {},
 				"details": [
 					{
 						"title": "BTNULL 无名小站",
@@ -901,7 +898,7 @@
 					},
 					{
 						"title": "Z-Library",
-						"url": "https://zh.z-lib.today",
+						"url": "https://z-library.sk",
 						"icon": "https://img.fre123.com/i/2024/02/19/65d22f2e1f801.ico",
 						"description": "世界上最大的电子图书馆。自由访问知识和文化",
 						"suffix": false,
@@ -1436,6 +1433,14 @@
 						"url": "https://snake.timeline.ink/home",
 						"icon": "https://img.fre123.com/i/2024/02/18/65d21ec12048f.png",
 						"description": "拾光壁纸：干净、舒适、流畅的桌面壁纸网站。可在微软商店下载其桌面版本，以获得完整体验，如自动更换壁纸。",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "MAC动态壁纸",
+						"url": "https://dynamicwallpaper.club/gallery",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/04/02/cde5b32889dbdbcdd6f5c4953466dc2b9dc6be.png",
+						"description": "一个免费的MAC动态壁纸的网站",
 						"suffix": false,
 						"is_show": true
 					}
