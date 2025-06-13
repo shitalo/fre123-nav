@@ -260,14 +260,6 @@
 						"is_show": true
 					},
 					{
-						"title": "秒搜",
-						"url": "https://miaosou.fun/",
-						"icon": "https://img.fre123.com/i/2024/01/15/65a42165e8b35.png",
-						"description": "秒搜,网盘搜索,最优秀的阿里云盘搜索服务的平台,收集各类阿里云盘资源提供一站式搜索功能,推动互联网优质资源的高效传递!全网千万级的云盘资源每日更新，包括考研,电影,动漫,视频,图书,软件,文档,音乐,等优质网盘资源",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "PanSearch",
 						"url": "https://www.pansearch.me/",
 						"icon": "https://img.fre123.com/i/2024/01/15/65a5494651842.png",
@@ -276,34 +268,10 @@
 						"is_show": true
 					},
 					{
-						"title": "SearchSearchGo",
-						"url": "https://ssgo.app/",
-						"icon": "https://img.fre123.com/i/2024/01/30/65b7db46bb861.png",
-						"description": "一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧~",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "趣盘搜",
 						"url": "https://pan.funletu.com/",
 						"icon": "https://img.fre123.com/i/2024/01/04/65959ec988ff4.png",
 						"description": "专注夸克网盘资源搜索！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "云盘4K",
-						"url": "https://www.codelicence.cn/",
-						"icon": "https://img.fre123.com/i/2024/01/09/659c3ce7d4686.ico",
-						"description": "夸克云百度云阿里云网盘资源搜索分享与下载",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "小白盘",
-						"url": "https://www.xiaobaipan.com/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959e3b06a27.jpg",
-						"description": "页面清新，实时检查失效资源.帮您省心快速找到想要的电影,电视剧,小说,文档,音乐,软件,种子等热门网盘资源",
 						"suffix": false,
 						"is_show": true
 					},
@@ -332,10 +300,26 @@
 						"is_show": true
 					},
 					{
-						"title": "UP云搜",
-						"url": "https://www.upyunso.com/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959ec24f779.png",
-						"description": "体验最好的云盘资源搜索平台",
+						"title": "秒搜",
+						"url": "https://miaosou.fun/",
+						"icon": "https://img.fre123.com/i/2024/01/15/65a42165e8b35.png",
+						"description": "[需要关注验证]秒搜,网盘搜索,最优秀的阿里云盘搜索服务的平台,收集各类阿里云盘资源提供一站式搜索功能,推动互联网优质资源的高效传递!全网千万级的云盘资源每日更新，包括考研,电影,动漫,视频,图书,软件,文档,音乐,等优质网盘资源",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "SearchSearchGo",
+						"url": "https://ssgo.app/",
+						"icon": "https://img.fre123.com/i/2024/01/30/65b7db46bb861.png",
+						"description": "[需要关注验证]一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧~",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "云盘4K",
+						"url": "https://www.codelicence.cn/",
+						"icon": "https://img.fre123.com/i/2024/01/09/659c3ce7d4686.ico",
+						"description": "[需要关注验证]夸克云百度云阿里云网盘资源搜索分享与下载",
 						"suffix": false,
 						"is_show": true
 					}
@@ -364,55 +348,9 @@
 				]
 			},
 			{
-				"tab_name": "阿里云盘",
-				"upper_right_corner": {},
-				"details": [
-					{
-						"title": "狸猫盘搜",
-						"url": "https://alipansou.com/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959eb813cb0.png",
-						"description": "猫狸云,阿里盘搜,最好用的阿里云盘资源搜索站,每天更新海量资源,失效资源实时删除",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "秒搜",
-						"url": "https://miaosou.fun/",
-						"icon": "https://img.fre123.com/i/2024/01/15/65a42165e8b35.png",
-						"description": "秒搜,网盘搜索,最优秀的阿里云盘搜索服务的平台,收集各类阿里云盘资源提供一站式搜索功能,推动互联网优质资源的高效传递!全网千万级的云盘资源每日更新，包括考研,电影,动漫,视频,图书,软件,文档,音乐,等优质网盘资源",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "UP云搜",
-						"url": "https://www.upyunso.com/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959ec24f779.png",
-						"description": "体验最好的云盘资源搜索平台",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "SearchSearchGo",
-						"url": "https://ssgo.app/",
-						"icon": "https://img.fre123.com/i/2024/01/30/65b7db46bb861.png",
-						"description": "一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧",
-						"suffix": false,
-						"is_show": true
-					}
-				]
-			},
-			{
 				"tab_name": "百度网盘",
 				"upper_right_corner": {},
 				"details": [
-					{
-						"title": "小白盘",
-						"url": "https://www.xiaobaipan.com/",
-						"icon": "https://img.fre123.com/i/2024/01/04/65959e3b06a27.jpg",
-						"description": "页面清新，实时检查失效资源.帮您省心快速找到想要的电影,电视剧,小说,文档,音乐,软件,种子等热门网盘资源",
-						"suffix": false,
-						"is_show": true
-					},
 					{
 						"title": "热盘搜",
 						"url": "http://www.repanso.com/",
@@ -476,6 +414,14 @@
 						"is_show": true
 					},
 					{
+						"title": "Paperkite",
+						"url": "https://search.kiteyuan.info",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/09/13/8d61f24e916412826c9a5263d48de601be20e5.png",
+						"description": "纸鸢磁力是一款强化版磁力搜索引擎，不仅支持多个磁搜引擎进行并行搜索，还接入了磁力资源预览功能，与传统磁力搜索引擎相比，本工具大大增强了用户体验",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "U3C3",
 						"url": "https://u3c3.com/",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/fb669f4758e5bf97f36a757f5df0f96824b958.png",
@@ -490,23 +436,8 @@
 						"description": "一个磁力站",
 						"suffix": false,
 						"is_show": true
-					},
-					{
-						"title": "Paperkite",
-						"url": "https://paperkitemagnet.top/",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/09/13/8d61f24e916412826c9a5263d48de601be20e5.png",
-						"description": "纸鸢磁力是一款强化版磁力搜索引擎，不仅支持多个磁搜引擎进行并行搜索，还接入了磁力资源预览功能，与传统磁力搜索引擎相比，本工具大大增强了用户体验",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "",
-						"url": "",
-						"icon": "",
-						"description": "",
-						"suffix": false,
-						"is_show": false
 					}
+
 				]
 			}
 		]
