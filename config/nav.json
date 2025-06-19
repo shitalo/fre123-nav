@@ -9,6 +9,14 @@
 				"upper_right_corner": {},
 				"details": [
 					{
+						"title": "LibreTV",
+						"url": "https://libretv.javajun.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/06/19/9964d1df4b743c6555dba020e9566548348b55.png",
+						"description": "一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务",
+						"suffix": true,
+						"is_show": true
+					},
+					{
 						"title": "BTNULL 无名小站",
 						"url": "https://www.gying.si",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561ae014e2de.png",
