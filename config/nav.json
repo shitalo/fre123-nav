@@ -468,14 +468,6 @@
 						"is_show": true
 					},
 					{
-						"title": "测速网",
-						"url": "https://myplugin.speedtest.cn/",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/f4fbe0df4f20679871a2215134186fd52f3153.ico",
-						"description": "专业测网速",
-						"suffix": false,
-						"is_show": true
-					},
-					{
 						"title": "Cloudflare Speed Test",
 						"url": "https://speed.cloudflare.com/",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/112ad5f84433e5f46d607f73fb64bd60a6fc23.ico",
