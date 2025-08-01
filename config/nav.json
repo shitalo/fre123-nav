@@ -476,6 +476,14 @@
 						"is_show": true
 					},
 					{
+						"title": "Speedtest Custom",
+						"url": "http://ovo.speedtestcustom.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/08/01/5bb45a01bef0b6d5ed0d7b3263bb49f3263db1.ico",
+						"description": "Speedtest测速",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "IPv6测试",
 						"url": "https://test-ipv6.com/",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/cda7f22befdccbebda4c209158e0dfa376d085.ico",
