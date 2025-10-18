@@ -562,6 +562,22 @@
 						"is_show": true
 					},
 					{
+						"title": "进口原研药目录",
+						"url": "https://medicine.lvwzhen.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/10/18/ec56df2bb6842cd21ef109d0984fa973415dd2.png",
+						"description": "约400种@lvwzhen",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "常用原研药目录",
+						"url": "https://medicinex.net",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/10/18/b96739b486a3244f555e13e16196d1b18fd464.png",
+						"description": "约940种@awendujitang",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "@我的名字一定要长",
 						"url": "https://v.douyin.com/iZX0JRfVGeA",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/f8311db859d25e29264e23db6fea56634635fe.ico",
