@@ -9,10 +9,10 @@
 				"upper_right_corner": {},
 				"details": [
 					{
-						"title": "LibreTV",
-						"url": "https://libretv.javajun.com",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/06/19/9964d1df4b743c6555dba020e9566548348b55.png",
-						"description": "一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务",
+						"title": "荐片",
+						"url": "http://h5v1.cibnabg.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/11/22/d10b314ec811f6d544e61d8385168d58028968.png",
+						"description": "VOD聚合网站，更新速度快",
 						"suffix": true,
 						"is_show": true
 					},
@@ -45,14 +45,6 @@
 						"url": "https://www.hdmoli.pro",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561ae6e55df8.png",
 						"description": "HDMOLI 提供免费、高品质、同时支持电脑和移动设备的影视剧在线观看网站",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "低端影视",
-						"url": "https://ddys.pro/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561aeddd0eb6.png",
-						"description": "超清在线视频站",
 						"suffix": true,
 						"is_show": true
 					},
@@ -252,10 +244,18 @@
 						"is_show": true
 					},
 					{
+						"title": "PanHub",
+						"url": "https://panhub.shenzjd.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/11/22/37cce260d17c10e7c965997feb231def5d19c3.png",
+						"description": "聚合的网盘搜索工具，它可以聚合多个优质资源站和公开频道",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "云盘资源分享社区",
-						"url": "https://www.yunpan1.wang/",
+						"url": "https://yunpan1.wang",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/08/66ddb98df0c49067b7027fd1b1d82a4dc8956e.png",
-						"description": "提供不限于阿里云盘资源、夸克网盘资源等各类网盘资源分享",
+						"description": "提供不限于阿里云盘资源、夸克网盘资源等各类网盘资源分享。备用：tag1.cc",
 						"suffix": false,
 						"is_show": true
 					},
