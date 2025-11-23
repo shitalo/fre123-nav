@@ -527,7 +527,15 @@
 						"title": "公共DNS大全",
 						"url": "https://dns.iui.im",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/03/05/46f612a405c424666ce6bdf34adfcf35934e70.ico",
-						"description": "各类型免费公共DNS",
+						"description": "各类型免费公共 DNS",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "AdGuard DNS List",
+						"url": "https://adguard-dns.io/kb/zh-CN/general/dns-providers",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/11/23/05c41083542721c50f3eb10453e191c51768a7.png",
+						"description": "由 AdGuard DNS 提供的一份受信任的 DNS 供应商名单",
 						"suffix": false,
 						"is_show": true
 					},
