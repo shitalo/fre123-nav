@@ -241,7 +241,7 @@
 						"icon": "https://img.fre123.com/i/2024/03/29/6606d33b5a284.png",
 						"description": "短剧、影视搜索",
 						"suffix": false,
-						"is_show": true
+						"is_show": false
 					},
 					{
 						"title": "PanHub",
@@ -356,6 +356,28 @@
 				]
 			},
 			{
+				"tab_name": "移动云盘",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "彼心",
+						"url": "https://www.bixbiy.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/11/24/5cb8da420d43fdd37f625882ca36082f7abf24.png",
+						"description": "彼心—移动云盘资源分享论坛",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "盘他",
+						"url": "https://www.91panta.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/11/24/952d91deb8878d94dd90a072d4c354ca882cd6.ico",
+						"description": "移动云盘小站论坛 移动云盘资源站",
+						"suffix": false,
+						"is_show": true
+					}
+				]
+			},
+			{
 				"tab_name": "百度网盘",
 				"upper_right_corner": {},
 				"details": [
@@ -456,7 +478,7 @@
 		"style_des": "标准风格",
 		"tab_list": [
 			{
-				"tab_name": "综合工具",
+				"tab_name": "网络工具",
 				"upper_right_corner": {},
 				"details": [
 					{
@@ -905,7 +927,7 @@
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/5a0110c64e89275c5d74d48ca08c12066a408d.png",
 						"description": "快速便捷的图书搜索器，免费查找和下载电子书",
 						"suffix": false,
-						"is_show": true
+						"is_show": false
 					},
 					{
 						"title": "HallowLib",
@@ -913,7 +935,7 @@
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/94da157633c653a4ec467198fa666bfce4a79b.png",
 						"description": "用爱发电，通过IPFS下载",
 						"suffix": false,
-						"is_show": true
+						"is_show": false
 					}
 				]
 			}
