@@ -562,6 +562,14 @@
 						"is_show": true
 					},
 					{
+						"title": "DNS泄露测试",
+						"url": "https://browserleaks.com/dns",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/11/26/4b608c91538c0bb7f9004ba33d7be906e4a27a.png",
+						"description": "DNS 泄漏测试是一种用于确定浏览器使用哪些 DNS 服务器来解析域名的工具。该测试会尝试解析 50 个随机生成的域名，其中 25 个仅支持 IPv4，25 个仅支持 IPv6",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "ping.pe",
 						"url": "https://tcp.ping.pe",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/03/05/744becea1bbb02b4e140b7d59078558eb49ede.png",
