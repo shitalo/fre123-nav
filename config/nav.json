@@ -17,22 +17,6 @@
 						"is_show": true
 					},
 					{
-						"title": "BTNULL 无名小站",
-						"url": "https://www.gying.si",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561ae014e2de.png",
-						"description": "已更名为观影，获取最新地址方式：发邮件到dizhi777@pm.me，自动回复地址",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "两个BT",
-						"url": "https://bttwo.vip",
-						"icon": "https://img.fre123.com/i/2024/02/21/65d6091fa0321.ico",
-						"description": "两个BT免费为网友提交BT种子下载，免费电影资源下载，以及各种高清电影在线观看,最全的最新电视剧，最近上映热门电影下载。韩国电视剧、香港TVB电视剧、韩剧、日剧、美剧、动漫番剧。",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "注视影视",
 						"url": "https://gaze.run/",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561ae9a7b3d3.png",
@@ -42,7 +26,7 @@
 					},
 					{
 						"title": "HDmoli",
-						"url": "https://www.hdmoli.pro",
+						"url": "https://hdmo.li",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561ae6e55df8.png",
 						"description": "HDMOLI 提供免费、高品质、同时支持电脑和移动设备的影视剧在线观看网站",
 						"suffix": true,
@@ -50,7 +34,7 @@
 					},
 					{
 						"title": "LIBVIO",
-						"url": "https://www.libvio.me/",
+						"url": "https://www.libvio.app",
 						"icon": "https://img.fre123.com/i/2024/01/06/659829e49995c.png",
 						"description": "海外影视资源为主的老牌在线影视资源网站",
 						"suffix": true,
@@ -61,14 +45,6 @@
 						"url": "https://www.novipnoad.net/",
 						"icon": "https://img.fre123.com/i/2024/01/06/65983049921a2.png",
 						"description": "主打海外影视剧资源，不负追剧好时光。",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "好看123",
-						"url": "https://haokan123.icu/",
-						"icon": "https://img.fre123.com/i/2023/12/13/6579cc2dab874.png",
-						"description": "VIP电影最新电视剧综艺在线免费观看",
 						"suffix": true,
 						"is_show": true
 					},
@@ -118,7 +94,7 @@
 						"icon": "https://img.fre123.com/i/2024/02/21/65d6098d9e248.ico",
 						"description": "看美剧是一个专注外国影视剧高清在线点播的的网站!",
 						"suffix": true,
-						"is_show": true
+						"is_show": false
 					},
 					{
 						"title": "厂长资源",
@@ -151,10 +127,34 @@
 				"upper_right_corner": {},
 				"details": [
 					{
+						"title": "观影",
+						"url": "https://www.gying.page",
+						"icon": "https://img.fre123.com/i/2023/11/25/6561ae014e2de.png",
+						"description": "原无名小站，获取最新地址方式：发邮件到dizhi777@pm.me，自动回复地址",
+						"suffix": true,
+						"is_show": true
+					},
+					{
+						"title": "两个BT",
+						"url": "https://bttwo.vip",
+						"icon": "https://img.fre123.com/i/2024/02/21/65d6091fa0321.ico",
+						"description": "两个BT免费为网友提交BT种子下载，免费电影资源下载，以及各种高清电影在线观看,最全的最新电视剧，最近上映热门电影下载。韩国电视剧、香港TVB电视剧、韩剧、日剧、美剧、动漫番剧。",
+						"suffix": true,
+						"is_show": true
+					},
+					{
 						"title": "磁力熊",
 						"url": "https://www.cilixiong.cc",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561aef0bb22e.png",
 						"description": "磁力电影高清电影下载，豆瓣 Top250 高分高清电影磁力下载",
+						"suffix": true,
+						"is_show": true
+					},
+					{
+						"title": "不太灵影视",
+						"url": "https://www.butailing.com",
+						"icon": "https://img.fre123.com/i/2024/01/06/65983354c2ad9.png",
+						"description": "海外电影电视剧下载",
 						"suffix": true,
 						"is_show": true
 					},
@@ -175,30 +175,6 @@
 						"is_show": true
 					},
 					{
-						"title": "美剧天堂",
-						"url": "https://www.meijutt.tw/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b1683e2ca.png",
-						"description": "海量好看的美剧在线观看、最新美剧下载！",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "不太灵影视",
-						"url": "https://www.butailing.com",
-						"icon": "https://img.fre123.com/i/2024/01/06/65983354c2ad9.png",
-						"description": "海外电影电视剧下载",
-						"suffix": true,
-						"is_show": true
-					},
-					{
-						"title": "飘花资源网",
-						"url": "https://www.piaohua.com/",
-						"icon": "https://img.fre123.com/i/2023/11/25/6561b1600d9d9.jpg",
-						"description": "每天搜集最新迅雷免费电影下载",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "电影天堂",
 						"url": "http://www.dytt89.com",
 						"icon": "https://img.fre123.com/i/2023/11/25/6561b0e16bb9e.png",
@@ -212,13 +188,29 @@
 						"icon": "https://img.fre123.com/i/2023/11/25/6561b1c807121.png",
 						"description": "4K 电影爱好者基地",
 						"suffix": true,
-						"is_show": true
+						"is_show": false
 					},
 					{
 						"title": "YYeTs",
 						"url": "https://yyets.click/search",
 						"icon": "https://img.fre123.com/i/2023/12/13/6579ced83bdae.png",
 						"description": "包含人人影视全部资源以及众多网友的网盘分享",
+						"suffix": true,
+						"is_show": true
+					},
+					{
+						"title": "修罗影视",
+						"url": "https://xl01.com.de",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/12/27/f52f311d897f8fe308418f49199f466aaf8a0f.png",
+						"description": "修罗影视，在线观看、磁力下载、双语字幕",
+						"suffix": true,
+						"is_show": true
+					},
+					{
+						"title": "美漫资源共建",
+						"url": "https://dm.xueximeng.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/12/27/7cbcec43fac8f9745b491c664a68324ce7a29f.png",
+						"description": "我们致力于为美漫爱好者提供一个便捷、高效、安全的资源分享平台",
 						"suffix": true,
 						"is_show": true
 					}
@@ -236,18 +228,18 @@
 				"upper_right_corner": {},
 				"details": [
 					{
-						"title": "夸克搜",
-						"url": "https://www.quark.so/",
-						"icon": "https://img.fre123.com/i/2024/03/29/6606d33b5a284.png",
-						"description": "短剧、影视搜索",
-						"suffix": false,
-						"is_show": false
-					},
-					{
 						"title": "PanHub",
 						"url": "https://panhub.shenzjd.com",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/11/22/37cce260d17c10e7c965997feb231def5d19c3.png",
-						"description": "聚合的网盘搜索工具，它可以聚合多个优质资源站和公开频道",
+						"description": "聚合的网盘搜索工具，它可以聚合多个优质资源站和公开频道，是一个开源项目。https://github.com/wu529778790",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "PanSou",
+						"url": "https://so.252035.xyz",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/12/27/c46059170b9db92e0aad5da12e17c67946d763.ico",
+						"description": "开源网盘聚合搜索服务，支持频道和插件搜索。https://github.com/fish2018/pansou",
 						"suffix": false,
 						"is_show": true
 					},
@@ -1319,7 +1311,7 @@
 				"details": [
 					{
 						"title": "B仔",
-						"url": "https://lizhi.turkyden.com/",
+						"url": "https://lizhi.dengdengju.com",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2024/08/07/e110f7d153f152b602dbeb3237f5c513-9d6830.png",
 						"description": "B仔音乐作品在线播放",
 						"suffix": false,
@@ -1329,6 +1321,14 @@
 						"title": "李志音乐",
 						"url": "https://www.lizhinb.com/gequ",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/2b4a4f843129d18f500ce9a47e3800c27ed58f.jpeg",
+						"description": "点击封面可以在线播放",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "南京李志",
+						"url": "https://nayacco.github.io/lizhi",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/12/27/2cff0736ae55dfc59b39bc6732df3636441fac.png",
 						"description": "点击封面可以在线播放",
 						"suffix": false,
 						"is_show": true
