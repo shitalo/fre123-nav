@@ -493,7 +493,7 @@
 						"title": "Google Fiber Speed Test",
 						"url": "https://fiber.google.com/speedtest",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/20/f1b6f73cf80acfd12814ee5b19491b4f265369.ico",
-						"description": "Cloudflare网速测试",
+						"description": "Google网速测试",
 						"suffix": false,
 						"is_show": true
 					},
