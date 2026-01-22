@@ -578,6 +578,14 @@
 						"is_show": true
 					},
 					{
+						"title": "CloudFlare优选域名",
+						"url": "https://cf.090227.xyz",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/22/77882081e38e9d21adb9bea3c437e858ca4ff0.ico",
+						"description": "提供优质的CloudFlare CDN节点信息，改善访问体验",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "",
 						"url": "",
 						"icon": "",
