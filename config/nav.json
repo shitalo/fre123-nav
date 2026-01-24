@@ -626,6 +626,36 @@
 				]
 			},
 			{
+				"tab_name": "PantherX2",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "Mihomo",
+						"url": "http://192.168.123.166:9090/ui/#/setup?http=true&hostname=192.168.123.166&port=9090&secret=ebN7iy5w9xKtLx6scVWLkMjQ",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/24/7f1c4521acc10694fefef8f72dd2ea5ff5cb35.svg",
+						"description": "zashboard",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "",
+						"url": "",
+						"icon": "",
+						"description": "",
+						"suffix": false,
+						"is_show": false
+					},
+					{
+						"title": "",
+						"url": "",
+						"icon": "",
+						"description": "",
+						"suffix": false,
+						"is_show": false
+					}
+				]
+			},
+			{
 				"tab_name": "生活导航",
 				"upper_right_corner": {},
 				"details": [
