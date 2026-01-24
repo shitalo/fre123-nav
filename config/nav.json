@@ -586,6 +586,14 @@
 						"is_show": true
 					},
 					{
+						"title": "容器镜像监控",
+						"url": "https://status.anye.xyz",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/24/457ed7c3a5f764bb6c2ba89dc58cb5e173b0c0.png",
+						"description": "容器镜像监控是一个专注于监测国内 Docker 镜像加速器服务可用性的开源项目",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "",
 						"url": "",
 						"icon": "",
@@ -604,36 +612,6 @@
 						"url": "https://weather-ics.javajun.com",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/12/04/bc72733b90966e09d113138f33d975a4fe5c7d.ico",
 						"description": "在日历中订阅最近天气",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "",
-						"url": "",
-						"icon": "",
-						"description": "",
-						"suffix": false,
-						"is_show": false
-					},
-					{
-						"title": "",
-						"url": "",
-						"icon": "",
-						"description": "",
-						"suffix": false,
-						"is_show": false
-					}
-				]
-			},
-			{
-				"tab_name": "PantherX2",
-				"upper_right_corner": {},
-				"details": [
-					{
-						"title": "Mihomo",
-						"url": "http://192.168.123.166:9090/ui/#/setup?http=true&hostname=192.168.123.166&port=9090&secret=ebN7iy5w9xKtLx6scVWLkMjQ",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/24/7f1c4521acc10694fefef8f72dd2ea5ff5cb35.svg",
-						"description": "zashboard",
 						"suffix": false,
 						"is_show": true
 					},
@@ -706,6 +684,60 @@
 						"description": "ID：261458734",
 						"suffix": false,
 						"is_show": true
+					}
+				]
+			},
+			{
+				"tab_name": "黑豹盒子",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "青龙",
+						"url": "http://192.168.123.166:5700",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/24/6f7911cfc55bcdc925420225b931ee60e05bde.svg",
+						"description": "青龙面板",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "OpenList",
+						"url": "http://192.168.123.166:5244",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/24/8ee4405de97f0c57e9256e77a7531bb4cef7fd.svg",
+						"description": "OpenList",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "Subs Check",
+						"url": "http://192.168.123.166:8199/admin",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/24/f50fc1eb0c55d09e33fe5272f6776ad2242772.svg",
+						"description": "白嫖订阅",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "zashboard",
+						"url": "http://192.168.123.166:9090/ui/#/setup?http=true&hostname=192.168.123.166&port=9090&secret=ebN7iy5w9xKtLx6scVWLkMjQ",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/24/7f1c4521acc10694fefef8f72dd2ea5ff5cb35.svg",
+						"description": "mihomo",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "",
+						"url": "",
+						"icon": "",
+						"description": "",
+						"suffix": false,
+						"is_show": false
+					},
+					{
+						"title": "",
+						"url": "",
+						"icon": "",
+						"description": "",
+						"suffix": false,
+						"is_show": false
 					}
 				]
 			}
@@ -974,12 +1006,20 @@
 						"is_show": true
 					},
 					{
+						"title": "Open SLUM 2.0",
+						"url": "https://open-slum.pages.dev",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/c57ea856a09c4689ddb403892f58ec6e7777b5.png",
+						"description": "Open SLUM 2.0: The Shadow Library Uptime Monitor",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "如影随行: zlib最新访问地址",
 						"url": "http://120.25.237.190/zlib.html",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/391c87e19d827a36034a159113f29978e24dc8.x-icon",
 						"description": "更新zlib最新访问地址",
 						"suffix": false,
-						"is_show": false
+						"is_show": true
 					},
 					{
 						"title": "Z-Library",
@@ -991,7 +1031,7 @@
 					},
 					{
 						"title": "安娜的档案",
-						"url": "https://zh.annas-archive.org",
+						"url": "https://annas-archive.li",
 						"icon": "https://img.fre123.com/i/2024/02/22/65d75d4d42da8.png",
 						"description": "世界上最大的开源、开放数据图书馆。不仅是 Sci-Hub, Library Genesis, Z-Library 等站的镜像。",
 						"suffix": false,
@@ -1002,14 +1042,6 @@
 						"url": "https://24hbook.com",
 						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/5a0110c64e89275c5d74d48ca08c12066a408d.png",
 						"description": "快速便捷的图书搜索器，免费查找和下载电子书",
-						"suffix": false,
-						"is_show": false
-					},
-					{
-						"title": "HallowLib",
-						"url": "https://bk.hallowlib.org",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/02/21/94da157633c653a4ec467198fa666bfce4a79b.png",
-						"description": "用爱发电，通过IPFS下载",
 						"suffix": false,
 						"is_show": false
 					}
@@ -1590,6 +1622,20 @@
 						"description": "提供高清尺寸且品质优良的免费照片网站（无版权）",
 						"suffix": false,
 						"is_show": false
+					}
+				]
+			},
+			{
+				"tab_name": "各类图标",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "SVG Repo",
+						"url": "https://www.svgrepo.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/01/24/eb47183c51a311f3bf06db99a860c4e516d2b2.ico",
+						"description": "非常多的免费SVG矢量和图标",
+						"suffix": false,
+						"is_show": true
 					}
 				]
 			}
