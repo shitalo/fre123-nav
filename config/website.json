@@ -17,19 +17,19 @@
 				{
 					"name": "百度",
 					"url": "https://www.baidu.com/s?wd=",
-					"icon": "https://img.fre123.com/i/2023/11/26/656303de24efc.png",
+					"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/a363887c388ee2df111812949416bf5cee638e.png",
 					"placeholder": "百度一下，你就知道"
 				},
 				{
 					"name": "谷歌",
 					"url": "https://www.google.com/search?q=",
-					"icon": "https://img.fre123.com/i/2023/11/26/6563038539819.png",
+					"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/01b5f6a4c7fb4087f3027566e16fcfc47a6836.png",
 					"placeholder": "请输入您要搜索的内容..."
 				},
 				{
 					"name": "必应",
 					"url": "https://cn.bing.com/search?q=",
-					"icon": "https://img.fre123.com/i/2023/11/26/65630386088eb.png",
+					"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/4500ea05070e225ff8b42cb0d2a5af7708cfb0.png",
 					"placeholder": "请输入您要搜索的内容..."
 				}
 			]
