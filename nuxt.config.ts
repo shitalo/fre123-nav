@@ -17,14 +17,25 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
-			/*link: [
-				{
-					rel: 'icon',
-					// size: '32x32',
-					type: 'image/x-icon',
-					href: 'https://img.fre123.com/i/2023/11/25/65619e791f166.ico',
-				},
-			],*/
+			link: [
+				// https://www.svgrepo.com/svg/500018/light
+				// 基础 favicon
+				{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+
+				// 标准尺寸
+				{ rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+				{ rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+
+				// Apple 设备
+				{ rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+
+				// Android 设备
+				{ rel: 'icon', type: 'image/png', sizes: '192x192', href: '/web-app-manifest-192x192.png' },
+				{ rel: 'icon', type: 'image/png', sizes: '512x512', href: '/web-app-manifest-512x512.png' },
+
+				// Web App Manifest
+				{ rel: 'manifest', href: '/site.webmanifest' }
+			],
 			meta: [
 				{
 					name: 'keywords',
