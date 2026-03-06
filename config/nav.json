@@ -596,36 +596,6 @@
 				]
 			},
 			{
-				"tab_name": "我的工具",
-				"upper_right_corner": {},
-				"details": [
-					{
-						"title": "天气订阅",
-						"url": "https://weather-ics.javajun.com",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/12/04/bc72733b90966e09d113138f33d975a4fe5c7d.ico",
-						"description": "在日历中订阅最近天气",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "",
-						"url": "",
-						"icon": "",
-						"description": "",
-						"suffix": false,
-						"is_show": false
-					},
-					{
-						"title": "",
-						"url": "",
-						"icon": "",
-						"description": "",
-						"suffix": false,
-						"is_show": false
-					}
-				]
-			},
-			{
 				"tab_name": "生活导航",
 				"upper_right_corner": {},
 				"details": [
@@ -652,38 +622,36 @@
 						"description": "约940种@awendujitang",
 						"suffix": false,
 						"is_show": true
-					},
+					}
+				]
+			},
+			{
+				"tab_name": "我的工具",
+				"upper_right_corner": {},
+				"details": [
 					{
-						"title": "@难离",
-						"url": "https://v.douyin.com/XoUADrnqNio",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/f8311db859d25e29264e23db6fea56634635fe.ico",
-						"description": "ID：54815744",
+						"title": "天气订阅",
+						"url": "https://weather-ics.javajun.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/12/04/bc72733b90966e09d113138f33d975a4fe5c7d.ico",
+						"description": "在日历中订阅最近天气",
 						"suffix": false,
 						"is_show": true
 					},
 					{
-						"title": "@我的名字一定要长",
-						"url": "https://v.douyin.com/iZX0JRfVGeA",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/f8311db859d25e29264e23db6fea56634635fe.ico",
-						"description": "ID：281441439",
+						"title": "Github 文件加速",
+						"url": "https://github.proxy.javajun.com",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/03/06/45f617cf32c11c9633848b64db3dfb79328e0f.svg",
+						"description": "输入任意 GitHub / Raw / Gist 链接，自动生成 Cloudflare Worker 代理和可用 jsDelivr 加速地址，便于快速下载与分享",
 						"suffix": false,
 						"is_show": true
 					},
 					{
-						"title": "@想喝多肉葡萄吗",
-						"url": "https://weibo.com/u/2935530827?profile_ftype=1&is_all=1#_0",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/7cfb7b6da2496ea66bdb0c4f3f6e6e280dc87d.ico",
-						"description": "ID：2935530827",
+						"title": "",
+						"url": "",
+						"icon": "",
+						"description": "",
 						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "@鹿。",
-						"url": "https://www.xiaohongshu.com/user/profile/59f06d8811be107d2c01c7b1",
-						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/e9b082eb8752047022941c05f301e49d1894ad.ico",
-						"description": "ID：261458734",
-						"suffix": false,
-						"is_show": true
+						"is_show": false
 					}
 				]
 			},
@@ -738,6 +706,52 @@
 						"description": "",
 						"suffix": false,
 						"is_show": false
+					}
+				]
+			},
+			{
+				"tab_name": "社交分享",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "@难离",
+						"url": "https://v.douyin.com/XoUADrnqNio",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/f8311db859d25e29264e23db6fea56634635fe.ico",
+						"description": "ID：54815744",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "@我的名字一定要长",
+						"url": "https://v.douyin.com/iZX0JRfVGeA",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/f8311db859d25e29264e23db6fea56634635fe.ico",
+						"description": "ID：281441439",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "@大只闲闲",
+						"url": "https://v.douyin.com/4Qsf8VeMnps",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/f8311db859d25e29264e23db6fea56634635fe.ico",
+						"description": "ID：161496384",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "@想喝多肉葡萄吗",
+						"url": "https://weibo.com/u/2935530827?profile_ftype=1&is_all=1#_0",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/7cfb7b6da2496ea66bdb0c4f3f6e6e280dc87d.ico",
+						"description": "ID：2935530827",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "@鹿。",
+						"url": "https://www.xiaohongshu.com/user/profile/59f06d8811be107d2c01c7b1",
+						"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2025/09/03/e9b082eb8752047022941c05f301e49d1894ad.ico",
+						"description": "ID：261458734",
+						"suffix": false,
+						"is_show": true
 					}
 				]
 			}
