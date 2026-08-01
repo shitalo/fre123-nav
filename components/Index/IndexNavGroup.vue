@@ -225,7 +225,6 @@ const located = () => {
 		// 定位到分组
 		const groupElement = document.getElementById(classNamePrefixGroup + routeGroupName)
 		if (groupElement) {
-			console.log('clientHeight', groupElement.offsetHeight)
 			window.scrollTo({
 				behavior: 'smooth',
 				top: groupElement.offsetTop - 128,

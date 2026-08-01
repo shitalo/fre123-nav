@@ -8,7 +8,6 @@
 import { getConfigItem, CONFIG_KEY_SEO } from './stores/config'
 
 const seoInfo = getConfigItem(CONFIG_KEY_SEO)
-console.log(seoInfo)
 // 初始化 SEO_TITLE 模板和主题
 useHead({
 	titleTemplate: (s) => {

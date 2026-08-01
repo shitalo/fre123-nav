@@ -16,10 +16,7 @@ export const fetchInstance = $fetch.create({
 		'APP-Token': appToken as string,
 	},
 	// @ts-ignore
-	onRequest: ({ options, request }) => {
-		console.log('baseURL:', options.baseURL)
-		console.log('request:', request)
-	},
+	onRequest: () => {},
 	// @ts-ignore
 	onResponse({ response, options }) {
 		// 状态码正常则拆出 data 返回

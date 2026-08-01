@@ -39,11 +39,8 @@ const props = defineProps({
 })
 const tooltipVisible = ref(false)
 
-const transformX = ''
-const transformY = ''
-
 // 控制 tooltip 是否展示
-const showToolTip = (e: Event) => {
+const showToolTip = () => {
 	if (props.forceShow) {
 		tooltipVisible.value = true
 	} else {
@@ -53,7 +50,6 @@ const showToolTip = (e: Event) => {
 		if (wordW > containerW) {
 			tooltipVisible.value = true
 		}
-		console.log('containerWidth', containerW, 'wordWidth', wordW)
 	}
 }
 </script>

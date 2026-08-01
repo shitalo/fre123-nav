@@ -6,9 +6,16 @@ export default defineNuxtConfig({
 		'@nuxtjs/tailwindcss',
 		'@pinia/nuxt',
 		'@vueuse/nuxt',
-		'nuxt-icon',
+		'@nuxt/icon',
 		'@pinia-plugin-persistedstate/nuxt',
 	],
+	icon: {
+		provider: 'none',
+		serverBundle: false,
+		clientBundle: {
+			icons: ['uil:search', 'uil:arrow-circle-right', 'line-md:loading-twotone-loop'],
+		},
+	},
 	pinia: {
 		autoImports: ['defineStore', 'storeToRefs'],
 	},
@@ -57,7 +64,7 @@ export default defineNuxtConfig({
 		css: {
 			preprocessorOptions: {
 				scss: {
-					additionalData: `@import 'assets/_variables.scss';`,
+					additionalData: `@use "assets/_variables.scss" as *;`,
 				},
 			},
 		},

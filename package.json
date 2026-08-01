@@ -1,32 +1,40 @@
 {
 	"name": "fre123_web",
 	"private": true,
+	"engines": {
+		"node": ">=22.12.0"
+	},
 	"scripts": {
-		"build": "nuxt build",
-		"dev": "nuxt dev",
-		"generate": "nuxt generate",
+		"prepare:github-assets": "node scripts/prepare-github-assets.mjs",
+		"build": "yarn prepare:github-assets && nuxt build",
+		"dev": "yarn prepare:github-assets && nuxt dev",
+		"generate": "yarn prepare:github-assets && nuxt generate",
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare"
 	},
 	"devDependencies": {
-		"@nuxt/devtools": "latest",
-		"@types/node": "^18.16.19",
-		"nuxt": "^3.6.2",
-		"sass": "^1.63.6"
+		"@iconify-json/line-md": "^1.2.16",
+		"@iconify-json/uil": "^1.2.3",
+		"@nuxt/devtools": "^3.4.0",
+		"@types/node": "^22.20.1",
+		"nuxt": "^3.21.10",
+		"sass": "^1.102.0"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "6.5.0",
 		"@fortawesome/free-brands-svg-icons": "5.15.4",
 		"@fortawesome/free-regular-svg-icons": "5.15.4",
 		"@fortawesome/free-solid-svg-icons": "5.15.4",
-		"@fortawesome/vue-fontawesome": "3.0.5",
-		"@nuxtjs/tailwindcss": "6.10.1",
-		"@pinia/nuxt": "0.4.11",
-		"@vueuse/core": "10.7.0",
-		"@vueuse/nuxt": "10.7.0",
-		"nuxt-icon": "0.6.7",
+		"@fortawesome/vue-fontawesome": "^3.3.3",
+		"@nuxt/icon": "^1.15.0",
+		"@nuxtjs/tailwindcss": "^6.14.0",
+		"@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+		"@pinia/nuxt": "^0.11.3",
+		"@vueuse/core": "^14.4.0",
+		"@vueuse/nuxt": "^14.4.0",
 		"ohmyfetch": "0.4.21",
-		"@pinia-plugin-persistedstate/nuxt": "1.2.0",
+		"pinia": "^3.0.4",
 		"yarn": "1.22.21"
-	}
+	},
+	"packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

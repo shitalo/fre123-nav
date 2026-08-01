@@ -1,18 +1,24 @@
-import githubAssetSourceList from '../config/github-asset.json'
+import {
+	DEFAULT_GITHUB_ASSET_SOURCE,
+	GITHUB_ASSET_PROBE_URL,
+	GITHUB_ASSET_SOURCE_LIST,
+	type GithubAssetSource,
+	type GithubAssetSourceKey,
+} from '../config/github-asset'
 
-const DEFAULT_GITHUB_ASSET_SOURCE = 'javajun'
-const GITHUB_ASSET_PROBE_URL = 'https://raw.githubusercontent.com/jquery/jquery/main/package.json'
+const generatedGithubAssetLocalFailureModules = import.meta.glob(
+	'../config/github-asset-local-failures.generated.ts',
+	{
+		eager: true,
+		import: 'GITHUB_ASSET_LOCAL_FAILURE_URL_LIST',
+	},
+) as Record<string, readonly string[]>
 
-type GithubAssetStrategy = 'jsdelivr' | 'prefix'
-type GithubAssetSourceConfig = (typeof githubAssetSourceList)[number]
-type GithubAssetSourceKey = GithubAssetSourceConfig['key']
+const GITHUB_ASSET_LOCAL_FAILURE_URL_SET = new Set(
+	Object.values(generatedGithubAssetLocalFailureModules)[0] ?? [],
+)
+
 type GithubAssetStatus = 'idle' | 'probing' | 'ready'
-type GithubAssetSource = {
-	key: GithubAssetSourceKey
-	label: string
-	strategy: GithubAssetStrategy
-	baseUrl: string
-}
 
 export type GithubAssetProbeResult = {
 	key: GithubAssetSourceKey
@@ -27,7 +33,55 @@ type ParsedGithubAsset = {
 	jsdelivrPath: string | null
 }
 
-const GITHUB_ASSET_SOURCE_LIST = githubAssetSourceList as GithubAssetSource[]
+const IMAGE_EXTENSION_SET = new Set([
+	'.apng',
+	'.avif',
+	'.gif',
+	'.ico',
+	'.jpeg',
+	'.jpg',
+	'.png',
+	'.svg',
+	'.webp',
+	'.x-icon',
+	'.vnd.microsoft.icon',
+])
+
+const IMAGE_EXTENSION_SUFFIX_LIST = Array.from(IMAGE_EXTENSION_SET).sort((left, right) => {
+	return right.length - left.length
+})
+
+const normalizeImageExtension = (extension: string) => {
+	const normalizedExtension = extension.toLowerCase()
+
+	if (normalizedExtension === '.jpeg') {
+		return '.jpg'
+	}
+
+	if (normalizedExtension === '.x-icon' || normalizedExtension === '.vnd.microsoft.icon') {
+		return '.ico'
+	}
+
+	return normalizedExtension
+}
+
+const getExtensionFromUrl = (urlString: string) => {
+	try {
+		const url = new URL(urlString)
+		const normalizedPathname = url.pathname.toLowerCase()
+
+		for (const extensionSuffix of IMAGE_EXTENSION_SUFFIX_LIST) {
+			if (normalizedPathname.endsWith(extensionSuffix)) {
+				return normalizeImageExtension(extensionSuffix)
+			}
+		}
+
+		const matchedExtension = url.pathname.match(/(\.[^./]+)$/)?.[1]
+		return matchedExtension ? normalizeImageExtension(matchedExtension) : null
+	} catch {
+		return null
+	}
+}
 
 const normalizeGithubAssetBaseUrl = (source: GithubAssetSource) => {
 	const trimmedBaseUrl = source.baseUrl.replace(/\/+$/, '')
@@ -60,9 +114,19 @@ const getGithubAssetSource = (key: GithubAssetSourceKey): GithubAssetSource | un
 	})
 }
 
+const extractNestedGithubUrl = (input: string) => {
+	const match = input.match(/https?:\/\/[^/]+\/(https?:\/\/.+)$/i)
+	return match?.[1] ?? null
+}
+
 const parseGithubAssetUrl = (input: string): ParsedGithubAsset | null => {
 	if (!input) {
 		return null
+	}
+
+	const nestedGithubUrl = extractNestedGithubUrl(input)
+	if (nestedGithubUrl) {
+		return parseGithubAssetUrl(nestedGithubUrl)
 	}
 
 	try {
@@ -153,6 +217,41 @@ const buildGithubAssetUrlWithSource = (input: string, sourceKey: GithubAssetSour
 	}
 
 	return `${normalizeGithubAssetBaseUrl(source)}${parsedAsset.originalUrl}`
+}
+
+const buildLocalGithubAssetPath = (originalUrl: string) => {
+	try {
+		const url = new URL(originalUrl)
+		const pathSegmentList = url.pathname.split('/').filter(Boolean)
+		const originalFileName = pathSegmentList.pop()
+
+		if (!url.hostname || !originalFileName) {
+			return null
+		}
+
+		const matchedExtension = originalFileName.match(/(\.[^./]+)$/)?.[1] ?? ''
+		const normalizedExtension = getExtensionFromUrl(originalUrl) ?? normalizeImageExtension(matchedExtension)
+		const normalizedFileName = normalizedExtension
+			? `${originalFileName.slice(0, Math.max(0, originalFileName.length - matchedExtension.length))}${normalizedExtension}`
+			: originalFileName
+
+		return `/github-assets/${[url.hostname, ...pathSegmentList, normalizedFileName].join('/')}`
+	} catch {
+		return null
+	}
+}
+
+const getLocalGithubAssetUrl = (input: string) => {
+	const parsedAsset = parseGithubAssetUrl(input)
+	if (!parsedAsset) {
+		return null
+	}
+
+	if (GITHUB_ASSET_LOCAL_FAILURE_URL_SET.has(parsedAsset.originalUrl)) {
+		return null
+	}
+
+	return buildLocalGithubAssetPath(parsedAsset.originalUrl)
 }
 
 const createInitialProbeResults = (): GithubAssetProbeResult[] => {
@@ -268,6 +367,11 @@ export const useGithubAsset = () => {
 	)
 
 	const getGithubAssetUrl = (input: string) => {
+		const localUrl = getLocalGithubAssetUrl(input)
+		if (localUrl) {
+			return localUrl
+		}
+
 		const preferredUrl = buildGithubAssetUrlWithSource(input, preferredSource.value)
 		if (preferredUrl) {
 			return preferredUrl

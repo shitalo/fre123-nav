@@ -7,6 +7,8 @@ node_modules/
 .nitro/
 .cache/
 dist/
+public/github-assets/
+config/github-asset-local-failures.generated.ts
 
 # Logs
 logs/

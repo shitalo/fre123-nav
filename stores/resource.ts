@@ -14,16 +14,13 @@ const useResourceStore = defineStore(
 
 		const setSearchOrder = (resourceType: string, resourceList: string[]) => {
 			searchOrder.value[resourceType] = resourceList
-			console.log('search.value', searchOrder.value)
 		}
 
 		const setSelectedResourceType = (resourceType: string) => {
-			console.log('selectedResourceType is set to ', resourceType)
 			selectedResourceType.value = resourceType
 		}
 
 		const setSelectedResource = (resource: string) => {
-			console.log('selectedResource is set to ', resource)
 			selectedResource.value = resource
 		}
 
@@ -64,18 +61,12 @@ const useResourceStore = defineStore(
 
 		const formatResourceList = (resourceType: string, resourceList: any[]) => {
 			if (!resourceList || resourceList.length == 0) {
-				console.log('【formatResourceList】 resource list is empty')
-				return
+				return []
 			}
-			console.log(
-				'【formatResourceList】searchOrder.value is',
-				resourceType,
-				searchOrder.value[resourceType],
-			)
 
 			const resourceConfig = searchOrder.value[resourceType] ?? []
 			// 如果没有自定义设置，按照默认顺序返回
-			if (!resourceConfig) {
+			if (resourceConfig.length === 0) {
 				return resourceList
 			}
 
