@@ -12,10 +12,10 @@
 		"baseUrl": "https://gcore.jsdelivr.net"
 	},
 	{
-		"key": "cdn",
-		"label": "jsDelivr",
+		"key": "testingcf",
+		"label": "testingcf",
 		"strategy": "jsdelivr",
-		"baseUrl": "https://cdn.jsdelivr.net"
+		"baseUrl": "https://testingcf.jsdelivr.net"
 	},
 	{
 		"key": "ghfast",
@@ -24,15 +24,15 @@
 		"baseUrl": "https://ghfast.top"
 	},
 	{
-		"key": "ghproxy",
-		"label": "gh-proxy",
+		"key": "javajun",
+		"label": "javajun",
 		"strategy": "prefix",
-		"baseUrl": "https://gh-proxy.org"
+		"baseUrl": "https://github.proxy.javajun.com"
 	},
 	{
-		"key": "homeboyc",
-		"label": "homeboyc",
+		"key": "b52m",
+		"label": "b52m",
 		"strategy": "prefix",
-		"baseUrl": "https://ghproxy.homeboyc.cn"
+		"baseUrl": "https://gh.b52m.cn"
 	}
 ]

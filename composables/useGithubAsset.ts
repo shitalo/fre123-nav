@@ -1,6 +1,6 @@
 import githubAssetSourceList from '../config/github-asset.json'
 
-const DEFAULT_GITHUB_ASSET_SOURCE = 'fastly'
+const DEFAULT_GITHUB_ASSET_SOURCE = 'javajun'
 const GITHUB_ASSET_PROBE_URL = 'https://raw.githubusercontent.com/jquery/jquery/main/package.json'
 
 type GithubAssetStrategy = 'jsdelivr' | 'prefix'
