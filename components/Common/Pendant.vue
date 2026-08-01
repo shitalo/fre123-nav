@@ -25,7 +25,7 @@
 						:class="`${hoverIdx === i ? 'block' : 'hidden'}`"
 						class="absolute top-0 right-[50px] p-[10px] bg-white"
 					>
-						<img :src="item?.img" class="h-[110px] max-w-fit" alt="" />
+						<img :src="getGithubAssetUrl(item?.img)" class="h-[110px] max-w-fit" alt="" />
 						<p class="text-[chocolate] text-[12px] whitespace-nowrap m-0">{{ item?.text }}</p>
 					</div>
 					<p
@@ -54,6 +54,7 @@
 
 <script setup lang="ts">
 import { CONFIG_KEY_PENDANT, getConfigItem } from '~/stores/config'
+const { getGithubAssetUrl } = useGithubAsset()
 
 const pendantConfig = getConfigItem(CONFIG_KEY_PENDANT)
 

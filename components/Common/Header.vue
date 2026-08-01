@@ -6,7 +6,11 @@
 		>
 			<div class="flex md:basis-1/3 relative">
 				<a :href="baseInfo['web_host']" target="_blank">
-					<img class="header-logo header-transition ml-[20px]" :src="baseInfo['logo']" alt="" />
+					<img
+						class="header-logo header-transition ml-[20px]"
+						:src="getGithubAssetUrl(baseInfo['logo'])"
+						alt=""
+					/>
 				</a>
 				<a
 					:href="baseInfo['web_host']"
@@ -63,6 +67,7 @@
 
 <script setup lang="ts">
 import { CONFIG_KEY_BASE, CONFIG_KEY_HERDER, getConfigItem } from '~/stores/config'
+const { getGithubAssetUrl } = useGithubAsset()
 const baseInfo = getConfigItem(CONFIG_KEY_BASE)
 const headerConfig = getConfigItem(CONFIG_KEY_HERDER)
 

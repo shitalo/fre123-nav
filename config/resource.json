@@ -6,43 +6,43 @@
 			{
 				"name": "必应",
 				"url": "https://cn.bing.com/search?type=2&q={keyword}",
-				"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/4500ea05070e225ff8b42cb0d2a5af7708cfb0.png",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/4500ea05070e225ff8b42cb0d2a5af7708cfb0.png",
 				"is_show": true
 			},
 			{
 				"name": "谷歌",
 				"url": "https://google.com/search?igu=1&q={keyword}",
-				"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/01b5f6a4c7fb4087f3027566e16fcfc47a6836.png",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/01b5f6a4c7fb4087f3027566e16fcfc47a6836.png",
 				"is_show": true
 			},
 			{
 				"name": "搜狗|微信",
 				"url": "https://weixin.sogou.com/weixin?query={keyword}&type=2",
-				"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/07c47b8c82787d39e630fb7835a3b4e22572fa.vnd.microsoft.icon",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/07c47b8c82787d39e630fb7835a3b4e22572fa.vnd.microsoft.icon",
 				"is_show": true
 			},
 			{
 				"name": "duckduckgo",
 				"url": "https://duckduckgo.com/?q={keyword}",
-				"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/0a362a1a0cf4cc6bc56d65db8049dd6fc366d0.vnd.microsoft.icon",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/0a362a1a0cf4cc6bc56d65db8049dd6fc366d0.vnd.microsoft.icon",
 				"is_show": true
 			},
 			{
 				"name": "presearch",
 				"url": "https://presearch.com/search?q={keyword}",
-				"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/f2154feb6da8319ac5306d4f6a394857ebe971.png",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/f2154feb6da8319ac5306d4f6a394857ebe971.png",
 				"is_show": false
 			},
 			{
 				"name": "devv.ai",
 				"url": "https://devv.ai/zh/search/{keyword}",
-				"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/e8137853e5b28bba4dc6f666c0f37c74fadc07.png",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/e8137853e5b28bba4dc6f666c0f37c74fadc07.png",
 				"is_show": true
 			},
 			{
 				"name": "yandex",
 				"url": "https://yandex.com/search/?text={keyword}",
-				"icon": "https://fastly.jsdelivr.net/gh/shitalo/github-pic/images/2026/02/27/5135e01dd9522c92fd053b413360332fdec861.vnd.microsoft.icon",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/5135e01dd9522c92fd053b413360332fdec861.vnd.microsoft.icon",
 				"is_show": true
 			}
 		]

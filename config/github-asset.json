@@ -1,0 +1,38 @@
+[
+	{
+		"key": "fastly",
+		"label": "Fastly",
+		"strategy": "jsdelivr",
+		"baseUrl": "https://fastly.jsdelivr.net"
+	},
+	{
+		"key": "gcore",
+		"label": "Gcore",
+		"strategy": "jsdelivr",
+		"baseUrl": "https://gcore.jsdelivr.net"
+	},
+	{
+		"key": "cdn",
+		"label": "jsDelivr",
+		"strategy": "jsdelivr",
+		"baseUrl": "https://cdn.jsdelivr.net"
+	},
+	{
+		"key": "ghfast",
+		"label": "ghfast",
+		"strategy": "prefix",
+		"baseUrl": "https://ghfast.top"
+	},
+	{
+		"key": "ghproxy",
+		"label": "gh-proxy",
+		"strategy": "prefix",
+		"baseUrl": "https://gh-proxy.org"
+	},
+	{
+		"key": "homeboyc",
+		"label": "homeboyc",
+		"strategy": "prefix",
+		"baseUrl": "https://ghproxy.homeboyc.cn"
+	}
+]

@@ -28,8 +28,8 @@
 							:id="`${classNamePrefixGroupTab}${groupData.group_name}_${tab.tab_name}`"
 							class="z-10 hover:text-[#007bff] hover:cursor-pointer active:text-[#007bff] active:font-bold px-3 text-[14px]"
 							:class="`${currTab == i ? 'active' : 'font-wei'}`"
-							@mouseenter="slideTo(i, `${tab.tab_name}`)"
-							@mouseleave="slideBack(`${tab.tab_name}`)"
+							@mouseenter="slideTo(i)"
+							@mouseleave="slideBack()"
 							@click="switchTab(i)"
 						>
 							{{ tab.tab_name }}
@@ -69,7 +69,7 @@
 					@mouseover="showToSourceIcon('show', idx, t)"
 					@mouseout="showToSourceIcon('hide', idx, t)"
 				>
-					<img class="index-nav-group-content-item-icon" :src="item.icon" />
+					<img class="index-nav-group-content-item-icon" :src="getGithubAssetUrl(item.icon)" />
 					<div class="index-nav-group-content-item-main">
 						<div class="index-nav-group-content-item-name">{{ item.title }}</div>
 						<div :id="`desc-${idx}-${t}`" class="index-nav-group-content-item-desc">
@@ -101,6 +101,7 @@ const props = defineProps<{
 	groupData: IGroup
 	idx: number
 }>()
+const { getGithubAssetUrl } = useGithubAsset()
 
 const classNamePrefixGroup = 'nav_group_'
 const classNamePrefixGroupTab = 'nav_group_tab_'
@@ -156,45 +157,39 @@ getTranslateX()
 // }
 
 // 移动条移动 DeepSeek R1
-const slideTo = (tabIndex: number, name: string) => {
-	isHovering.value = true;
-	const anchor = document.getElementById(`${classNamePrefixGroup}${props.idx}_anchor`);
-	if (!anchor) return;
+const slideTo = (tabIndex: number) => {
+	isHovering.value = true
+	const anchor = document.getElementById(`${classNamePrefixGroup}${props.idx}_anchor`)
+	if (!anchor) return
 
-	const ul = anchor.parentElement;
-	if (!ul) return;
+	const ul = anchor.parentElement
+	if (!ul) return
 
 	// 获取所有 tab 的 li 元素，排除第一个锚点元素
-	const tabs = Array.from(ul.children).slice(1) as HTMLElement[];
+	const tabs = Array.from(ul.children).slice(1) as HTMLElement[]
 
-	if (tabIndex >= tabs.length) return;
+	if (tabIndex >= tabs.length) return
 
 	// 获取 ul 的 gap（如果存在）
-	const ulStyles = window.getComputedStyle(ul);
-	const gap = ulStyles.gap.split(' ')[0]; // 提取水平方向的 gap
-	const gapValue = parseFloat(gap) || 0;
+	const ulStyles = window.getComputedStyle(ul)
+	const gap = ulStyles.gap.split(' ')[0] // 提取水平方向的 gap
+	const gapValue = parseFloat(gap) || 0
 
-	let left = 0;
+	let left = 0
 	for (let i = 0; i < tabIndex; i++) {
-		const tab = tabs[i];
-		left += tab.offsetWidth + gapValue; // 累加元素宽度和间隙
+		const tab = tabs[i]
+		left += tab.offsetWidth + gapValue // 累加元素宽度和间隙
 	}
 
-	// 当前悬停的 tab 元素
-	const currentTab = tabs[tabIndex];
-	const currentWidth = currentTab.offsetWidth;
-
-	// 设置锚点宽度与当前元素一致
-	// anchor.style.width = `${currentWidth}px`;
 	// 应用平滑移动
-	anchor.style.transitionDuration = '0.3s';
-	anchor.style.transform = `translateX(${left}px)`;
-};
+	anchor.style.transitionDuration = '0.3s'
+	anchor.style.transform = `translateX(${left}px)`
+}
 
 
 // 返回原位置
-const slideBack = (name: string) => {
-	slideTo(currTab.value, name)
+const slideBack = () => {
+	slideTo(currTab.value)
 	isHovering.value = false
 }
 

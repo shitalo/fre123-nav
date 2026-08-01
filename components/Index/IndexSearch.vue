@@ -11,7 +11,7 @@
 				@mouseleave="slideBack()"
 				@click="switchResource(i, item.name)"
 			>
-				<img v-if="item.icon" :src="item.icon" alt="" class="w-[12px] h-[12px]" />
+				<img v-if="item.icon" :src="getGithubAssetUrl(item.icon)" alt="" class="w-[12px] h-[12px]" />
 				<div class="ml-1 hidden lg:block">{{ item.name }}</div>
 			</li>
 		</ul>
@@ -59,16 +59,11 @@
 
 <script setup lang="ts">
 import type { IResource, IResourceType } from '~/interface/resource'
-import { CONFIG_KEY_BASE, getConfigItem } from '~/stores/config'
 import useResourceStore from '~/stores/resource'
-
-definePageMeta({
-	layout: false,
-})
+const { getGithubAssetUrl } = useGithubAsset()
 
 const route = useRoute()
 const keyword = ref(route.query.q as string)
-const baseInfo = getConfigItem(CONFIG_KEY_BASE)
 
 // 获取资源类型列表
 const searchStore = useResourceStore()
@@ -90,7 +85,6 @@ const getResourceType = async (type: string) => {
 	}
 }
 await getResourceType(selectedResourceType.value)
-console.log('selectedResourceType is ', currResourceType.value)
 
 const currTab = ref(0)
 
@@ -107,7 +101,6 @@ const getResourceList = (resourceType: string) => {
 		return
 	})
 	selectedResource.value = matchResource ? matchResource : list[0]
-	console.log('resourceList is ', resourceList)
 }
 getResourceList(selectedResourceType.value)
 
@@ -141,13 +134,12 @@ const scale = 0.2
 const slideTo = (idx: number) => {
 	const dom = document.getElementById(`search_tab_${idx}`)
 	if (dom) {
-		const w = dom.offsetWidth as number
-		const offsetLeft = dom.offsetLeft
+	const w = dom.offsetWidth as number
+	const offsetLeft = dom.offsetLeft
 
-		console.log('w is', w, 'offsetLeft is ', offsetLeft)
-		const anchor = document.getElementById('search_tab_anchor')
-		if (anchor != null) {
-			anchor.style.width = 20 + 'px'
+	const anchor = document.getElementById('search_tab_anchor')
+	if (anchor != null) {
+		anchor.style.width = 20 + 'px'
 			anchor.style.transitionDuration = '0.3s'
 			anchor.style.transform = `translateX(${(w - 20) / 2 + offsetLeft - 64}px)`
 		}
