@@ -9,6 +9,7 @@ node_modules/
 dist/
 public/github-assets/
 config/github-asset-local-failures.generated.ts
+config/github-asset-local-manifest.generated.json
 
 # Logs
 logs/

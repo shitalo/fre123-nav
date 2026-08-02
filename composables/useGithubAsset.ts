@@ -119,6 +119,28 @@ const extractNestedGithubUrl = (input: string) => {
 	return match?.[1] ?? null
 }
 
+const normalizeRemoteImageUrl = (input: string) => {
+	if (!input) {
+		return null
+	}
+
+	const nestedGithubUrl = extractNestedGithubUrl(input)
+	if (nestedGithubUrl) {
+		return normalizeRemoteImageUrl(nestedGithubUrl)
+	}
+
+	try {
+		const url = new URL(input)
+		if (!/^https?:$/i.test(url.protocol)) {
+			return null
+		}
+
+		return url.toString()
+	} catch {
+		return null
+	}
+}
+
 const parseGithubAssetUrl = (input: string): ParsedGithubAsset | null => {
 	if (!input) {
 		return null
@@ -197,6 +219,15 @@ const parseGithubAssetUrl = (input: string): ParsedGithubAsset | null => {
 	return null
 }
 
+const getNormalizedRemoteImageUrl = (input: string) => {
+	const parsedGithubAsset = parseGithubAssetUrl(input)
+	if (parsedGithubAsset) {
+		return parsedGithubAsset.originalUrl
+	}
+
+	return normalizeRemoteImageUrl(input)
+}
+
 const buildGithubAssetUrlWithSource = (input: string, sourceKey: GithubAssetSourceKey) => {
 	const parsedAsset = parseGithubAssetUrl(input)
 	if (!parsedAsset) {
@@ -242,16 +273,16 @@ const buildLocalGithubAssetPath = (originalUrl: string) => {
 }
 
 const getLocalGithubAssetUrl = (input: string) => {
-	const parsedAsset = parseGithubAssetUrl(input)
-	if (!parsedAsset) {
+	const normalizedRemoteImageUrl = getNormalizedRemoteImageUrl(input)
+	if (!normalizedRemoteImageUrl) {
 		return null
 	}
 
-	if (GITHUB_ASSET_LOCAL_FAILURE_URL_SET.has(parsedAsset.originalUrl)) {
+	if (GITHUB_ASSET_LOCAL_FAILURE_URL_SET.has(normalizedRemoteImageUrl)) {
 		return null
 	}
 
-	return buildLocalGithubAssetPath(parsedAsset.originalUrl)
+	return buildLocalGithubAssetPath(normalizedRemoteImageUrl)
 }
 
 const createInitialProbeResults = (): GithubAssetProbeResult[] => {

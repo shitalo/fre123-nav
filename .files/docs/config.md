@@ -9,7 +9,7 @@
 | base            | `Object` | 网站基础配置                                | 无     |                                                                                                                                             |
 | base.app_name   | `String` | 网站名称                                    | 无     | fre123                                                                                                                                      |
 | base.web_host   | `String` | 网站地址                                    | 无     | https://www.fre123.com                                                                                                                      |
-| base.logo       | `String` | 网站 LOGO                                   | 无     | https://img.fre123.com/i/2023/11/25/65619e8022505.png                                                                                       |
+| base.logo       | `String` | 网站 LOGO                                   | 无     | https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/02/ef11f128e839758d8cf66a42eaeb989f07d30d.png                                                                                       |
 | seo             | `Object` | 网站 seo 相关信息                           | 无     | -                                                                                                                                           |
 | seo.title       | `String` | seo 标题                                    | 无     | FRE123                                                                                                                                      |
 | seo.description | `String` | seo 描述                                    | 无     | FRE123 专注于为您提供各种免费优质资源，包括影视资源、动漫番剧、软件工具等。无论您在寻找哪种资源，我们都将尽力为您提供，为您的学习或工作助力 |
@@ -28,7 +28,7 @@
 | list             | `item[]`  | 搜索引擎配置     | 无     | -                                                     |
 | item.name        | `String`  | 名称             | 无     | 百度                                                  |
 | item.url         | `String`  | 搜索引擎跳转地址 | 无     | https://www.baidu.com/s?wd=                           |
-| item.icon        | `String`  | 图标             | 无     | https://img.fre123.com/i/2023/11/26/656303de24efc.png |
+| item.icon        | `String`  | 图标             | 无     | https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/02/ef11f128e839758d8cf66a42eaeb989f07d30d.png |
 | item.placeholder | `String`  | 输入框提示信息   | 无     | 百度一下，你就知道                                    |
 
 ##### `header.right`
@@ -87,7 +87,7 @@
 | ----------- | --------- | -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | title       | `String`  | 标题     | 无     | FRE123                                                                                                                                      |
 | url         | `String`  | 跳转地址 | 无     | https://www.fre123.com                                                                                                                      |
-| icon        | `String`  | 图标     | 无     | https://img.fre123.com/i/2023/11/25/65619e8022505.png                                                                                       |
+| icon        | `String`  | 图标     | 无     | https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/02/ef11f128e839758d8cf66a42eaeb989f07d30d.png                                                                                       |
 | description | `String`  | 描述     | 无     | FRE123 专注于为您提供各种免费优质资源，包括影视资源、动漫番剧、软件工具等。无论您在寻找哪种资源，我们都将尽力为您提供，为您的学习或工作助力 |
 | is_show     | `Boolean` | 是否展示 | 无     | true                                                                                                                                        |
 
