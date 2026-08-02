@@ -53,10 +53,8 @@
 </template>
 
 <script setup lang="ts">
-import { CONFIG_KEY_PENDANT, getConfigItem } from '~/stores/config'
+import { pendantConfig } from '~/config/website'
 const { getGithubAssetUrl } = useGithubAsset()
-
-const pendantConfig = getConfigItem(CONFIG_KEY_PENDANT)
 
 const showQrCode = ref(false)
 const showToTopIcon = ref(false)

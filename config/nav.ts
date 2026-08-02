@@ -1,4 +1,4 @@
-[
+const navConfig = [
 	{
 		"group_name": "影视资源",
 		"style": 1,
@@ -451,7 +451,6 @@
 						"suffix": false,
 						"is_show": true
 					}
-
 				]
 			}
 		]
@@ -1421,4 +1420,6 @@
 			}
 		]
 	}
-]
+] as const
+
+export default navConfig

@@ -1,6 +1,6 @@
 <template>
 	<div
-		v-if="groupData.tab_list[currTab].details.filter((i) => i.is_show).length > 0"
+		v-if="currentTabData"
 		:id="`${classNamePrefixGroup}${groupData.group_name}`"
 		class="index-nav-group bg-white pt-[10px] mb-[20px] px-4 rounded-lg"
 	>
@@ -43,9 +43,9 @@
 			>
 				<a
 					class="hover:text-red-700"
-					:href="groupData.tab_list[currTab].upper_right_corner?.url"
+					:href="currentTabData.upper_right_corner?.url"
 					target="_blank"
-					>{{ groupData.tab_list[currTab].upper_right_corner?.title }}</a
+					>{{ currentTabData.upper_right_corner?.title }}</a
 				>
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 			class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-2 mt-[24px] cursor-pointer"
 		>
 			<StyleTooltip
-				v-for="(item, t) in groupData.tab_list[currTab].details.filter((i) => i.is_show)"
+				v-for="(item, t) in currentTabData.details"
 				:content="item.description"
 				:nowrap="true"
 				:element-id="`desc-${idx}-${t}`"
@@ -61,7 +61,6 @@
 				:class="` ${showNumber <= t ? 'hidden' : ''}`"
 			>
 				<a
-					v-show="item.is_show"
 					class="index-nav-group-content-item rounded-xl shadow shadow-warm-gray-500 items-center py-[8px] px-[8px] border-[1px] border-white"
 					:href="item.url"
 					target="_blank"
@@ -83,11 +82,11 @@
 						@click.stop="stop"
 						@click="jumpOut(item.ori_url)"
 					>
-						<Icon
+						<IconsAppIcon
 							size="18"
 							class="flex items-center text-slate-400 hover:text-slate-500"
 							name="uil:arrow-circle-right"
-						></Icon>
+						></IconsAppIcon>
 					</div>
 				</a>
 			</StyleTooltip>
@@ -107,6 +106,9 @@ const classNamePrefixGroup = 'nav_group_'
 const classNamePrefixGroupTab = 'nav_group_tab_'
 
 const currTab = ref(0)
+const currentTabData = computed(() => {
+	return props.groupData.tab_list[currTab.value]
+})
 const isHovering = ref(false)
 const tabName = ref(props.groupData.tab_list[0].tab_name)
 

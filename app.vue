@@ -5,29 +5,28 @@
 </template>
 
 <script setup lang="ts">
-import { getConfigItem, CONFIG_KEY_SEO } from './stores/config'
-
-const seoInfo = getConfigItem(CONFIG_KEY_SEO)
+import { seoConfig } from './config/website'
+const { resolveAppAssetPath } = useAppAssetPath()
 // 初始化 SEO_TITLE 模板和主题
 useHead({
 	titleTemplate: (s) => {
-		return s ? `${s} - ${seoInfo['title']}` : `${seoInfo['title']}`
+		return s ? `${s} - ${seoConfig.title}` : `${seoConfig.title}`
 	},
 	link: [
 		{
 			rel: 'icon',
 			type: 'image/x-icon',
-			href: seoInfo['icon'],
+			href: resolveAppAssetPath(seoConfig.icon),
 		},
 	],
 	meta: [
 		{
 			name: 'keywords',
-			content: seoInfo['keywords'],
+			content: seoConfig.keywords,
 		},
 		{
 			name: 'description',
-			content: seoInfo['description'],
+			content: seoConfig.description,
 		},
 	],
 	bodyAttrs: {

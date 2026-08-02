@@ -13,7 +13,7 @@
 		<!-- <div v-if="isLazy && isLoading">
 			<slot name="placeholder">
 				<div class="flex justify-center items-center" :class="imageClass">
-					<Icon name="line-md:loading-twotone-loop" class="w-8 h-8" />
+					<IconsAppIcon name="line-md:loading-twotone-loop" class="w-8 h-8" />
 				</div>
 			</slot>
 		</div> -->

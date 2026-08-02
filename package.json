@@ -5,30 +5,23 @@
 		"node": ">=22.12.0"
 	},
 	"scripts": {
+		"prepare:static-data": "node scripts/prepare-static-data.mjs",
 		"prepare:github-assets": "node scripts/prepare-github-assets.mjs",
-		"build": "yarn prepare:github-assets && nuxt build",
-		"dev": "yarn prepare:github-assets && nuxt dev",
-		"generate": "yarn prepare:github-assets && nuxt generate",
-		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare"
+		"prepare:site-data": "yarn prepare:static-data && yarn prepare:github-assets",
+		"build": "yarn prepare:site-data && node ./node_modules/nuxt/bin/nuxt.mjs build",
+		"dev": "yarn prepare:site-data && node ./node_modules/nuxt/bin/nuxt.mjs dev",
+		"generate": "yarn prepare:site-data && node ./node_modules/nuxt/bin/nuxt.mjs generate",
+		"preview": "node ./node_modules/nuxt/bin/nuxt.mjs preview",
+		"postinstall": "node ./node_modules/nuxt/bin/nuxt.mjs prepare"
 	},
 	"devDependencies": {
-		"@iconify-json/line-md": "^1.2.16",
-		"@iconify-json/uil": "^1.2.3",
 		"@nuxt/devtools": "^3.4.0",
 		"@types/node": "^22.20.1",
 		"nuxt": "^3.21.10",
 		"sass": "^1.102.0"
 	},
 	"dependencies": {
-		"@fortawesome/fontawesome-svg-core": "6.5.0",
-		"@fortawesome/free-brands-svg-icons": "5.15.4",
-		"@fortawesome/free-regular-svg-icons": "5.15.4",
-		"@fortawesome/free-solid-svg-icons": "5.15.4",
-		"@fortawesome/vue-fontawesome": "^3.3.3",
-		"@nuxt/icon": "^1.15.0",
 		"@nuxtjs/tailwindcss": "^6.14.0",
-		"@pinia-plugin-persistedstate/nuxt": "^1.2.1",
 		"@pinia/nuxt": "^0.11.3",
 		"@vueuse/core": "^14.4.0",
 		"@vueuse/nuxt": "^14.4.0",

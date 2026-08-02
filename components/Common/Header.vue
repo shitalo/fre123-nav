@@ -25,33 +25,33 @@
 				v-show="showSearch"
 				class="flex-grow hidden md:flex items-center justify-center cursor-pointer"
 			>
-				<IndexSearch> </IndexSearch>
+				<LazyIndexSearch />
 			</div>
 			<div class="cursor-pointer hidden md:flex basis-1/3 items-center justify-end">
-				<div v-if="headerConfig.right.is_show" class="flex justify-end flex-grow relative">
+				<div v-if="headerRightConfig.is_show" class="flex justify-end flex-grow relative">
 					<div
 						class="px-3 flex items-center justify-end header-transition md:text-[16px] text-[#333333] p-2"
 						@mouseover="showCategory(true)"
 						@mouseout="showCategory(false)"
 					>
 						<a
-							v-if="headerConfig.right?.group?.name"
-							:href="headerConfig.right?.group?.url"
+							v-if="headerRightConfig?.group?.name"
+							:href="headerRightConfig?.group?.url"
 							target="_blank"
 							class="px-3 bg-opacity-50 transition-bg-hover-200 cursor-pointer"
-							>{{ headerConfig.right?.group?.name }}</a
+							>{{ headerRightConfig?.group?.name }}</a
 						>
 						<div
 							v-if="
-								headerConfig.right?.group?.children &&
-								headerConfig.right?.group?.children.length > 0
+								headerRightConfig?.group?.children &&
+								headerRightConfig?.group?.children.length > 0
 							"
 							class="absolute transition-all text-[16px] bottom-[-120px] bg-white rounded-md shadow-lg"
 							:class="`${isShow ? ' opacity-100' : 'opacity-0'}`"
 						>
 							<ul class="">
 								<li
-									v-for="item in headerConfig.right?.group?.children"
+									v-for="item in headerRightConfig?.group?.children"
 									class="px-3 transition-bg-hover-200 cursor-pointer"
 								>
 									<a :href="item.url" target="_blank">{{ item.name }}</a>
@@ -66,10 +66,9 @@
 </template>
 
 <script setup lang="ts">
-import { CONFIG_KEY_BASE, CONFIG_KEY_HERDER, getConfigItem } from '~/stores/config'
+import { baseConfig, headerRightConfig } from '~/config/website'
 const { getGithubAssetUrl } = useGithubAsset()
-const baseInfo = getConfigItem(CONFIG_KEY_BASE)
-const headerConfig = getConfigItem(CONFIG_KEY_HERDER)
+const baseInfo = baseConfig
 
 withDefaults(
 	defineProps<{

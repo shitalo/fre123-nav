@@ -16,13 +16,13 @@
 			</div>
 			<!-- Left -->
 
-			<div v-if="footerConfig.right.is_show" class="flex-grow"></div>
+			<div v-if="footerRightConfig.is_show" class="flex-grow"></div>
 			<!-- Right -->
 			<div
-				v-if="footerConfig.right.is_show && footerConfig.right.list.length > 0"
+				v-if="footerRightConfig.is_show && footerRightConfig.list.length > 0"
 				class="flex text-[20px] text-black"
 			>
-				<a v-for="item in footerConfig.right.list" :href="item.url" target="_blank" class="pr-6">
+				<a v-for="item in footerRightConfig.list" :href="item.url" target="_blank" class="pr-6">
 					<IconsFontAwesome
 						:size="item.icon_size"
 						class="hover:text-[#0d6efd]"
@@ -35,9 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { CONFIG_KEY_FOOTER, getConfigItem } from '~/stores/config'
-
-const footerConfig = getConfigItem(CONFIG_KEY_FOOTER)
+import { footerRightConfig } from '~/config/website'
 </script>
 
 <style scoped></style>

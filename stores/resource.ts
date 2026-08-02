@@ -1,104 +1,267 @@
-import resourceConfig from '~/config/resource.json'
+import type {
+	IResourceSearchItem,
+	IResourceSearchPayload,
+	IResourceSearchType,
+} from '~/interface/resource'
+import { DEFAULT_RESOURCE_SEARCH_TYPE } from '~/utils/static-data-builder'
 
-const useResourceStore = defineStore(
-	'fre123_search',
-	() => {
-		const searchOrder = ref<Record<string, string[]>>({})
+const RESOURCE_STORAGE_KEY = 'fre123_search'
+const DEFAULT_RESOURCE_TYPE = DEFAULT_RESOURCE_SEARCH_TYPE
 
-		const selectedResourceType = ref('search')
-		const selectedResource = ref()
+type ResourceSearchOrderMap = Record<string, string[]>
+type ResourceListMap = Record<string, IResourceSearchItem[]>
 
-		const getSearchOrder = () => {
-			return searchOrder
+type PersistedResourceState = {
+	searchOrder?: ResourceSearchOrderMap
+	selectedResourceType?: string
+	selectedResource?: string
+}
+
+const readPersistedResourceState = (): PersistedResourceState | null => {
+	if (!import.meta.client) {
+		return null
+	}
+
+	try {
+		const rawState = window.localStorage.getItem(RESOURCE_STORAGE_KEY)
+		if (!rawState) {
+			return null
 		}
 
-		const setSearchOrder = (resourceType: string, resourceList: string[]) => {
-			searchOrder.value[resourceType] = resourceList
+		const parsedState = JSON.parse(rawState) as PersistedResourceState
+		return parsedState && typeof parsedState === 'object' ? parsedState : null
+	} catch {
+		return null
+	}
+}
+
+const normalizeSearchOrder = (input: unknown): ResourceSearchOrderMap => {
+	if (!input || typeof input !== 'object') {
+		return {}
+	}
+
+	return Object.entries(input).reduce<ResourceSearchOrderMap>((result, [key, value]) => {
+		if (!Array.isArray(value)) {
+			return result
 		}
 
-		const setSelectedResourceType = (resourceType: string) => {
-			selectedResourceType.value = resourceType
+		const normalizedValue = value.filter((item): item is string => {
+			return typeof item === 'string' && item.length > 0
+		})
+
+		if (normalizedValue.length > 0) {
+			result[key] = normalizedValue
 		}
 
-		const setSelectedResource = (resource: string) => {
-			selectedResource.value = resource
+		return result
+	}, {})
+}
+
+const writePersistedResourceState = (state: PersistedResourceState) => {
+	if (!import.meta.client) {
+		return
+	}
+
+	window.localStorage.setItem(RESOURCE_STORAGE_KEY, JSON.stringify(state))
+}
+
+const fetchStaticJson = async <T>(url: string): Promise<T> => {
+	const response = await fetch(url, {
+		headers: {
+			accept: 'application/json',
+		},
+	})
+
+	if (!response.ok) {
+		throw new Error(`Failed to load static json: ${response.status} ${response.statusText}`)
+	}
+
+	return (await response.json()) as T
+}
+
+const useResourceStore = defineStore('fre123_search', () => {
+	const searchOrder = ref<ResourceSearchOrderMap>({})
+	const selectedResourceType = ref(DEFAULT_RESOURCE_TYPE)
+	const selectedResource = ref<string>()
+	const hasHydratedFromStorage = ref(false)
+	const resourceTypeList = ref<IResourceSearchType[]>([])
+	const resourceListMap = ref<ResourceListMap>({})
+	const hasLoadedRemoteData = ref(false)
+	const isLoadingRemoteData = ref(false)
+
+	const persistState = () => {
+		if (!import.meta.client || !hasHydratedFromStorage.value) {
+			return
 		}
 
-		// 获取资源列表
-		const getResourceList = (
-			resourceType: string,
-			withOptions: boolean = false,
-			isOriginal: boolean = false,
-		) => {
-			let resourceList = resourceConfig[resourceType].list ?? []
-			// 无效资源类型，返回 404
-			if (!resourceList) {
-				navigateTo('/404')
+		writePersistedResourceState({
+			searchOrder: searchOrder.value,
+			selectedResourceType: selectedResourceType.value,
+			selectedResource: selectedResource.value,
+		})
+	}
+
+	const hydrateFromStorage = () => {
+		if (!import.meta.client || hasHydratedFromStorage.value) {
+			return
+		}
+
+		const persistedState = readPersistedResourceState()
+		if (persistedState) {
+			searchOrder.value = normalizeSearchOrder(persistedState.searchOrder)
+
+			if (typeof persistedState.selectedResourceType === 'string' && persistedState.selectedResourceType) {
+				selectedResourceType.value = persistedState.selectedResourceType
 			}
 
-			resourceList = resourceList.filter((element) => element.is_show)
+			if (typeof persistedState.selectedResource === 'string' && persistedState.selectedResource) {
+				selectedResource.value = persistedState.selectedResource
+			}
+		}
 
-			if (!withOptions) {
-				return isOriginal ? resourceList : formatResourceList(resourceType, resourceList)
+		hasHydratedFromStorage.value = true
+		persistState()
+	}
+
+	const getSearchOrder = () => {
+		return searchOrder
+	}
+
+	const normalizeResourceType = (resourceType?: string) => {
+		if (typeof resourceType === 'string' && resourceType.length > 0) {
+			return resourceType
+		}
+
+		if (selectedResourceType.value) {
+			return selectedResourceType.value
+		}
+
+		return DEFAULT_RESOURCE_TYPE
+	}
+
+	const applyRemotePayload = (payload: IResourceSearchPayload) => {
+		resourceTypeList.value = payload.resourceTypes
+		resourceListMap.value[payload.resourceType.key] = payload.resources
+		hasLoadedRemoteData.value = true
+
+		const hasCurrentResourceType = payload.resourceTypes.some((item) => {
+			return item.key === selectedResourceType.value
+		})
+
+		if (!hasCurrentResourceType) {
+			selectedResourceType.value = payload.resourceType.key
+		}
+	}
+
+	const ensureRemoteResourceData = async (resourceType?: string, force: boolean = false) => {
+		const { getResourceSearchStaticDataUrl } = useStaticDataPath()
+		const targetResourceType = normalizeResourceType(resourceType)
+
+		if (!force && resourceListMap.value[targetResourceType]?.length) {
+			return targetResourceType
+		}
+
+		isLoadingRemoteData.value = true
+
+		try {
+			let payload: IResourceSearchPayload
+
+			try {
+				payload = await fetchStaticJson<IResourceSearchPayload>(
+					getResourceSearchStaticDataUrl(targetResourceType),
+				)
+			} catch (error) {
+				if (targetResourceType === DEFAULT_RESOURCE_TYPE) {
+					throw error
+				}
+
+				payload = await fetchStaticJson<IResourceSearchPayload>(
+					getResourceSearchStaticDataUrl(DEFAULT_RESOURCE_TYPE),
+				)
 			}
 
+			applyRemotePayload(payload)
+			return payload.resourceType.key
+		} finally {
+			isLoadingRemoteData.value = false
+		}
+	}
+
+	const setSearchOrder = (resourceType: string, resourceList: string[]) => {
+		searchOrder.value[resourceType] = resourceList
+		persistState()
+	}
+
+	const setSelectedResourceType = (resourceType: string) => {
+		selectedResourceType.value = resourceType
+		persistState()
+	}
+
+	const setSelectedResource = (resource: string) => {
+		selectedResource.value = resource
+		persistState()
+	}
+
+	const getResourceList = (
+		resourceType: string,
+		withOptions: boolean = false,
+		isOriginal: boolean = false,
+	) => {
+		const resourceList = resourceListMap.value[resourceType] ?? []
+
+		if (!withOptions) {
 			return isOriginal ? resourceList : formatResourceList(resourceType, resourceList)
 		}
 
-		// 获取资源类型列表
-		const getResourceTypeList = () => {
-			let list: any[] = []
-			for (const [k, item] of Object.entries(resourceConfig)) {
-				if (item.is_show) {
-					list.push({
-						key: k,
-						name: item.name,
-					})
+		return isOriginal ? resourceList : formatResourceList(resourceType, resourceList)
+	}
+
+	const getResourceTypeList = () => {
+		return resourceTypeList.value
+	}
+
+	const formatResourceList = (resourceType: string, resourceList: IResourceSearchItem[]) => {
+		if (!resourceList || resourceList.length === 0) {
+			return []
+		}
+
+		const customSearchOrder = searchOrder.value[resourceType] ?? []
+		if (customSearchOrder.length === 0) {
+			return resourceList
+		}
+
+		const remainingList = [...resourceList]
+		let resultList: IResourceSearchItem[] = []
+
+		customSearchOrder.forEach((name) => {
+			remainingList.forEach((element, index) => {
+				if (name === element.name) {
+					resultList.push(element)
+					remainingList.splice(index, 1)
 				}
-			}
-			return list
-		}
-
-		const formatResourceList = (resourceType: string, resourceList: any[]) => {
-			if (!resourceList || resourceList.length == 0) {
-				return []
-			}
-
-			const resourceConfig = searchOrder.value[resourceType] ?? []
-			// 如果没有自定义设置，按照默认顺序返回
-			if (resourceConfig.length === 0) {
-				return resourceList
-			}
-
-			let resultList: any[] = []
-			resourceConfig.forEach((name) => {
-				resourceList.forEach((element, i) => {
-					if (name == element.name) {
-						resultList.push(element)
-						resourceList.splice(i, 1) //使用splice删除元素
-					}
-				})
 			})
-			resultList = resultList.concat(resourceList)
-			return resultList
-		}
+		})
 
-		return {
-			searchOrder,
-			selectedResourceType,
-			selectedResource,
-			getResourceList,
-			getResourceTypeList,
-			setSearchOrder,
-			getSearchOrder,
-			setSelectedResourceType,
-			setSelectedResource,
-		}
-	},
-	{
-		// 持久化
-		persist: true,
-	},
-)
+		resultList = resultList.concat(remainingList)
+		return resultList
+	}
+
+	return {
+		searchOrder,
+		selectedResourceType,
+		selectedResource,
+		hasHydratedFromStorage,
+		hasLoadedRemoteData,
+		isLoadingRemoteData,
+		hydrateFromStorage,
+		ensureRemoteResourceData,
+		getResourceList,
+		getResourceTypeList,
+		setSearchOrder,
+		getSearchOrder,
+		setSelectedResourceType,
+		setSelectedResource,
+	}
+})
 
 export default useResourceStore

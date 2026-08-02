@@ -1,4 +1,4 @@
-{
+const resourceConfig = {
 	"search": {
 		"name": "综合",
 		"is_show": true,
@@ -221,7 +221,6 @@
 			}
 		]
 	},
-
 	"ebook": {
 		"name": "书籍",
 		"is_show": false,
@@ -366,4 +365,6 @@
 			}
 		]
 	}
-}
+} as const
+
+export default resourceConfig

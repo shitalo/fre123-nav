@@ -386,6 +386,7 @@ const probeGithubAssetSources = async (onFirstAvailable?: (sourceKey: GithubAsse
 }
 
 export const useGithubAsset = () => {
+	const { resolveAppAssetPath } = useAppAssetPath()
 	const preferredSource = useState<GithubAssetSourceKey>('github-asset-source', () => {
 		return DEFAULT_GITHUB_ASSET_SOURCE
 	})
@@ -400,7 +401,7 @@ export const useGithubAsset = () => {
 	const getGithubAssetUrl = (input: string) => {
 		const localUrl = getLocalGithubAssetUrl(input)
 		if (localUrl) {
-			return localUrl
+			return resolveAppAssetPath(localUrl)
 		}
 
 		const preferredUrl = buildGithubAssetUrlWithSource(input, preferredSource.value)

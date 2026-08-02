@@ -1,18 +1,16 @@
 <template>
-	<div v-if="resolvedIcon">
-		<FontAwesomeIcon :icon="resolvedIcon" :style="{ 'font-size': `${size}px` }" />
-	</div>
+	<svg
+		v-if="resolvedIcon"
+		:viewBox="resolvedIcon.viewBox"
+		:width="size"
+		:height="size"
+		aria-hidden="true"
+		fill="currentColor"
+	>
+		<path :d="resolvedIcon.path" />
+	</svg>
 </template>
 <script setup lang="ts">
-import { config } from '@fortawesome/fontawesome-svg-core'
-import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons'
-import { faArrowUp, faBlog, faCommentDots, faQrcode } from '@fortawesome/free-solid-svg-icons'
-import type { IconProp } from '@fortawesome/fontawesome-svg-core'
-
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-config.autoAddCss = false
-
 const props = defineProps({
 	icon: {
 		type: String,
@@ -26,12 +24,32 @@ const props = defineProps({
 	},
 })
 
-const ICON_MAP: Record<string, IconProp> = {
-	'fas fa-comment-dots': faCommentDots,
-	'fab fa-telegram-plane': faTelegramPlane,
-	'fas fa-blog': faBlog,
-	'fas fa-qrcode': faQrcode,
-	'fas fa-arrow-up': faArrowUp,
+type InlineIconDefinition = {
+	viewBox: string
+	path: string
+}
+
+const ICON_MAP: Record<string, InlineIconDefinition> = {
+	'fas fa-comment-dots': {
+		viewBox: '0 0 512 512',
+		path: 'M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zM128 272c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z',
+	},
+	'fab fa-telegram-plane': {
+		viewBox: '0 0 448 512',
+		path: 'M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z',
+	},
+	'fas fa-blog': {
+		viewBox: '0 0 512 512',
+		path: 'M172.2 226.8c-14.6-2.9-28.2 8.9-28.2 23.8V301c0 10.2 7.1 18.4 16.7 22 18.2 6.8 31.3 24.4 31.3 45 0 26.5-21.5 48-48 48s-48-21.5-48-48V120c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24v248c0 89.5 82.1 160.2 175 140.7 54.4-11.4 98.3-55.4 109.7-109.7 17.4-82.9-37-157.2-112.5-172.2zM209 0c-9.2-.5-17 6.8-17 16v31.6c0 8.5 6.6 15.5 15 15.9 129.4 7 233.4 112 240.9 241.5.5 8.4 7.5 15 15.9 15h32.1c9.2 0 16.5-7.8 16-17C503.4 139.8 372.2 8.6 209 0zm.3 96c-9.3-.7-17.3 6.7-17.3 16.1v32.1c0 8.4 6.5 15.3 14.8 15.9 76.8 6.3 138 68.2 144.9 145.2.8 8.3 7.6 14.7 15.9 14.7h32.2c9.3 0 16.8-8 16.1-17.3-8.4-110.1-96.5-198.2-206.6-206.7z',
+	},
+	'fas fa-qrcode': {
+		viewBox: '0 0 448 512',
+		path: 'M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z',
+	},
+	'fas fa-arrow-up': {
+		viewBox: '0 0 448 512',
+		path: 'M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z',
+	},
 }
 
 const resolvedIcon = computed(() => ICON_MAP[props.icon] ?? null)

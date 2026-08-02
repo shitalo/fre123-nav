@@ -8,6 +8,35 @@
 	</div>
 </template>
 <script setup lang="ts">
-const { data: navList } = await useFetch('/api/nav-list')
+const { getNavListStaticDataUrl } = useStaticDataPath()
+
+const loadNavList = async () => {
+	if (import.meta.server) {
+		const [{ default: navConfig }, { buildHomeNavList }] = await Promise.all([
+			import('~/config/nav'),
+			import('~/utils/static-data-builder'),
+		])
+		return buildHomeNavList(navConfig)
+	}
+
+	const response = await fetch(getNavListStaticDataUrl(), {
+		headers: {
+			accept: 'application/json',
+		},
+	})
+
+	if (!response.ok) {
+		throw createError({
+			statusCode: response.status,
+			statusMessage: `Failed to load nav list: ${response.statusText}`,
+		})
+	}
+
+	return await response.json()
+}
+
+const { data: navList } = await useAsyncData('static-nav-list', loadNavList, {
+	default: () => [],
+})
 </script>
 <style></style>

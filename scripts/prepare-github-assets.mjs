@@ -1,9 +1,15 @@
 import { promises as fs } from 'node:fs'
 import crypto from 'node:crypto'
 import path from 'node:path'
+import { createJiti } from 'jiti'
 
 const PROJECT_ROOT = process.cwd()
 const CONFIG_DIR = path.join(PROJECT_ROOT, 'config')
+const CONFIG_MODULE_FILE_LIST = [
+	path.join(CONFIG_DIR, 'nav.ts'),
+	path.join(CONFIG_DIR, 'resource.ts'),
+	path.join(CONFIG_DIR, 'website.ts'),
+]
 const PUBLIC_GITHUB_ASSET_DIR = path.join(PROJECT_ROOT, 'public', 'github-assets')
 const GENERATED_FAILURE_FILE = path.join(PROJECT_ROOT, 'config', 'github-asset-local-failures.generated.ts')
 const GENERATED_MIRROR_MANIFEST_FILE = path.join(PROJECT_ROOT, 'config', 'github-asset-local-manifest.generated.json')
@@ -11,6 +17,10 @@ const DOWNLOAD_CONCURRENCY = 8
 const DOWNLOAD_MAX_RETRIES = 2
 const DOWNLOAD_RETRY_BASE_DELAY_MS = 500
 const MIRROR_MANIFEST_VERSION = 1
+const jiti = createJiti(import.meta.url, {
+	moduleCache: false,
+	fsCache: false,
+})
 
 const IMAGE_EXTENSION_SET = new Set([
 	'.apng',
@@ -191,19 +201,12 @@ const collectStringValues = (input, result = []) => {
 	return result
 }
 
-const getConfigJsonFiles = async (directoryPath) => {
-	const entries = await fs.readdir(directoryPath, { withFileTypes: true })
+const getConfigModuleFiles = async () => {
 	const fileList = []
 
-	for (const entry of entries) {
-		const fullPath = path.join(directoryPath, entry.name)
-		if (entry.isDirectory()) {
-			fileList.push(...(await getConfigJsonFiles(fullPath)))
-			continue
-		}
-
-		if (entry.isFile() && entry.name.endsWith('.json') && !entry.name.endsWith('.generated.json')) {
-			fileList.push(fullPath)
+	for (const configFilePath of CONFIG_MODULE_FILE_LIST) {
+		if (await fileExists(configFilePath)) {
+			fileList.push(configFilePath)
 		}
 	}
 
@@ -251,15 +254,19 @@ const buildDomainSummaryList = (resultList) => {
 		})
 }
 
+const loadConfigModuleValue = async (configFilePath) => {
+	const moduleValue = await jiti.import(configFilePath, { default: true })
+	return moduleValue?.default ?? moduleValue
+}
+
 const collectRemoteImageUrlsFromConfig = async () => {
-	const configFileList = await getConfigJsonFiles(CONFIG_DIR)
+	const configFileList = await getConfigModuleFiles()
 	const remoteImageUrlSet = new Set()
 	const fileSummaries = []
 
 	for (const configFilePath of configFileList.sort()) {
-		const fileContent = await fs.readFile(configFilePath, 'utf8')
-		const jsonContent = JSON.parse(fileContent)
-		const stringValues = collectStringValues(jsonContent)
+		const configContent = await loadConfigModuleValue(configFilePath)
+		const stringValues = collectStringValues(configContent)
 		const fileRemoteImageUrlSet = new Set()
 
 		for (const value of stringValues) {

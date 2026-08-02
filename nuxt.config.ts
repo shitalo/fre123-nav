@@ -6,16 +6,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/tailwindcss',
 		'@pinia/nuxt',
 		'@vueuse/nuxt',
-		'@nuxt/icon',
-		'@pinia-plugin-persistedstate/nuxt',
 	],
-	icon: {
-		provider: 'none',
-		serverBundle: false,
-		clientBundle: {
-			icons: ['uil:search', 'uil:arrow-circle-right', 'line-md:loading-twotone-loop'],
-		},
-	},
 	pinia: {
 		autoImports: ['defineStore', 'storeToRefs'],
 	},
@@ -27,21 +18,21 @@ export default defineNuxtConfig({
 			link: [
 				// https://www.svgrepo.com/svg/500018/light
 				// 基础 favicon
-				{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+				{ rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
 
 				// 标准尺寸
-				{ rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-				{ rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+				{ rel: 'icon', type: 'image/png', sizes: '16x16', href: 'favicon-16x16.png' },
+				{ rel: 'icon', type: 'image/png', sizes: '32x32', href: 'favicon-32x32.png' },
 
 				// Apple 设备
-				{ rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+				{ rel: 'apple-touch-icon', sizes: '180x180', href: 'apple-touch-icon.png' },
 
 				// Android 设备
-				{ rel: 'icon', type: 'image/png', sizes: '192x192', href: '/web-app-manifest-192x192.png' },
-				{ rel: 'icon', type: 'image/png', sizes: '512x512', href: '/web-app-manifest-512x512.png' },
+				{ rel: 'icon', type: 'image/png', sizes: '192x192', href: 'web-app-manifest-192x192.png' },
+				{ rel: 'icon', type: 'image/png', sizes: '512x512', href: 'web-app-manifest-512x512.png' },
 
 				// Web App Manifest
-				{ rel: 'manifest', href: '/site.webmanifest' }
+				{ rel: 'manifest', href: 'site.webmanifest' }
 			],
 			meta: [
 				{
@@ -56,10 +47,18 @@ export default defineNuxtConfig({
 				},
 			],
 		},
-		buildAssetsDir: '/fre/',
+	},
+	nitro: {
+		compatibilityDate: '2026-08-02',
 	},
 
 	vite: {
+		resolve: {
+			alias: {
+				// Nuxt 3.21 + Vite 7 在 dev 预转换阶段偶发漏掉内置 alias，这里显式兜底。
+				'#app-manifest': path.resolve(__dirname, 'node_modules', 'mocked-exports', 'lib', 'empty.mjs'),
+			},
+		},
 		// 预处理，全局可用
 		css: {
 			preprocessorOptions: {
@@ -73,23 +72,15 @@ export default defineNuxtConfig({
 		},
 	},
 	experimental: {
+		appManifest: false,
+		checkOutdatedBuildInterval: false,
 		writeEarlyHints: false,
 		inlineSSRStyles: false,
 	},
 	css: [
 		'~/assets/global.scss',
 		'~/assets/tailwind.css',
-		'@fortawesome/fontawesome-svg-core/styles.css',
 	],
-	build: {
-		transpile: [
-			'@fortawesome/vue-fontawesome',
-			'@fortawesome/fontawesome-svg-core',
-			'@fortawesome/pro-solid-svg-icons',
-			'@fortawesome/pro-regular-svg-icons',
-			'@fortawesome/free-brands-svg-icons',
-		],
-	},
 
 	devtools: { enabled: process.env.NODE_ENV === 'development' ? true : false },
 })

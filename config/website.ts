@@ -1,0 +1,108 @@
+export const baseConfig = {
+	app_name: '一个导航',
+	web_host: 'https://nav.javajun.com',
+	logo: 'logo.png',
+} as const
+
+export const seoConfig = {
+	title: '一个导航站',
+	description: '专注于为提供各种免费优质资源，包括影视资源、动漫番剧、软件工具等',
+	keywords: '免费资源, 优质资源, 资源聚合, 在线资源, 影视资源, 动漫番剧, 软件工具, 网盘资源',
+	icon: 'favicon.ico',
+} as const
+
+export const headerSearchConfig = {
+	is_show: true,
+	list: [
+		{
+			name: '百度',
+			url: 'https://www.baidu.com/s?wd=',
+			icon: 'https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/a363887c388ee2df111812949416bf5cee638e.png',
+			placeholder: '百度一下，你就知道',
+		},
+		{
+			name: '谷歌',
+			url: 'https://www.google.com/search?q=',
+			icon: 'https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/01b5f6a4c7fb4087f3027566e16fcfc47a6836.png',
+			placeholder: '请输入您要搜索的内容...',
+		},
+		{
+			name: '必应',
+			url: 'https://cn.bing.com/search?q=',
+			icon: 'https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/4500ea05070e225ff8b42cb0d2a5af7708cfb0.png',
+			placeholder: '请输入您要搜索的内容...',
+		},
+	],
+} as const
+
+export const headerRightConfig = {
+	is_show: false,
+	group: {
+		name: '热点榜单',
+		url: 'https://www.fre123.com/news',
+		children: [
+			{
+				name: '新闻热榜',
+				url: 'https://www.fre123.com/news',
+			},
+			{
+				name: '技术热榜',
+				url: 'https://www.fre123.com/tech',
+			},
+			{
+				name: '技术周刊',
+				url: 'https://www.fre123.com/weekly',
+			},
+		],
+	},
+} as const
+
+export const headerConfig = {
+	search: headerSearchConfig,
+	right: headerRightConfig,
+} as const
+
+export const pendantConfig = {
+	is_show: true,
+	list: [],
+} as const
+
+export const footerRightConfig = {
+	is_show: false,
+	list: [
+		{
+			icon_class: 'fas fa-comment-dots',
+			icon_size: 20,
+			url: 'https://github.com/fre123-com',
+		},
+		{
+			icon_class: 'fab fa-telegram-plane',
+			icon_size: 20,
+			url: 'https://t.me/howie_weekly',
+		},
+		{
+			icon_class: 'fas fa-blog',
+			icon_size: 20,
+			url: 'https://www.fre123.com/weekly',
+		},
+		{
+			icon_class: 'fas fa-qrcode',
+			icon_size: 20,
+			url: 'https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/02/558a037200fe372d067c4111f886c03508211c.jpeg',
+		},
+	],
+} as const
+
+export const footerConfig = {
+	right: footerRightConfig,
+} as const
+
+const websiteConfig = {
+	base: baseConfig,
+	seo: seoConfig,
+	header: headerConfig,
+	pendant: pendantConfig,
+	footer: footerConfig,
+} as const
+
+export default websiteConfig

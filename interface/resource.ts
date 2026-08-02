@@ -31,3 +31,21 @@ export interface IOptionItem {
 	top: number
 	width: number
 }
+
+export interface IResourceSearchType {
+	key: string
+	name: string
+}
+
+export interface IResourceSearchItem {
+	name: string
+	url: string
+	icon: string
+}
+
+export interface IResourceSearchPayload {
+	defaultResourceType: string
+	resourceType: IResourceSearchType
+	resourceTypes: IResourceSearchType[]
+	resources: IResourceSearchItem[]
+}

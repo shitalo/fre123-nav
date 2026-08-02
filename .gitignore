@@ -8,6 +8,7 @@ node_modules/
 .cache/
 dist/
 public/github-assets/
+public/static-data/
 config/github-asset-local-failures.generated.ts
 config/github-asset-local-manifest.generated.json
 
