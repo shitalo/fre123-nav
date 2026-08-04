@@ -57,7 +57,7 @@
 				:content="item.description"
 				:nowrap="true"
 				:element-id="`desc-${idx}-${t}`"
-				class="mb-[10px]"
+				class="mb-[10px] min-w-0"
 				:class="` ${showNumber <= t ? 'hidden' : ''}`"
 			>
 				<a
@@ -298,6 +298,7 @@ onMounted(async () => {
 .index-nav-group-content-item {
 	display: flex;
 	box-sizing: border-box;
+	min-width: 0;
 	color: #434343;
 	text-decoration: none;
 	transition-property: transform, background-color;
@@ -336,6 +337,7 @@ onMounted(async () => {
 .index-nav-group-content-item-main {
 	margin-left: 10px;
 	flex: 1;
+	min-width: 0;
 	/* background-color: #40a6ff0f; */
 	overflow: hidden;
 	white-space: nowrap;
@@ -354,17 +356,12 @@ onMounted(async () => {
 .index-nav-group-content-item-desc {
 	font-size: 12px;
 	height: 16px;
+	line-height: 16px;
 	color: #7f7e7e;
 	/* background-color: #f951ff24; */
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-}
-
-.index-nav-group-content-item-desc:hover {
-	display: block;
-	white-space: normal;
-	overflow: visible;
-	-webkit-line-clamp: initial;
+	pointer-events: none;
 }
 </style>
