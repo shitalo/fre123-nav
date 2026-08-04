@@ -18,7 +18,7 @@ const GITHUB_ASSET_LOCAL_FAILURE_URL_SET = new Set(
 	Object.values(generatedGithubAssetLocalFailureModules)[0] ?? [],
 )
 
-type GithubAssetStatus = 'idle' | 'probing' | 'ready'
+type GithubAssetStatus = 'idle' | 'probing' | 'ready' | 'local'
 
 export type GithubAssetProbeResult = {
 	key: GithubAssetSourceKey
@@ -102,6 +102,8 @@ const JSDELIVR_HOST_SET = new Set(
 )
 
 let githubAssetProbePromise: Promise<GithubAssetSourceKey> | null = null
+let hasGithubAssetProbeDemand = false
+let githubAssetInitQueued = false
 
 const GITHUB_ASSET_SOURCE_KEY_SET = new Set<GithubAssetSourceKey>(
 	GITHUB_ASSET_SOURCE_LIST.map((item) => item.key),
@@ -219,6 +221,10 @@ const parseGithubAssetUrl = (input: string): ParsedGithubAsset | null => {
 	return null
 }
 
+const HAS_GITHUB_ASSET_PROXY_FALLBACK = Array.from(GITHUB_ASSET_LOCAL_FAILURE_URL_SET).some((url) => {
+	return parseGithubAssetUrl(url) !== null
+})
+
 const getNormalizedRemoteImageUrl = (input: string) => {
 	const parsedGithubAsset = parseGithubAssetUrl(input)
 	if (parsedGithubAsset) {
@@ -283,6 +289,19 @@ const getLocalGithubAssetUrl = (input: string) => {
 	}
 
 	return buildLocalGithubAssetPath(normalizedRemoteImageUrl)
+}
+
+const shouldUseGithubAssetProxyFallback = (input: string) => {
+	const normalizedRemoteImageUrl = getNormalizedRemoteImageUrl(input)
+	if (!normalizedRemoteImageUrl) {
+		return false
+	}
+
+	if (!GITHUB_ASSET_LOCAL_FAILURE_URL_SET.has(normalizedRemoteImageUrl)) {
+		return false
+	}
+
+	return parseGithubAssetUrl(normalizedRemoteImageUrl) !== null
 }
 
 const createInitialProbeResults = (): GithubAssetProbeResult[] => {
@@ -404,6 +423,23 @@ export const useGithubAsset = () => {
 			return resolveAppAssetPath(localUrl)
 		}
 
+		if (shouldUseGithubAssetProxyFallback(input)) {
+			hasGithubAssetProbeDemand = true
+
+			if (
+				import.meta.client &&
+				sourceStatus.value !== 'probing' &&
+				sourceStatus.value !== 'ready' &&
+				!githubAssetInitQueued
+			) {
+				githubAssetInitQueued = true
+				queueMicrotask(() => {
+					githubAssetInitQueued = false
+					void initGithubAssetSource()
+				})
+			}
+		}
+
 		const preferredUrl = buildGithubAssetUrlWithSource(input, preferredSource.value)
 		if (preferredUrl) {
 			return preferredUrl
@@ -421,6 +457,12 @@ export const useGithubAsset = () => {
 
 	const initGithubAssetSource = async () => {
 		if (!import.meta.client) {
+			return preferredSource.value
+		}
+
+		if (!HAS_GITHUB_ASSET_PROXY_FALLBACK || !hasGithubAssetProbeDemand) {
+			sourceStatus.value = 'local'
+			sourceResults.value = []
 			return preferredSource.value
 		}
 

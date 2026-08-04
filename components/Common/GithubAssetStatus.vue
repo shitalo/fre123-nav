@@ -1,7 +1,10 @@
 <template>
 	<div class="github-asset-status" aria-live="polite">
 		<span class="github-asset-status-label">GitHub 节点</span>
-		<span v-if="!isHydrated || sourceStatus === 'probing'" class="github-asset-status-loading">
+		<span v-if="sourceStatus === 'local'" class="github-asset-status-local">
+			本地镜像
+		</span>
+		<span v-else-if="!isHydrated || sourceStatus === 'probing'" class="github-asset-status-loading">
 			测速中
 		</span>
 		<template v-else>
@@ -55,6 +58,10 @@ onMounted(() => {
 	padding: 1px 5px;
 	border-radius: 999px;
 	animation: github-asset-status-pulse 1.2s ease-in-out infinite;
+}
+
+.github-asset-status-local {
+	color: #15803d;
 }
 
 .github-asset-source {
