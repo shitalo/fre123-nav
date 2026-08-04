@@ -41,11 +41,16 @@
 				<li
 					v-show="showToTopIcon"
 					id="toTopIcon"
-					class="navbar-icon-style text-slate-200 hover:text-white cursor-pointer"
-					@click="scrollToTop()"
 				>
-					<!-- <IconsToTop></IconsToTop> -->
-					<IconsFontAwesome :size="20" icon="fas fa-arrow-up"></IconsFontAwesome>
+					<button
+						type="button"
+						class="to-top-button"
+						aria-label="返回顶部"
+						title="返回顶部"
+						@click="scrollToTop()"
+					>
+						<IconsFontAwesome :size="18" icon="fas fa-arrow-up"></IconsFontAwesome>
+					</button>
 				</li>
 			</transition>
 		</ul>
@@ -94,8 +99,19 @@ onUnmounted(() => {
 .navbar-icon-style {
 	@apply w-[35px] h-[35px] mb-[5px] leading-[35px] rounded-[4px] bg-[#f8f9fa] text-center shadow-[0_2px_5px_rgba(0,0,0,0.3)] relative;
 }
+
+#navbar-pendant {
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+}
+
 #navbar-pendant > ul {
-	border-bottom: 1px solid rgb(209, 207, 207, 0.25);
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	list-style: none;
 }
 
 // .header-transition {
@@ -122,7 +138,55 @@ onUnmounted(() => {
 // }
 
 #toTopIcon {
-	background-color: #555 !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 35px;
+	height: 35px;
+	margin-bottom: 5px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+}
+
+.to-top-button {
+	appearance: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 35px;
+	height: 35px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: #3f4856;
+	color: #f8fafc;
+	line-height: 1;
+	outline: none;
+	box-shadow: 0 4px 12px rgba(15, 23, 42, 0.24);
+	cursor: pointer;
+	transition:
+		transform 180ms ease,
+		background-color 180ms ease,
+		box-shadow 180ms ease;
+}
+
+.to-top-button:hover {
+	background: #273142;
+	box-shadow: 0 6px 16px rgba(15, 23, 42, 0.3);
+	transform: translateY(-2px);
+}
+
+.to-top-button:active {
+	box-shadow: 0 3px 8px rgba(15, 23, 42, 0.24);
+	transform: translateY(0) scale(0.94);
+}
+
+.to-top-button:focus-visible {
+	box-shadow:
+		0 4px 12px rgba(15, 23, 42, 0.24),
+		0 0 0 3px rgba(59, 130, 246, 0.35);
 }
 
 .hover-p {
