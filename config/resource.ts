@@ -34,12 +34,6 @@ const resourceConfig = {
 				"is_show": false
 			},
 			{
-				"name": "devv.ai",
-				"url": "https://devv.ai/zh/search/{keyword}",
-				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/e8137853e5b28bba4dc6f666c0f37c74fadc07.png",
-				"is_show": true
-			},
-			{
 				"name": "yandex",
 				"url": "https://yandex.com/search/?text={keyword}",
 				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/5135e01dd9522c92fd053b413360332fdec861.vnd.microsoft.icon",

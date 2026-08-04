@@ -244,50 +244,18 @@ const navConfig = [
 						"is_show": true
 					},
 					{
-						"title": "狸猫盘搜",
-						"url": "https://alipansou.com/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/efe1440a4d01879c9399cb159571fff0ee1f2a.png",
-						"description": "猫狸云,阿里盘搜,最好用的阿里云盘资源搜索站,每天更新海量资源,失效资源实时删除",
+						"title": "混合盘搜索",
+						"url": "https://hunhepan.com/search",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/04/8ed76a4667bf5bb834a1836486cefdd71e8844.svg",
+						"description": "聚合检索百度、夸克、阿里、迅雷、UC 等网盘资源",
 						"suffix": false,
 						"is_show": true
 					},
 					{
-						"title": "PanSearch",
-						"url": "https://www.pansearch.me/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/c2b79073aa9d7ba7ccd302c49f916f234ddfae.png",
-						"description": "网盘资源搜索",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "趣盘搜",
-						"url": "https://pan.funletu.com/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/851399a1fca4b959766a1030b4f6bec2f98a24.png",
-						"description": "专注夸克网盘资源搜索！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "学霸盘",
-						"url": "https://www.xuebapan.com/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/596c7e6a913e10076381b1a278b3af40b12608.png",
-						"description": "学霸盘是百度网盘资源搜索引擎，提供抖音,短视频,课程,考研,PPT模板,电子书,会计,计算机等热门资源，实时检查无效资源，帮您更快捷的获取网盘资源下载信息。",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "咔帕搜索",
-						"url": "https://www.cuppaso.com/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/66d4f6e02f0d75f97778c66e4e559b71f3e26a.png",
-						"description": "专注于收录全网综合盘资源，包括：影视资源、音乐资源、图片资源、电子书资源、软件资源、小说资源等等",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "热盘搜",
-						"url": "http://www.repanso.com/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/427aece7bde40416dec98aefaa4af92f3bca25.png",
-						"description": "百度云网盘搜索引擎，为你提供免费的网盘云搜索服务。",
+						"title": "夸克搜",
+						"url": "https://kkso.net",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/04/4f03015f6fc681424cbd5372df76b8baa2a97e.png",
+						"description": "kk网盘搜是100万人在用的夸克网盘资源搜索引擎，收录海量考研/考公/考级学习资料、幼小初高辅导资料、付费网课、软件工具、电子书籍、编程教程、考试题库、蓝光高清影片资源、动漫综艺、无损音乐、复习资料、图片素材与热门游戏资源，更新快、资源全、免费无广告，轻松找到你想要的网盘资源",
 						"suffix": false,
 						"is_show": true
 					},
@@ -340,60 +308,14 @@ const navConfig = [
 				]
 			},
 			{
-				"tab_name": "移动云盘",
-				"upper_right_corner": {},
-				"details": [
-					{
-						"title": "彼心",
-						"url": "https://www.bixbiy.com",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/11/24/5cb8da420d43fdd37f625882ca36082f7abf24.png",
-						"description": "彼心—移动云盘资源分享论坛",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "盘他",
-						"url": "https://www.91panta.com",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/11/24/952d91deb8878d94dd90a072d4c354ca882cd6.ico",
-						"description": "移动云盘小站论坛 移动云盘资源站",
-						"suffix": false,
-						"is_show": true
-					}
-				]
-			},
-			{
 				"tab_name": "百度网盘",
 				"upper_right_corner": {},
 				"details": [
-					{
-						"title": "热盘搜",
-						"url": "http://www.repanso.com/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/427aece7bde40416dec98aefaa4af92fe3ddff.png",
-						"description": "百度云网盘搜索引擎，为你提供免费的网盘云搜索服务。",
-						"suffix": false,
-						"is_show": true
-					},
 					{
 						"title": "fastsoso",
 						"url": "https://www.fastsoso.cn/",
 						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/396fd132ee11de355c0404a9b6d4b6e7aeb73f.png",
 						"description": "fastsoso搜索支持百度云搜索，可快速搜索百度网盘资源中的有效连接，自动识别无效的百度云网盘资源，每天更新海量资源。",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "盘么么",
-						"url": "http://www.panmeme.com/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/d69c1b7778607d28f2c3fc5393f37ab6fb5ea2.ico",
-						"description": "盘么么(panmeme.com)是专业的网盘搜索引擎，上亿级的网盘资源下载，最实用的百度云搜索引擎，名副其实的超级网盘搜索神器!，实时收录百度云、百度网盘等资源，每天更新各类高清电影、视频、种子、小说等网盘资源，百度网盘搜索及百度云资源搜索就来盘么么！",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "学霸盘",
-						"url": "https://www.xuebapan.com/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/596c7e6a913e10076381b1a278b3af404c735c.png",
-						"description": "学霸盘是百度网盘资源搜索引擎，提供抖音,短视频,课程,考研,PPT模板,电子书,会计,计算机等热门资源，实时检查无效资源，帮您更快捷的获取网盘资源下载信息。",
 						"suffix": false,
 						"is_show": true
 					}
