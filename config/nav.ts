@@ -17,10 +17,10 @@ const navConfig = [
 						"is_show": true
 					},
 					{
-						"title": "注视影视",
-						"url": "https://gaze.run/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/5149b379f6bfe7e6d88b6a274b0d2930945bbb.png",
-						"description": "在线影视搜索观看网站，颜值鲜艳！",
+						"title": "看片狂人",
+						"url": "https://sway.office.com/I7shpE33Fu3XIxb6",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/06/548338aa6a0375382acacfef9cb070b31c09b4.png",
+						"description": "免费在线看片。永久短链接：https://duande.cc/kp",
 						"suffix": true,
 						"is_show": true
 					},
@@ -49,14 +49,6 @@ const navConfig = [
 						"is_show": true
 					},
 					{
-						"title": "Free OK",
-						"url": "https://www.freeok.vip/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/2adb53f331e1b26c225f2056b463380680b94e.png",
-						"description": "提供最新动漫番剧、电影、电视剧、综艺蓝光资源免费在线观看服务，不卡无广告，每天第一时间更新！",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "鱼塘社影视",
 						"url": "https://tv.yutangshe.com/",
 						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/98b53e4a46d3cd73a981784cbb084b042e2f73.png",
@@ -81,14 +73,6 @@ const navConfig = [
 						"is_show": true
 					},
 					{
-						"title": "看片狂人",
-						"url": "https://www.kpkuang.one/",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/c5966ae6a0071d7611545ded0a63017413db09.vnd.microsoft.icon",
-						"description": "看片狂人是一个为影迷剧迷朋友们建立的可免费在线观看,免费超前点播,下载高清视频资源的网站,每日收集全网最新的电影,电视剧,动漫,综艺,日剧,韩剧,美剧等高清资源供网友免费观看和下载。",
-						"suffix": true,
-						"is_show": true
-					},
-					{
 						"title": "厂长资源",
 						"url": "https://cz01.tv",
 						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/58b40cb23e2d040067e1ca9c2074b3722bced0.jpeg",
@@ -98,20 +82,21 @@ const navConfig = [
 					},
 					{
 						"title": "臭蛋蛋影视",
-						"url": "https://cddys.me/",
+						"url": "https://cddys.vip",
 						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/fc5a94ea472b68faa8c1e9eefbe232b0e2736c.png",
-						"description": "臭蛋蛋影视，影视网站导航",
+						"description": "臭蛋蛋影视网站导航",
 						"suffix": true,
 						"is_show": true
 					},
 					{
-						"title": "549TV",
-						"url": "https://549.tv",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/02/21/2dcf9c8466e0551e583a3cf10c6d2fa3e366e8.png",
-						"description": "影视森林，影视网站导航",
+						"title": "影视宝藏",
+						"url": "https://tv.baozangdh.com",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/06/a60a7da01908ca5187e4eea673debe2b605421.png",
+						"description": "影视导航网站",
 						"suffix": true,
 						"is_show": true
 					}
+
 				]
 			},
 			{
@@ -517,36 +502,6 @@ const navConfig = [
 				]
 			},
 			{
-				"tab_name": "生活导航",
-				"upper_right_corner": {},
-				"details": [
-					{
-						"title": "周大福最新价格",
-						"url": "https://quote.cngold.org/gjs/swhj_zdf.html",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/03/03/6816aa8e5569b92bf71439661d86dd6c6e3b8c.ico",
-						"description": "周大福黄金实时价格及历史数据",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "进口原研药目录",
-						"url": "https://medicine.lvwzhen.com",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/10/18/ec56df2bb6842cd21ef109d0984fa973415dd2.png",
-						"description": "约400种@lvwzhen",
-						"suffix": false,
-						"is_show": true
-					},
-					{
-						"title": "常用原研药目录",
-						"url": "https://medicinex.net",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/10/18/b96739b486a3244f555e13e16196d1b18fd464.png",
-						"description": "约940种@awendujitang",
-						"suffix": false,
-						"is_show": true
-					}
-				]
-			},
-			{
 				"tab_name": "我的工具",
 				"upper_right_corner": {},
 				"details": [
@@ -678,6 +633,73 @@ const navConfig = [
 			}
 		]
 	},
+	{
+		"group_name": "生活资源",
+		"style": 1,
+		"style_des": "标准风格",
+		"tab_list": [
+			{
+				"tab_name": "金融理财",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "全球资产历史收益分析工具",
+						"url": "https://qqq.tools24.uk",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/06/3bc9d69233fba10beae9e88c9a7abdeedf6c39.png",
+						"description": "GlobalAssetHistory 是一个跨资产历史收益查询、市场分析与投资研究站点，覆盖美股、港股、全球股票、数字货币、A 股指数、场内 ETF 和 QDII 基金",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "Finviz 美股市场热力图",
+						"url": "https://finviz.com/map.ashx",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/06/9a0e06dd3f88b7109f9abbbc8faf9fbd942bc3.png",
+						"description": "指数成分股按行业和板块分类，规模代表市值",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "A 股大盘云图",
+						"url": "https://dapanyuntu.com",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/06/707df3eb32d5bd5f0d866f87f68aa4184fcd0e.ico",
+						"description": "大盘云图网站是一款将 A 股全市场数据可视化的热力图工具。以色块矩阵大小的方式直观呈现板块/个股的涨跌、市值、资金流",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "周大福最新价格",
+						"url": "https://quote.cngold.org/gjs/swhj_zdf.html",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/03/03/6816aa8e5569b92bf71439661d86dd6c6e3b8c.ico",
+						"description": "周大福黄金实时价格及历史数据",
+						"suffix": false,
+						"is_show": true
+					},
+				]
+			},
+			{
+				"tab_name": "生活经验",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "进口原研药目录",
+						"url": "https://medicine.lvwzhen.com",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/10/18/ec56df2bb6842cd21ef109d0984fa973415dd2.png",
+						"description": "约400种@lvwzhen",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "常用原研药目录",
+						"url": "https://medicinex.net",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/10/18/b96739b486a3244f555e13e16196d1b18fd464.png",
+						"description": "约940种@awendujitang",
+						"suffix": false,
+						"is_show": true
+					}
+				]
+			}
+		]
+	},	
 	{
 		"group_name": "书籍资源",
 		"style": 1,

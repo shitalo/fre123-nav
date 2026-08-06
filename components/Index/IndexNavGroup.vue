@@ -54,6 +54,7 @@
 		>
 			<StyleTooltip
 				v-for="(item, t) in currentTabData.details"
+				:key="`${currTab}-${t}-${item.url}`"
 				:content="item.description"
 				:nowrap="true"
 				:element-id="`desc-${idx}-${t}`"
@@ -68,7 +69,20 @@
 					@mouseover="showToSourceIcon('show', idx, t)"
 					@mouseout="showToSourceIcon('hide', idx, t)"
 				>
-					<img class="index-nav-group-content-item-icon" :src="getGithubAssetUrl(item.icon)" />
+					<img
+						v-if="item.icon?.trim() && !isIconUnavailable(t)"
+						class="index-nav-group-content-item-icon"
+						:src="getNavIconUrl(item.icon)"
+						:alt="`${item.title} 图标`"
+						@error="handleIconError(t)"
+					/>
+					<span
+						v-else
+						class="index-nav-group-content-item-icon-placeholder"
+						aria-hidden="true"
+					>
+						<IconsAppIcon name="uil:globe" :size="32" />
+					</span>
 					<div class="index-nav-group-content-item-main">
 						<div class="index-nav-group-content-item-name">{{ item.title }}</div>
 						<div :id="`desc-${idx}-${t}`" class="index-nav-group-content-item-desc">
@@ -113,6 +127,22 @@ const isHovering = ref(false)
 const tabName = ref(props.groupData.tab_list[0].tab_name)
 
 const showNumber = ref(100)
+const unavailableIconKeys = reactive(new Set<string>())
+
+const getIconKey = (detailIndex: number) => `${currTab.value}-${detailIndex}`
+
+const getNavIconUrl = (icon?: string) => {
+	if (!icon?.trim()) return ''
+	return getGithubAssetUrl(icon)
+}
+
+const isIconUnavailable = (detailIndex: number) => {
+	return unavailableIconKeys.has(getIconKey(detailIndex))
+}
+
+const handleIconError = (detailIndex: number) => {
+	unavailableIconKeys.add(getIconKey(detailIndex))
+}
 
 // 切换数据
 let rewrite = false
@@ -326,11 +356,28 @@ onMounted(async () => {
 	transform: scale(1.07);
 }
 
+.index-nav-group-content-item:hover > .index-nav-group-content-item-icon-placeholder {
+	transform: scale(1.07);
+}
+
 .index-nav-group-content-item-icon {
 	width: 32px;
 	height: 32px;
 	border-radius: 5px;
 	border-radius: 50%;
+	transition: all 0.6s;
+}
+
+.index-nav-group-content-item-icon-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 32px;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: #eef2f7;
+	color: #64748b;
 	transition: all 0.6s;
 }
 

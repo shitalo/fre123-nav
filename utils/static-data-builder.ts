@@ -55,8 +55,6 @@ export const buildHomeNavList = (navList: readonly RawNavGroup[]) => {
 								detail.title.length > 0 &&
 								typeof detail.url === 'string' &&
 								detail.url.length > 0 &&
-								typeof detail.icon === 'string' &&
-								detail.icon.length > 0 &&
 								typeof detail.description === 'string'
 							)
 						})
@@ -64,7 +62,7 @@ export const buildHomeNavList = (navList: readonly RawNavGroup[]) => {
 							return {
 								title: detail.title as string,
 								url: detail.url as string,
-								icon: detail.icon as string,
+								icon: typeof detail.icon === 'string' ? detail.icon : '',
 								description: detail.description as string,
 								...(typeof detail.ori_url === 'string' && detail.ori_url.length > 0
 									? { ori_url: detail.ori_url }
