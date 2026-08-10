@@ -829,7 +829,7 @@ const navConfig = [
 					},
 					{
 						"title": "Z-Library",
-						"url": "https://z-library.sk",
+						"url": "https://z-lib.gl",
 						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/c49eed146f955227e534c710b2e4cd6d4f4b79.ico",
 						"description": "世界上最大的电子图书馆。自由访问知识和文化",
 						"suffix": false,
@@ -837,19 +837,11 @@ const navConfig = [
 					},
 					{
 						"title": "安娜的档案",
-						"url": "https://annas-archive.li",
+						"url": "https://annas-archive.gl",
 						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/6c91f1e65f92b0e19d8368e9ba091f180aab59.png",
 						"description": "世界上最大的开源、开放数据图书馆。不仅是 Sci-Hub, Library Genesis, Z-Library 等站的镜像。",
 						"suffix": false,
 						"is_show": true
-					},
-					{
-						"title": "24h搜书",
-						"url": "https://24hbook.com",
-						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2025/02/21/5a0110c64e89275c5d74d48ca08c12066a408d.png",
-						"description": "快速便捷的图书搜索器，免费查找和下载电子书",
-						"suffix": false,
-						"is_show": false
 					}
 				]
 			}
