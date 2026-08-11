@@ -502,6 +502,28 @@ const navConfig = [
 				]
 			},
 			{
+				"tab_name": "效率工具",
+				"upper_right_corner": {},
+				"details": [
+					{
+						"title": "捷径库",
+						"url": "https://jiejingku.net",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/729c826c686d5ed61074c47219d3c3afe0d55d.png",
+						"description": "捷径库致力于优秀中文快捷指令的传播分享，本站所有快捷指令均收录于爱好者分享",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "Recompressor",
+						"url": "https://zh.recompressor.com",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/1ab7ba4438b7e3761bd286db0cd7720fdcf9a6.svg",
+						"description": "优化 PNG、JPG 和 SVG 图像的压缩 — 100% 免费 — 完全在浏览器中完成 — 选择文件大小和质量之间的完美平衡",
+						"suffix": false,
+						"is_show": true
+					}
+				]
+			},
+			{
 				"tab_name": "我的工具",
 				"upper_right_corner": {},
 				"details": [
