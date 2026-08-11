@@ -520,6 +520,14 @@ const navConfig = [
 						"description": "优化 PNG、JPG 和 SVG 图像的压缩 — 100% 免费 — 完全在浏览器中完成 — 选择文件大小和质量之间的完美平衡",
 						"suffix": false,
 						"is_show": true
+					},
+					{
+						"title": "TinyPNG",
+						"url": "https://tinypng.com",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/b1e76174ce3d9f0cfcb5a199aa6a22141ca4a3.png",
+						"description": "TinyPNG 可在不牺牲图像质量的前提下，将文件大小减少高达 80%，从而加快页面加载速度 。这种优化对于吸引用户注意力并确保良好的用户体验至关重要。此外，它还能最大限度地减少带宽使用 ，使您的网站更高效、更经济",
+						"suffix": false,
+						"is_show": true
 					}
 				]
 			},
