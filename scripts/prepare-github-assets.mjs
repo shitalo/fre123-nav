@@ -259,30 +259,79 @@ const loadConfigModuleValue = async (configFilePath) => {
 	return moduleValue?.default ?? moduleValue
 }
 
+const collectEnabledStringValues = (input, result = []) => {
+	if (typeof input === 'string') {
+		result.push(input)
+		return result
+	}
+
+	if (Array.isArray(input)) {
+		for (const item of input) {
+			collectEnabledStringValues(item, result)
+		}
+		return result
+	}
+
+	if (input && typeof input === 'object') {
+		if (input.is_show === false) {
+			return result
+		}
+
+		for (const value of Object.values(input)) {
+			collectEnabledStringValues(value, result)
+		}
+	}
+
+	return result
+}
+
+const getRemoteImageUrlSet = (stringValues) => {
+	const remoteImageUrlSet = new Set()
+
+	for (const value of stringValues) {
+		const normalizedRemoteImageUrl = normalizeRemoteImageUrl(value)
+		if (normalizedRemoteImageUrl && isLikelyImageAsset(normalizedRemoteImageUrl)) {
+			remoteImageUrlSet.add(normalizedRemoteImageUrl)
+		}
+	}
+
+	return remoteImageUrlSet
+}
+
 const collectRemoteImageUrlsFromConfig = async () => {
 	const configFileList = await getConfigModuleFiles()
 	const remoteImageUrlSet = new Set()
 	const fileSummaries = []
+	const staticDataBuilder = await jiti.import(path.join(PROJECT_ROOT, 'utils', 'static-data-builder.ts'))
 
 	for (const configFilePath of configFileList.sort()) {
 		const configContent = await loadConfigModuleValue(configFilePath)
-		const stringValues = collectStringValues(configContent)
-		const fileRemoteImageUrlSet = new Set()
+		const allStringValues = collectStringValues(configContent)
+		let enabledConfigContent = configContent
 
-		for (const value of stringValues) {
-			const normalizedRemoteImageUrl = normalizeRemoteImageUrl(value)
-			if (!normalizedRemoteImageUrl || !isLikelyImageAsset(normalizedRemoteImageUrl)) {
-				continue
-			}
+		if (path.basename(configFilePath) === 'nav.ts') {
+			enabledConfigContent = staticDataBuilder.buildHomeNavList(configContent)
+		} else if (path.basename(configFilePath) === 'resource.ts') {
+			enabledConfigContent = staticDataBuilder.buildAllResourceSearchPayloads(configContent)
+		} else {
+			enabledConfigContent = collectEnabledStringValues(configContent)
+		}
 
-			remoteImageUrlSet.add(normalizedRemoteImageUrl)
-			fileRemoteImageUrlSet.add(normalizedRemoteImageUrl)
+		const enabledStringValues = Array.isArray(enabledConfigContent)
+			? collectStringValues(enabledConfigContent)
+			: collectEnabledStringValues(enabledConfigContent)
+		const allRemoteImageUrlSet = getRemoteImageUrlSet(allStringValues)
+		const fileRemoteImageUrlSet = getRemoteImageUrlSet(enabledStringValues)
+
+		for (const remoteImageUrl of fileRemoteImageUrlSet) {
+			remoteImageUrlSet.add(remoteImageUrl)
 		}
 
 		fileSummaries.push({
 			filePath: configFilePath,
-			stringValueCount: stringValues.length,
+			stringValueCount: allStringValues.length,
 			remoteImageUrlCount: fileRemoteImageUrlSet.size,
+			skippedRemoteImageUrlCount: allRemoteImageUrlSet.size - fileRemoteImageUrlSet.size,
 			sampleUrlList: Array.from(fileRemoteImageUrlSet).slice(0, 3),
 		})
 	}
@@ -573,7 +622,7 @@ const main = async () => {
 	console.log('[github-assets] per-file remote image asset summary:')
 	for (const summary of fileSummaries) {
 		console.log(
-			`[github-assets]   - ${toDisplayPath(summary.filePath)} | string values: ${summary.stringValueCount} | remote images: ${summary.remoteImageUrlCount}`,
+			`[github-assets]   - ${toDisplayPath(summary.filePath)} | string values: ${summary.stringValueCount} | enabled remote images: ${summary.remoteImageUrlCount} | skipped because disabled: ${summary.skippedRemoteImageUrlCount}`,
 		)
 		for (const sampleUrl of summary.sampleUrlList) {
 			console.log(`[github-assets]       sample: ${sampleUrl}`)
