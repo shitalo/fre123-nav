@@ -6,37 +6,31 @@ const resourceConfig = {
 			{
 				"name": "必应",
 				"url": "https://cn.bing.com/search?type=2&q={keyword}",
-				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/4500ea05070e225ff8b42cb0d2a5af7708cfb0.png",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/233e652b5828d8ba74388b46b6a9d51525025b.png",
 				"is_show": true
 			},
 			{
 				"name": "谷歌",
 				"url": "https://google.com/search?igu=1&q={keyword}",
-				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/01b5f6a4c7fb4087f3027566e16fcfc47a6836.png",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/b3963b4f871ba2a94df61ed3c558eaf9746c20.png",
 				"is_show": true
 			},
 			{
 				"name": "搜狗|微信",
 				"url": "https://weixin.sogou.com/weixin?query={keyword}&type=2",
-				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/07c47b8c82787d39e630fb7835a3b4e22572fa.vnd.microsoft.icon",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/ae99610742b538c1b6998a0e5f658142a6e852.png",
 				"is_show": true
 			},
 			{
 				"name": "duckduckgo",
 				"url": "https://duckduckgo.com/?q={keyword}",
-				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/0a362a1a0cf4cc6bc56d65db8049dd6fc366d0.vnd.microsoft.icon",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/8dac5a8f4cf2053bd59469c6a4a49b277e712b.png",
 				"is_show": true
-			},
-			{
-				"name": "presearch",
-				"url": "https://presearch.com/search?q={keyword}",
-				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/f2154feb6da8319ac5306d4f6a394857ebe971.png",
-				"is_show": false
 			},
 			{
 				"name": "yandex",
 				"url": "https://yandex.com/search/?text={keyword}",
-				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/5135e01dd9522c92fd053b413360332fdec861.vnd.microsoft.icon",
+				"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/bedff4f3818fdb79f9c45c7d8143e690063ae5.png",
 				"is_show": true
 			}
 		]
