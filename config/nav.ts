@@ -794,6 +794,14 @@ const navConfig = [
 						"is_show": true
 					},
 					{
+						"title": "zlib最新网址",
+						"url": "https://zlibrary.me",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/35635da5432ecd33b07409d440d49eb5f9d134.png",
+						"description": "世界上最大的电子图书馆。自由访问知识和文化",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "Z-Library",
 						"url": "https://z-lib.gl",
 						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/35635da5432ecd33b07409d440d49eb5f9d134.png",
