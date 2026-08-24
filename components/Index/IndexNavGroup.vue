@@ -69,20 +69,23 @@
 					@mouseover="showToSourceIcon('show', idx, t)"
 					@mouseout="showToSourceIcon('hide', idx, t)"
 				>
-					<img
-						v-if="item.icon?.trim() && !isIconUnavailable(t)"
-						class="index-nav-group-content-item-icon"
-						:src="getNavIconUrl(item.icon)"
-						:alt="`${item.title} 图标`"
-						@error="handleIconError(t)"
-					/>
-					<span
-						v-else
-						class="index-nav-group-content-item-icon-placeholder"
-						aria-hidden="true"
-					>
-						<IconsAppIcon name="uil:globe" :size="32" />
-					</span>
+					<div class="index-nav-group-content-item-icon-shell" aria-hidden="true">
+						<img
+							v-if="item.icon?.trim() && !isIconUnavailable(t)"
+							class="index-nav-group-content-item-icon"
+							:class="{ 'index-nav-group-content-item-icon-hidden': !isIconLoaded(t) }"
+							:src="getNavIconUrl(item.icon)"
+							:alt="`${item.title} 图标`"
+							@load="handleIconLoad(t)"
+							@error="handleIconError(t)"
+						/>
+						<span
+							v-if="!item.icon?.trim() || isIconUnavailable(t) || !isIconLoaded(t)"
+							class="index-nav-group-content-item-icon-placeholder"
+						>
+							<IconsAppIcon name="uil:globe" :size="32" />
+						</span>
+					</div>
 					<div class="index-nav-group-content-item-main">
 						<div class="index-nav-group-content-item-name">{{ item.title }}</div>
 						<div :id="`desc-${idx}-${t}`" class="index-nav-group-content-item-desc">
@@ -128,6 +131,7 @@ const tabName = ref(props.groupData.tab_list[0].tab_name)
 
 const showNumber = ref(100)
 const unavailableIconKeys = reactive(new Set<string>())
+const loadedIconKeys = reactive(new Set<string>())
 
 const getIconKey = (detailIndex: number) => `${currTab.value}-${detailIndex}`
 
@@ -140,8 +144,18 @@ const isIconUnavailable = (detailIndex: number) => {
 	return unavailableIconKeys.has(getIconKey(detailIndex))
 }
 
+const isIconLoaded = (detailIndex: number) => {
+	return loadedIconKeys.has(getIconKey(detailIndex))
+}
+
+const handleIconLoad = (detailIndex: number) => {
+	loadedIconKeys.add(getIconKey(detailIndex))
+}
+
 const handleIconError = (detailIndex: number) => {
-	unavailableIconKeys.add(getIconKey(detailIndex))
+	const iconKey = getIconKey(detailIndex)
+	loadedIconKeys.delete(iconKey)
+	unavailableIconKeys.add(iconKey)
 }
 
 // 切换数据
@@ -352,12 +366,19 @@ onMounted(async () => {
 		display: flex;
 	}
 }
-.index-nav-group-content-item:hover > img {
+.index-nav-group-content-item:hover .index-nav-group-content-item-icon {
 	transform: scale(1.07);
 }
 
-.index-nav-group-content-item:hover > .index-nav-group-content-item-icon-placeholder {
+.index-nav-group-content-item:hover .index-nav-group-content-item-icon-placeholder {
 	transform: scale(1.07);
+}
+
+.index-nav-group-content-item-icon-shell {
+	position: relative;
+	flex: 0 0 32px;
+	width: 32px;
+	height: 32px;
 }
 
 .index-nav-group-content-item-icon {
@@ -368,11 +389,16 @@ onMounted(async () => {
 	transition: all 0.6s;
 }
 
+.index-nav-group-content-item-icon-hidden {
+	visibility: hidden;
+}
+
 .index-nav-group-content-item-icon-placeholder {
+	position: absolute;
+	inset: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex: 0 0 32px;
 	width: 32px;
 	height: 32px;
 	border-radius: 50%;
