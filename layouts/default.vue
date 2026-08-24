@@ -1,6 +1,6 @@
 <template>
 	<CommonHeader ref="headerRef" :isIndex="true" :showSearch="true"></CommonHeader>
-	<div id="wrap" class="w-full xl:w-[1200px] mx-auto min-h-[calc(100vh-244px)] my-[16px]">
+	<div id="wrap" class="site-wrap mx-auto min-h-[calc(100vh-244px)] my-[16px]">
 		<slot></slot>
 	</div>
 	<CommonPendant></CommonPendant>
@@ -28,6 +28,11 @@ onUnmounted(() => {
 })
 </script>
 <style>
+.site-wrap {
+	width: calc(100% - 32px);
+	max-width: 1440px;
+}
+
 #wrap {
 	height: 100%;
 	box-sizing: border-box;

@@ -2,7 +2,7 @@
 	<div
 		v-if="currentTabData"
 		:id="`${classNamePrefixGroup}${groupData.group_name}`"
-		class="index-nav-group bg-white pt-[10px] mb-[20px] px-4 rounded-lg"
+		class="index-nav-group scroll-mt-[120px] bg-white pt-[10px] mb-[20px] px-4 rounded-lg"
 	>
 		<div class="flex flex-row pl-[5px] pt-[8px] leading-[28px] overflow-x-scroll no-scrollbar">
 			<h4 class="text-gray-500 text-md md:text-lg flex">
@@ -162,6 +162,7 @@ const handleIconError = (detailIndex: number) => {
 let rewrite = false
 const switchTab = (val: number) => {
 	currTab.value = val
+	void nextTick(() => slideTo(val))
 	if (rewrite) {
 		history.pushState(null, '', ' ')
 	}

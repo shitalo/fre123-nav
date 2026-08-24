@@ -1,9 +1,15 @@
 <template>
 	<!-- 首页顶部搜索 -->
 	<div ref="container">
+		<CommonNavBar :nav-list="navList || []" />
 		<!-- 这里是导航列表 -->
-		<div id="nav-container">
-			<IndexNavGroup v-for="(nav, i) in navList || []" :idx="i" :groupData="nav"></IndexNavGroup>
+		<div id="nav-container" class="lg:ml-[210px]">
+			<IndexNavGroup
+				v-for="(nav, i) in navList || []"
+				:key="nav.group_name"
+				:idx="i"
+				:groupData="nav"
+			></IndexNavGroup>
 		</div>
 	</div>
 </template>
