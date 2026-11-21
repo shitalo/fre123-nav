@@ -641,6 +641,22 @@ const navConfig = [
 						"is_show": true
 					},
 					{
+						"title": "纳指/标普限额溢价表",
+						"url": "https://qdiilimit.com",
+						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/11/21/24a919a7bdad1a244b3307ed26028855a39605.png",
+						"description": "@渊海长投 每日 QDII 纳指 100/标普 500 场内溢价、场外申购限额表",
+						"suffix": false,
+						"is_show": true
+					},
+					{
+						"title": "QDII Monitor",
+						"url": "https://qdiilimit.com",
+						"icon": "",
+						"description": "QDII Monitor 是一个专注于 QDII 基金申购状态监控的工具网站。数据来源于公开渠道，每30分钟自动更新。",
+						"suffix": false,
+						"is_show": true
+					},
+					{
 						"title": "Finviz 美股市场热力图",
 						"url": "https://finviz.com/map.ashx",
 						"icon": "https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/08/11/47138c8196b8054e688385aab6028286941d2e.png",
