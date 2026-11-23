@@ -1,11 +1,3 @@
-import type {
-	IResourceSearchItem,
-	IResourceSearchPayload,
-	IResourceSearchType,
-} from '~/interface/resource'
-
-export const DEFAULT_RESOURCE_SEARCH_TYPE = 'search'
-
 type RawNavDetail = {
 	title?: string
 	url?: string
@@ -27,19 +19,6 @@ type RawNavTab = {
 type RawNavGroup = {
 	group_name?: string
 	tab_list?: RawNavTab[]
-}
-
-type RawResourceItem = {
-	name?: string
-	url?: string
-	icon?: string
-	is_show?: boolean
-}
-
-type RawResourceType = {
-	name?: string
-	is_show?: boolean
-	list?: RawResourceItem[]
 }
 
 export const buildHomeNavList = (navList: readonly RawNavGroup[]) => {
@@ -115,96 +94,4 @@ export const buildHomeNavList = (navList: readonly RawNavGroup[]) => {
 		.filter((group): group is NonNullable<typeof group> => {
 			return group != null
 		})
-}
-
-const getVisibleResourceTypeList = (
-	resourceConfig: Readonly<Record<string, RawResourceType>>,
-): IResourceSearchType[] => {
-	return Object.entries(resourceConfig)
-		.filter(([, item]) => {
-			return item?.is_show === true && typeof item.name === 'string' && item.name.length > 0
-		})
-		.map(([key, item]) => {
-			return {
-				key,
-				name: item.name as string,
-			}
-		})
-}
-
-const buildResourceList = (
-	resourceConfig: Readonly<Record<string, RawResourceType>>,
-	resourceType: string,
-): IResourceSearchItem[] => {
-	return (resourceConfig[resourceType]?.list ?? [])
-		.filter((item) => {
-			return (
-				item?.is_show === true &&
-				typeof item.name === 'string' &&
-				item.name.length > 0 &&
-				typeof item.url === 'string' &&
-				item.url.length > 0 &&
-				typeof item.icon === 'string' &&
-				item.icon.length > 0
-			)
-		})
-		.map((item) => {
-			return {
-				name: item.name as string,
-				url: item.url as string,
-				icon: item.icon as string,
-			}
-		})
-}
-
-export const resolveResourceSearchType = (
-	resourceConfig: Readonly<Record<string, RawResourceType>>,
-	resourceType?: string,
-) => {
-	const resourceTypeList = getVisibleResourceTypeList(resourceConfig)
-	const visibleResourceTypeSet = new Set(
-		resourceTypeList.map((item) => {
-			return item.key
-		}),
-	)
-
-	if (resourceType && visibleResourceTypeSet.has(resourceType)) {
-		return resourceType
-	}
-
-	if (visibleResourceTypeSet.has(DEFAULT_RESOURCE_SEARCH_TYPE)) {
-		return DEFAULT_RESOURCE_SEARCH_TYPE
-	}
-
-	return resourceTypeList[0]?.key ?? DEFAULT_RESOURCE_SEARCH_TYPE
-}
-
-export const buildResourceSearchPayload = (
-	resourceConfig: Readonly<Record<string, RawResourceType>>,
-	resourceType?: string,
-): IResourceSearchPayload => {
-	const resourceTypeList = getVisibleResourceTypeList(resourceConfig)
-	const resolvedResourceType = resolveResourceSearchType(resourceConfig, resourceType)
-	const currentResourceType = resourceTypeList.find((item) => item.key === resolvedResourceType) ?? {
-		key: resolvedResourceType,
-		name: resolvedResourceType,
-	}
-
-	return {
-		defaultResourceType: DEFAULT_RESOURCE_SEARCH_TYPE,
-		resourceType: currentResourceType,
-		resourceTypes: resourceTypeList,
-		resources: buildResourceList(resourceConfig, resolvedResourceType),
-	}
-}
-
-export const buildAllResourceSearchPayloads = (
-	resourceConfig: Readonly<Record<string, RawResourceType>>,
-): Record<string, IResourceSearchPayload> => {
-	const resourceTypeList = getVisibleResourceTypeList(resourceConfig)
-
-	return resourceTypeList.reduce<Record<string, IResourceSearchPayload>>((result, item) => {
-		result[item.key] = buildResourceSearchPayload(resourceConfig, item.key)
-		return result
-	}, {})
 }

@@ -11,30 +11,6 @@ export const seoConfig = {
 	icon: 'favicon.ico',
 } as const
 
-export const headerSearchConfig = {
-	is_show: true,
-	list: [
-		{
-			name: '百度',
-			url: 'https://www.baidu.com/s?wd=',
-			icon: 'https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/a363887c388ee2df111812949416bf5cee638e.png',
-			placeholder: '百度一下，你就知道',
-		},
-		{
-			name: '谷歌',
-			url: 'https://www.google.com/search?q=',
-			icon: 'https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/01b5f6a4c7fb4087f3027566e16fcfc47a6836.png',
-			placeholder: '请输入您要搜索的内容...',
-		},
-		{
-			name: '必应',
-			url: 'https://cn.bing.com/search?q=',
-			icon: 'https://raw.githubusercontent.com/shitalo/github-pic/master/images/2026/02/27/4500ea05070e225ff8b42cb0d2a5af7708cfb0.png',
-			placeholder: '请输入您要搜索的内容...',
-		},
-	],
-} as const
-
 export const headerRightConfig = {
 	is_show: false,
 	group: {
@@ -58,7 +34,6 @@ export const headerRightConfig = {
 } as const
 
 export const headerConfig = {
-	search: headerSearchConfig,
 	right: headerRightConfig,
 } as const
 

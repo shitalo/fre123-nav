@@ -1,6 +1,6 @@
 body {
-  // background-color : $MAIN_BG_COLOR;
-  color: $MAIN_TEXT_COLOR;
+  background: var(--site-canvas);
+  color: var(--site-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -8,6 +8,21 @@ body {
 }
 
 :root {
+  --site-header-height: 60px;
+  --site-gutter: 16px;
+  --site-max-width: 1440px;
+  --site-canvas: #f1f3f6;
+  --site-surface: #fdfdfe;
+  --site-border: #e4e7ed;
+  --site-ink: #1c2028;
+  --site-muted: #57616f;
+  --site-accent: #195baf;
+  --site-selected: #e6eef9;
+  --site-focus: #306fb5;
+  --site-glass: rgb(253 254 255 / 75%);
+  --site-glass-edge: rgb(255 255 255 / 90%);
+  --site-glass-shadow: 0 1px 2px rgb(30 45 68 / 6%), 0 8px 23px rgb(30 45 68 / 8%);
+  --site-glass-filter: blur(18px) saturate(155%);
   --el-dialog-padding-header: 16px;
   --pagination-item-bg: #eeeeee;
   --pagination-item-bg--active: #646463;
@@ -16,6 +31,20 @@ body {
   --pagination-item-border: transparent;
   --pagination-item-border--active: transparent;
   --pagination-icon-color--hover: #fa8f1d；
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --site-glass: #fbfcfe;
+    --site-glass-filter: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --site-gutter: 24px;
+    --site-content-top-gap: 28px;
+  }
 }
 
 

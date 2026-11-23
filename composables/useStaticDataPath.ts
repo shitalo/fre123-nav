@@ -16,12 +16,7 @@ export const useStaticDataPath = () => {
 		return resolveStaticDataUrl('static-data/nav-list.json')
 	}
 
-	const getResourceSearchStaticDataUrl = (resourceType: string) => {
-		return resolveStaticDataUrl(`static-data/resource-search/${resourceType}.json`)
-	}
-
 	return {
 		getNavListStaticDataUrl,
-		getResourceSearchStaticDataUrl,
 	}
 }

@@ -2,7 +2,7 @@
 	<div
 		v-if="pendantConfig.is_show"
 		id="navbar-pendant"
-		class="z-50 fixed right-[10px] opacity-90 top-[60%]"
+		class="z-50 fixed right-[var(--site-gutter)] bottom-4"
 	>
 		<ul>
 			<li
@@ -70,24 +70,19 @@ const switchHoverIdx = (val: number) => {
 }
 
 const scrollToTop = () => {
-	document.querySelector('body')?.scrollIntoView({ behavior: 'smooth' })
-	showToTopIcon.value = true
+	window.scrollTo({
+		top: 0,
+		behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+	})
 }
 
 const handleScroll = () => {
-	const dom = document.getElementById('wrap')
-	if (dom) {
-		const t = dom?.getBoundingClientRect().top
-		if (t < 75) {
-			showToTopIcon.value = true
-		} else {
-			showToTopIcon.value = false
-		}
-	}
+	showToTopIcon.value = window.scrollY > 180
 }
 
 onMounted(() => {
-	window.addEventListener('scroll', handleScroll)
+	handleScroll()
+	window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
 onUnmounted(() => {
@@ -141,8 +136,8 @@ onUnmounted(() => {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 35px;
-	height: 35px;
+	width: 44px;
+	height: 44px;
 	margin-bottom: 5px;
 	padding: 0;
 	border: 0;
@@ -155,16 +150,16 @@ onUnmounted(() => {
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
-	width: 35px;
-	height: 35px;
+	width: 44px;
+	height: 44px;
 	padding: 0;
-	border: 0;
+	border: 1px solid var(--site-glass-edge);
 	border-radius: 50%;
-	background: #3f4856;
-	color: #f8fafc;
+	background: var(--site-glass);
+	color: var(--site-ink);
 	line-height: 1;
-	outline: none;
-	box-shadow: 0 4px 12px rgba(15, 23, 42, 0.24);
+	box-shadow: var(--site-glass-shadow);
+	backdrop-filter: var(--site-glass-filter);
 	cursor: pointer;
 	transition:
 		transform 180ms ease,
@@ -173,20 +168,29 @@ onUnmounted(() => {
 }
 
 .to-top-button:hover {
-	background: #273142;
-	box-shadow: 0 6px 16px rgba(15, 23, 42, 0.3);
-	transform: translateY(-2px);
+	background: var(--site-surface);
+	color: var(--site-accent);
 }
 
 .to-top-button:active {
-	box-shadow: 0 3px 8px rgba(15, 23, 42, 0.24);
-	transform: translateY(0) scale(0.94);
+	transform: scale(0.95);
 }
 
 .to-top-button:focus-visible {
-	box-shadow:
-		0 4px 12px rgba(15, 23, 42, 0.24),
-		0 0 0 3px rgba(59, 130, 246, 0.35);
+	outline: 2px solid var(--site-focus);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.to-top-button,
+	.to-top-enter-active,
+	.to-top-leave-active {
+		transition: none;
+	}
+
+	.to-top-button:active {
+		transform: none;
+	}
 }
 
 .hover-p {

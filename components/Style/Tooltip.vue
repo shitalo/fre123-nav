@@ -1,5 +1,11 @@
 <template>
-	<div class="relative" @mouseenter="showToolTip" @mouseleave="hideToolTip">
+	<div
+		class="relative"
+		@mouseenter="showToolTip"
+		@mouseleave="hideToolTip"
+		@focusin="showToolTip"
+		@focusout="hideToolTip"
+	>
 		<slot></slot>
 		<div
 			ref="tooltipRef"
@@ -7,11 +13,13 @@
 				tooltipVisible ? 'block' : 'hidden',
 				!tooltipReady ? 'invisible' : '',
 				tooltipPlacement === 'up' ? 'tooltip-up' : '',
-				nowrap ? '' : 'whitespace-nowrap',
+				nowrap ? 'tooltip-wrap' : 'whitespace-nowrap',
 			]"
 			:style="tooltipStyle"
+			aria-hidden="true"
 			class="z-20 tooltip px-2 py-[3px] text-[12px] leading-[22px] text-white bg-[#323233] bg-opacity-[85%] rounded"
 		>
+			<strong v-if="tooltipTitle" class="block font-semibold">{{ tooltipTitle }}</strong>
 			{{ content }}
 		</div>
 	</div>
@@ -32,6 +40,10 @@ const props = defineProps({
 		type: String,
 		default: '',
 	},
+	titleElementId: {
+		type: String,
+		default: '',
+	},
 	forceShow: {
 		type: Boolean,
 		default: false,
@@ -43,6 +55,7 @@ const props = defineProps({
 })
 const tooltipVisible = ref(false)
 const tooltipReady = ref(false)
+const tooltipTitle = ref('')
 const tooltipPlacement = ref<'up' | 'down'>('down')
 const tooltipRef = ref<HTMLElement | null>(null)
 const rootElement = ref<HTMLElement | null>(null)
@@ -123,32 +136,36 @@ const detachViewportListeners = () => {
 	}
 }
 
-const hideToolTip = () => {
+const hideToolTip = (event: MouseEvent | FocusEvent) => {
+	const root = rootElement.value
+	if (event.type === 'mouseleave' && root?.querySelector(':focus-visible')) return
+	if (event.type === 'focusout' && root?.matches(':hover')) return
+
 	tooltipVisible.value = false
 	tooltipReady.value = false
 	detachViewportListeners()
 }
 
-// 控制 tooltip 是否展示
-const showToolTip = (event: MouseEvent) => {
+const isClipped = (element: HTMLElement | null) =>
+	element !== null &&
+	(element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight)
+
+const showToolTip = (event: MouseEvent | FocusEvent) => {
+	if (event.type === 'focusin' && !(event.target instanceof HTMLElement && event.target.matches(':focus-visible'))) return
+
 	rootElement.value = event.currentTarget as HTMLElement
 
-	if (props.forceShow) {
-		tooltipVisible.value = true
-	} else {
-		const dom = document.getElementById(props.elementId) as HTMLElement // div 的宽度
-		const containerW = dom?.clientWidth
-		const wordW = dom?.scrollWidth // 先转为js对象; 文字的宽度
-		if (wordW > containerW) {
-			tooltipVisible.value = true
-		}
-	}
+	const title = document.getElementById(props.titleElementId)
+	tooltipTitle.value = title && isClipped(title) ? title.textContent ?? '' : ''
+	const description = document.getElementById(props.elementId)
+	if (!props.forceShow && !tooltipTitle.value && !isClipped(description)) return
 
-	if (tooltipVisible.value) {
+	if (!tooltipVisible.value) {
 		tooltipReady.value = false
-		attachViewportListeners()
-		nextTick(updateTooltipPosition)
 	}
+	tooltipVisible.value = true
+	attachViewportListeners()
+	nextTick(updateTooltipPosition)
 }
 
 onBeforeUnmount(() => {
@@ -188,5 +205,9 @@ onBeforeUnmount(() => {
 		border-bottom-color: transparent;
 		border-top-color: rgba(50, 50, 51, 0.85);
 	}
+}
+
+.tooltip-wrap {
+	overflow-wrap: anywhere;
 }
 </style>

@@ -1,28 +1,16 @@
 <template>
-<footer class="text-left text-[#6c757d] p-6 bg-[rgba(248,249,250,1)] min-h-[70px]">
-		<section class="flex justify-center items-center flex-wrap gap-x-4 gap-y-2">
-			<!-- Left -->
-			<div class="flex items-center flex-wrap gap-x-3 gap-y-1 text-[14px]">
-				<span
-					>Powered by
-					<a
-						href=""
-						target="_blank"
-						class="decoration-transparent text-[#a4715c]"
-						>FRE123</a
-					>
-				</span>
-				<CommonGithubAssetStatus />
-			</div>
-			<!-- Left -->
-
-			<div v-if="footerRightConfig.is_show" class="flex-grow"></div>
-			<!-- Right -->
+	<footer class="site-footer">
+		<div class="site-wrap footer-inner">
+			<span>
+				Powered by
+				<a href="https://github.com/fre123-com/fre123-nav" target="_blank" rel="noopener">FRE123</a>
+			</span>
+			<CommonGithubAssetStatus />
 			<div
 				v-if="footerRightConfig.is_show && footerRightConfig.list.length > 0"
 				class="flex text-[20px] text-black"
 			>
-				<a v-for="item in footerRightConfig.list" :href="item.url" target="_blank" class="pr-6">
+				<a v-for="item in footerRightConfig.list" :key="item.url" :href="item.url" target="_blank" rel="noopener" class="pr-6">
 					<IconsFontAwesome
 						:size="item.icon_size"
 						class="hover:text-[#0d6efd]"
@@ -30,7 +18,7 @@
 					/>
 				</a>
 			</div>
-		</section>
+		</div>
 	</footer>
 </template>
 
@@ -38,4 +26,28 @@
 import { footerRightConfig } from '~/config/website'
 </script>
 
-<style scoped></style>
+<style scoped>
+.site-footer {
+	color: var(--site-muted);
+	font-size: 13px;
+}
+
+.footer-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 72px;
+	gap: 8px 20px;
+	padding-block: 16px;
+}
+
+.footer-inner a {
+	color: var(--site-accent);
+	font-weight: 600;
+}
+
+.footer-inner a:hover {
+	text-decoration: underline;
+}
+</style>

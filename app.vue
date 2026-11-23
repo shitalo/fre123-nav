@@ -29,8 +29,5 @@ useHead({
 			content: seoConfig.description,
 		},
 	],
-	bodyAttrs: {
-		class: 'bg-base',
-	},
 })
 </script>

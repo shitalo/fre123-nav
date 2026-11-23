@@ -650,7 +650,7 @@ const navConfig = [
 					},
 					{
 						"title": "QDII Monitor",
-						"url": "https://qdiilimit.com",
+						"url": "https://labbit.asia",
 						"icon": "",
 						"description": "QDII Monitor 是一个专注于 QDII 基金申购状态监控的工具网站。数据来源于公开渠道，每30分钟自动更新。",
 						"suffix": false,

@@ -7,7 +7,6 @@ const PROJECT_ROOT = process.cwd()
 const CONFIG_DIR = path.join(PROJECT_ROOT, 'config')
 const CONFIG_MODULE_FILE_LIST = [
 	path.join(CONFIG_DIR, 'nav.ts'),
-	path.join(CONFIG_DIR, 'resource.ts'),
 	path.join(CONFIG_DIR, 'website.ts'),
 ]
 const PUBLIC_GITHUB_ASSET_DIR = path.join(PROJECT_ROOT, 'public', 'github-assets')
@@ -311,8 +310,6 @@ const collectRemoteImageUrlsFromConfig = async () => {
 
 		if (path.basename(configFilePath) === 'nav.ts') {
 			enabledConfigContent = staticDataBuilder.buildHomeNavList(configContent)
-		} else if (path.basename(configFilePath) === 'resource.ts') {
-			enabledConfigContent = staticDataBuilder.buildAllResourceSearchPayloads(configContent)
 		} else {
 			enabledConfigContent = collectEnabledStringValues(configContent)
 		}

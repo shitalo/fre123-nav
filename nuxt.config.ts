@@ -4,12 +4,8 @@ import path from 'path'
 export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/tailwindcss',
-		'@pinia/nuxt',
 		'@vueuse/nuxt',
 	],
-	pinia: {
-		autoImports: ['defineStore', 'storeToRefs'],
-	},
 	alias: {
 		'@': path.resolve(__dirname, 'src'),
 	},

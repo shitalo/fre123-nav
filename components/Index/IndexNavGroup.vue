@@ -1,441 +1,347 @@
 <template>
-	<div
+	<section
 		v-if="currentTabData"
-		:id="`${classNamePrefixGroup}${groupData.group_name}`"
-		class="index-nav-group scroll-mt-[120px] bg-white pt-[10px] mb-[20px] px-4 rounded-lg"
+		:id="`nav_group_${groupData.group_name}`"
+		class="index-nav-group"
+		:aria-labelledby="`nav-title-${idx}`"
 	>
-		<div class="flex flex-row pl-[5px] pt-[8px] leading-[28px] overflow-x-scroll no-scrollbar">
-			<h4 class="text-gray-500 text-md md:text-lg flex">
-				<span class="text-[16px] md:text-[18px] text-[#555555] pr-2 font-semibold truncate">{{
-					groupData.group_name
-				}}</span>
-			</h4>
-			<div class="h-[18px] my-[5px] w-[2px] bg-gray-200 mx-4 md:mx-8"></div>
-			<div class="justify-center items-center text-[#888] flex-none">
-				<div>
-					<ul class="flex relative h-[28x] leading-[28px] overflow-hidden">
-						<li
-							:id="`${classNamePrefixGroup}${idx}_anchor`"
-							class="anchor text-[14px] h-full"
-							:style="{
-								width: `${initWidth}px`,
-								left: `${initLeft}px`,
-							}"
-						></li>
-						<li
-							v-for="(tab, i) in groupData.tab_list"
-							:data-index="i"
-							:id="`${classNamePrefixGroupTab}${groupData.group_name}_${tab.tab_name}`"
-							class="z-10 hover:text-[#007bff] hover:cursor-pointer active:text-[#007bff] active:font-bold px-3 text-[14px]"
-							:class="`${currTab == i ? 'active' : 'font-wei'}`"
-							@mouseenter="slideTo(i)"
-							@mouseleave="slideBack()"
-							@click="switchTab(i)"
-						>
-							{{ tab.tab_name }}
-						</li>
-					</ul>
-				</div>
-				<div class="flex-fill"></div>
-			</div>
-			<div
-				class="flex-grow text-right text-red-500 text-[14px] hidden md:block text-ellipsis overflow-x-hidden whitespace-nowrap"
-			>
-				<a
-					class="hover:text-red-700"
-					:href="currentTabData.upper_right_corner?.url"
-					target="_blank"
-					>{{ currentTabData.upper_right_corner?.title }}</a
+		<header class="resource-heading">
+			<h2 :id="`nav-title-${idx}`">
+				<IconsAppIcon
+					class="resource-heading-icon"
+					:name="getNavGroupIcon(groupData.group_name)"
+					:size="26"
+				/>
+				<span>{{ groupData.group_name }}</span>
+			</h2>
+			<div v-if="groupData.tab_list.length > 1" class="resource-tabs" role="group" :aria-label="groupData.group_name">
+				<button
+					v-for="tab in groupData.tab_list"
+					:key="tab.tab_name"
+					type="button"
+					class="resource-tab"
+					:aria-pressed="currentTabData.tab_name === tab.tab_name"
+					:aria-controls="`nav-resources-${idx}`"
+					@click="emit('selectTab', tab.tab_name)"
 				>
+					{{ tab.tab_name }}
+				</button>
 			</div>
-		</div>
-		<div
-			class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-2 mt-[24px] cursor-pointer"
-		>
+			<a
+				v-if="currentTabData.upper_right_corner"
+				class="resource-featured"
+				:href="currentTabData.upper_right_corner.url"
+				target="_blank"
+				rel="noopener"
+			>
+				{{ currentTabData.upper_right_corner.title }}
+			</a>
+		</header>
+
+		<div :id="`nav-resources-${idx}`" class="resource-grid">
 			<StyleTooltip
-				v-for="(item, t) in currentTabData.details"
-				:key="`${currTab}-${t}-${item.url}`"
+				v-for="(item, index) in currentTabData.details.slice(0, 100)"
+				:key="`${currentTabData.tab_name}-${index}-${item.url}`"
 				:content="item.description"
 				:nowrap="true"
-				:element-id="`desc-${idx}-${t}`"
-				class="mb-[10px] min-w-0"
-				:class="` ${showNumber <= t ? 'hidden' : ''}`"
+				:title-element-id="`resource-title-${idx}-${index}`"
+				:element-id="`desc-${idx}-${index}`"
+				class="resource-card"
+				:class="{ 'has-source': item.ori_url }"
 			>
-				<a
-					class="index-nav-group-content-item rounded-xl shadow shadow-warm-gray-500 items-center py-[8px] px-[8px] border-[1px] border-white"
-					:href="item.url"
-					target="_blank"
-					rel="nofollow"
-					@mouseover="showToSourceIcon('show', idx, t)"
-					@mouseout="showToSourceIcon('hide', idx, t)"
-				>
-					<div class="index-nav-group-content-item-icon-shell" aria-hidden="true">
+				<a class="resource-link" :href="item.url" target="_blank" rel="nofollow noopener">
+					<span class="resource-icon" aria-hidden="true">
 						<img
-							v-if="item.icon?.trim() && !isIconUnavailable(t)"
-							class="index-nav-group-content-item-icon"
-							:class="{ 'index-nav-group-content-item-icon-hidden': !isIconLoaded(t) }"
-							:src="getNavIconUrl(item.icon)"
-							:alt="`${item.title} 图标`"
-							@load="handleIconLoad(t)"
-							@error="handleIconError(t)"
+							v-if="item.icon?.trim() && iconStates.get(getIconKey(index)) !== 'error'"
+							v-check-icon="getIconKey(index)"
+							:class="{ 'resource-icon-loading': iconStates.get(getIconKey(index)) !== 'loaded' }"
+							:src="getGithubAssetUrl(item.icon)"
+							width="36"
+							height="36"
+							alt=""
+							@load="iconStates.set(getIconKey(index), 'loaded')"
+							@error="iconStates.set(getIconKey(index), 'error')"
 						/>
-						<span
-							v-if="!item.icon?.trim() || isIconUnavailable(t) || !isIconLoaded(t)"
-							class="index-nav-group-content-item-icon-placeholder"
-						>
-							<IconsAppIcon name="uil:globe" :size="32" />
-						</span>
-					</div>
-					<div class="index-nav-group-content-item-main">
-						<div class="index-nav-group-content-item-name">{{ item.title }}</div>
-						<div :id="`desc-${idx}-${t}`" class="index-nav-group-content-item-desc">
-							{{ item.description }}
-						</div>
-					</div>
-					<div
-						v-if="item.ori_url"
-						:id="`to-source-icon-${idx}-${t}`"
-						class="hidden h-full items-center"
-						@click.stop="stop"
-						@click="jumpOut(item.ori_url)"
-					>
-						<IconsAppIcon
-							size="18"
-							class="flex items-center text-slate-400 hover:text-slate-500"
-							name="uil:arrow-circle-right"
-						></IconsAppIcon>
-					</div>
+						<IconsAppIcon v-if="iconStates.get(getIconKey(index)) !== 'loaded'" name="uil:globe" size="100%" />
+					</span>
+					<span class="resource-copy">
+						<span :id="`resource-title-${idx}-${index}`" class="resource-name">{{ item.title }}</span>
+						<span :id="`desc-${idx}-${index}`" class="resource-description">{{ item.description }}</span>
+					</span>
+				</a>
+				<a
+					v-if="item.ori_url"
+					class="resource-source"
+					:href="`${item.ori_url}?ref=https://www.fre123.com`"
+					target="_blank"
+					rel="nofollow noopener"
+					:aria-label="`打开 ${item.title} 的源网站`"
+					title="打开源网站"
+				>
+					<IconsAppIcon name="uil:arrow-circle-right" :size="18" />
 				</a>
 			</StyleTooltip>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script setup lang="ts">
+import type { ObjectDirective } from 'vue'
+import { getNavGroupIcon } from '~/config/nav-icons'
 import type { IGroup } from '~/interface/nav'
+
 const props = defineProps<{
 	groupData: IGroup
 	idx: number
+	selectedTab?: string
 }>()
+
+const emit = defineEmits<{
+	selectTab: [tabName: string]
+}>()
+
 const { getGithubAssetUrl } = useGithubAsset()
-
-const classNamePrefixGroup = 'nav_group_'
-const classNamePrefixGroupTab = 'nav_group_tab_'
-
-const currTab = ref(0)
 const currentTabData = computed(() => {
-	return props.groupData.tab_list[currTab.value]
+	const tabs = props.groupData.tab_list
+	return tabs.find(({ tab_name }) => tab_name === props.selectedTab) ?? tabs[0]
 })
-const isHovering = ref(false)
-const tabName = ref(props.groupData.tab_list[0].tab_name)
+const iconStates = reactive(new Map<string, 'loaded' | 'error'>())
+const getIconKey = (index: number) => `${currentTabData.value?.tab_name}-${index}`
 
-const showNumber = ref(100)
-const unavailableIconKeys = reactive(new Set<string>())
-const loadedIconKeys = reactive(new Set<string>())
-
-const getIconKey = (detailIndex: number) => `${currTab.value}-${detailIndex}`
-
-const getNavIconUrl = (icon?: string) => {
-	if (!icon?.trim()) return ''
-	return getGithubAssetUrl(icon)
-}
-
-const isIconUnavailable = (detailIndex: number) => {
-	return unavailableIconKeys.has(getIconKey(detailIndex))
-}
-
-const isIconLoaded = (detailIndex: number) => {
-	return loadedIconKeys.has(getIconKey(detailIndex))
-}
-
-const handleIconLoad = (detailIndex: number) => {
-	loadedIconKeys.add(getIconKey(detailIndex))
-}
-
-const handleIconError = (detailIndex: number) => {
-	const iconKey = getIconKey(detailIndex)
-	loadedIconKeys.delete(iconKey)
-	unavailableIconKeys.add(iconKey)
-}
-
-// 切换数据
-let rewrite = false
-const switchTab = (val: number) => {
-	currTab.value = val
-	void nextTick(() => slideTo(val))
-	if (rewrite) {
-		history.pushState(null, '', ' ')
-	}
-}
-
-const padding = 12 // 左侧padding
-
-const fontSize = 14 //字体大小
-const scale = 0.6
-
-const initWidth = Math.round(tabName.value.length * fontSize * scale)
-const initLeft = ref(0)
-
-// 初始化移动条位置
-const getTranslateX = () => {
-	let left = 0
-	for (let i = 0; i < currTab.value; i++) {
-		left += padding * 2 + tabName.value.length * fontSize
-	}
-	left += Math.round(padding + (tabName.value.length * fontSize * (1 - scale)) / 2)
-	initLeft.value = left
-}
-getTranslateX()
-
-// 移动条移动 原始方法
-// const slideTo = (tabIndex: number, name: string) => {
-// 	isHovering.value = true
-// 	let left = 0
-// 	initLeft.value = 0
-// 	for (let i = 0; i < tabIndex; i++) {
-// 		left += padding * 2 + name.length * fontSize
-// 	}
-// 	left += Math.round(padding + (name.length * fontSize * (1 - scale)) / 2)
-// 	const anchor = document.getElementById(`${classNamePrefixGroup}${props.idx}_anchor`)
-// 	if (anchor != null) {
-// 		anchor.style.transitionDuration = '0.3s'
-// 		anchor.style.transform = `translateX(${left}px)`
-// 	}
-// }
-
-// 移动条移动 DeepSeek R1
-const slideTo = (tabIndex: number) => {
-	isHovering.value = true
-	const anchor = document.getElementById(`${classNamePrefixGroup}${props.idx}_anchor`)
-	if (!anchor) return
-
-	const ul = anchor.parentElement
-	if (!ul) return
-
-	// 获取所有 tab 的 li 元素，排除第一个锚点元素
-	const tabs = Array.from(ul.children).slice(1) as HTMLElement[]
-
-	if (tabIndex >= tabs.length) return
-
-	// 获取 ul 的 gap（如果存在）
-	const ulStyles = window.getComputedStyle(ul)
-	const gap = ulStyles.gap.split(' ')[0] // 提取水平方向的 gap
-	const gapValue = parseFloat(gap) || 0
-
-	let left = 0
-	for (let i = 0; i < tabIndex; i++) {
-		const tab = tabs[i]
-		left += tab.offsetWidth + gapValue // 累加元素宽度和间隙
-	}
-
-	// 应用平滑移动
-	anchor.style.transitionDuration = '0.3s'
-	anchor.style.transform = `translateX(${left}px)`
-}
-
-
-// 返回原位置
-const slideBack = () => {
-	slideTo(currTab.value)
-	isHovering.value = false
-}
-
-// 展示源网站跳转按钮
-const showToSourceIcon = (type: string, idx: number, t: number) => {
-	const element = document.getElementById(`to-source-icon-${idx}-${t}`)
-	if (type == 'show') {
-		element?.classList.remove('hidden')
-		element?.classList.add('flex')
-	} else {
-		element?.classList.remove('flex')
-		element?.classList.add('hidden')
-	}
-}
-
-const jumpOut = (url: string) => {
-	window.open(url + '?ref=https://www.fre123.com', '_blank')
-}
-
-const stop = ($event) => {
-	$event.stopPropagation()
-	$event.preventDefault()
-}
-
-//自动定位
-const located = () => {
-	const route = useRoute()
-	const hash = route.hash
-	const routeGroupName = hash.replace('#', '').split('_')[0] ?? ''
-	const routeTabName = hash.replace('#', '').split('_')[1] ?? ''
-
-	if (routeTabName) {
-		// 定位到分组
-		const groupElement = document.getElementById(classNamePrefixGroup + routeGroupName)
-		if (groupElement) {
-			window.scrollTo({
-				behavior: 'smooth',
-				top: groupElement.offsetTop - 128,
-			})
+const vCheckIcon: ObjectDirective<HTMLImageElement, string> = {
+	mounted(image, { value: key }) {
+		if (image.complete) {
+			iconStates.set(key, image.naturalWidth > 0 ? 'loaded' : 'error')
 		}
-
-		// 定位到子分类
-		const tabElement = document.getElementById(
-			classNamePrefixGroupTab + routeGroupName + '_' + routeTabName,
-		)
-		if (tabElement) {
-			tabElement.click()
-			getTranslateX()
-		}
-	}
+	},
 }
-
-onMounted(async () => {
-	await located()
-	rewrite = true
-})
 </script>
 
 <style scoped>
-.anchor {
-	position: absolute;
-	height: 28px;
-	/* width: 20px; */
-	bottom: 0;
-	opacity: 1;
-	z-index: 0;
-	border-bottom: 1.5px solid #007bff;
-}
-
-.active {
-	color: #007bff;
-	font-weight: bold;
-}
-
 .index-nav-group {
-	box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.07);
-	transition: 0.3s;
-}
-.index-nav-group:hover {
-	box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.07);
-}
-
-.index-nav-group-content {
-	display: flex;
-	align-items: center;
-	height: 100%;
-	flex-wrap: wrap;
-}
-
-.index-nav-group-header {
-	display: flex;
-	border-top: 1px solid rgba(0, 0, 0, 0.05);
-	align-items: center;
-	height: 100%;
-	margin: 50px auto 20px auto;
-	padding: 40px 0 0 0;
-}
-
-.index-nav-group-header-icon {
-	height: 20px;
-	margin-left: 10px;
-}
-
-.index-nav-group-content-item {
-	display: flex;
-	box-sizing: border-box;
 	min-width: 0;
-	color: #434343;
+	scroll-margin-top: calc(var(--site-header-height) + 20px);
+}
+
+.resource-heading {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 9px 16px;
+	margin-bottom: 14px;
+}
+
+.resource-heading h2 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	color: var(--site-ink);
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1.35;
+	overflow-wrap: anywhere;
+}
+
+.resource-heading-icon {
+	flex: none;
+	color: #586e89;
+}
+
+.resource-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	min-width: 0;
+	padding: 3px;
+	border-radius: 18px;
+	background: #e5e9ef;
+}
+
+.resource-tab {
+	min-height: 30px;
+	padding: 5px 11px;
+	border-radius: 15px;
+	color: var(--site-muted);
+	font-size: 13px;
+	overflow-wrap: anywhere;
+}
+
+.resource-tab:hover {
+	background: rgb(255 255 255 / 48%);
+	color: var(--site-ink);
+}
+
+.resource-tab[aria-pressed='true'] {
+	background: var(--site-surface);
+	box-shadow: 0 1px 3px rgb(39 54 75 / 12%);
+	color: var(--site-accent);
+	font-weight: 600;
+}
+
+.resource-featured {
+	margin-left: auto;
+	color: var(--site-accent);
+	font-size: 13px;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	overflow-wrap: anywhere;
+}
+
+.resource-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.resource-card {
+	display: flex;
+	min-width: 0;
+	border: 1px solid rgb(41 56 80 / 5%);
+	border-radius: 18px;
+	background: var(--site-surface);
+	box-shadow: 0 1px 2px rgb(32 49 76 / 4%);
+}
+
+.resource-card:hover,
+.resource-card:focus-within {
+	border-color: #bfd1e7;
+	box-shadow: 0 2px 7px rgb(32 49 76 / 8%);
+}
+
+.resource-link {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	gap: 9px;
+	min-width: 0;
+	min-height: 76px;
+	padding: 10px;
+	border-radius: inherit;
 	text-decoration: none;
-	transition-property: transform, background-color;
-	transition-duration: 1s, 1s;
-	flex-shrink: 0;
+}
+
+.resource-card.has-source .resource-link {
+	padding-right: 36px;
+}
+
+.resource-icon {
+	--resource-icon-size: 36px;
 	position: relative;
-	transition: all 0.5s ease;
+	display: grid;
+	flex: 0 0 var(--resource-icon-size);
+	place-items: center;
+	width: var(--resource-icon-size);
+	height: var(--resource-icon-size);
+	color: #62738a;
 }
 
-.index-nav-group-header-name {
-	margin-left: 10px;
-}
-
-.index-nav-group-content-item:hover {
-	z-index: 2;
-	border-color: #efbb91;
-	.index-nav-group-content-item-name {
-		color: #007bff;
-	}
-	.to-source {
-		display: flex;
-	}
-}
-.index-nav-group-content-item:hover .index-nav-group-content-item-icon {
-	transform: scale(1.07);
-}
-
-.index-nav-group-content-item:hover .index-nav-group-content-item-icon-placeholder {
-	transform: scale(1.07);
-}
-
-.index-nav-group-content-item-icon-shell {
-	position: relative;
-	flex: 0 0 32px;
-	width: 32px;
-	height: 32px;
-}
-
-.index-nav-group-content-item-icon {
-	width: 32px;
-	height: 32px;
-	border-radius: 5px;
+.resource-icon img {
+	width: 100%;
+	height: 100%;
 	border-radius: 50%;
-	transition: all 0.6s;
+	object-fit: contain;
 }
 
-.index-nav-group-content-item-icon-hidden {
+.resource-icon .resource-icon-loading {
+	position: absolute;
 	visibility: hidden;
 }
 
-.index-nav-group-content-item-icon-placeholder {
-	position: absolute;
-	inset: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 32px;
-	height: 32px;
-	border-radius: 50%;
-	background: #eef2f7;
-	color: #64748b;
-	transition: all 0.6s;
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+	.resource-icon {
+		transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.resource-card:hover .resource-icon {
+		transform: translateY(-2px) scale(1.08);
+	}
 }
 
-.index-nav-group-content-item-main {
-	margin-left: 10px;
-	flex: 1;
+.resource-copy {
+	display: grid;
+	align-self: stretch;
+	align-content: start;
 	min-width: 0;
-	/* background-color: #40a6ff0f; */
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+	gap: 3px;
 }
-.index-nav-group-content-item-name {
+
+.resource-name {
+	overflow: hidden;
+	color: var(--site-ink);
 	font-size: 14px;
-	overflow: hidden;
-	white-space: nowrap;
+	font-weight: 600;
+	line-height: 1.35;
 	text-overflow: ellipsis;
-	flex: 1;
-	flex-shrink: 0;
-	min-width: 70px;
-	/* background-color: rgba(170, 67, 67, 0.1); */
+	white-space: nowrap;
 }
-.index-nav-group-content-item-desc {
-	font-size: 12px;
-	height: 16px;
-	line-height: 16px;
-	color: #7f7e7e;
-	/* background-color: #f951ff24; */
+
+.resource-link:hover .resource-name {
+	color: var(--site-accent);
+}
+
+.resource-description {
+	display: -webkit-box;
 	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	pointer-events: none;
+	color: var(--site-muted);
+	font-size: 12px;
+	line-height: 1.4;
+	overflow-wrap: anywhere;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.resource-source {
+	position: absolute;
+	top: 50%;
+	right: 5px;
+	display: grid;
+	place-items: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	color: var(--site-muted);
+	transform: translateY(-50%);
+}
+
+.resource-source:hover {
+	background: var(--site-selected);
+	color: var(--site-accent);
+}
+
+.resource-link:focus-visible,
+.resource-source:focus-visible,
+.resource-tab:focus-visible,
+.resource-featured:focus-visible {
+	outline: 2px solid var(--site-focus);
+	outline-offset: -2px;
+}
+
+@media (max-width: 359px) {
+	.resource-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 639px) {
+	.resource-heading h2 {
+		width: 100%;
+	}
+}
+
+@media (min-width: 640px) {
+	.resource-grid {
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 186px), 1fr));
+		gap: 12px;
+	}
+
+	.resource-link {
+		gap: 11px;
+		padding-inline: 12px;
+	}
+
+	.resource-icon {
+		--resource-icon-size: 40px;
+	}
 }
 </style>

@@ -1,141 +1,150 @@
 <template>
-	<div class="w-full bg-white sticky top-0 z-[110]">
-		<div
-			id="fre123-header"
-			class="header-transition m-auto flex border-b-2 border-b-gray-50 md:px-[20px] py-[10px]"
-		>
-			<div class="flex md:basis-1/3 relative">
-				<a :href="baseInfo['web_host']" target="_blank">
-					<img
-						class="header-logo header-transition ml-[20px]"
-						:src="getGithubAssetUrl(baseInfo['logo'])"
-						alt=""
-					/>
-				</a>
-				<a
-					:href="baseInfo['web_host']"
-					target="_blank"
-					class="header-text header-transition ml-[10px] leading-[80px] md:text-[22px] text-[#333]"
-				>
-					{{ baseInfo['app_name'] }}
-				</a>
-			</div>
+	<header class="site-header">
+		<div id="fre123-header" class="site-wrap header-inner">
+			<a class="header-brand" :href="baseConfig.web_host" target="_blank" rel="noopener">
+				<span class="header-brand-mark">
+					<img :src="getGithubAssetUrl(baseConfig.logo)" width="28" height="28" alt="" />
+				</span>
+				<span class="header-brand-name">{{ baseConfig.app_name }}</span>
+			</a>
 
-			<div
-				v-show="showSearch"
-				class="flex-grow hidden md:flex items-center justify-center cursor-pointer"
+			<nav
+				v-if="headerRightConfig.is_show && group?.name"
+				class="header-links hidden md:flex"
+				:aria-label="group.name"
 			>
-				<LazyIndexSearch />
-			</div>
-			<div class="cursor-pointer hidden md:flex basis-1/3 items-center justify-end">
-				<div v-if="headerRightConfig.is_show" class="flex justify-end flex-grow relative">
-					<div
-						class="px-3 flex items-center justify-end header-transition md:text-[16px] text-[#333333] p-2"
-						@mouseover="showCategory(true)"
-						@mouseout="showCategory(false)"
-					>
-						<a
-							v-if="headerRightConfig?.group?.name"
-							:href="headerRightConfig?.group?.url"
-							target="_blank"
-							class="px-3 bg-opacity-50 transition-bg-hover-200 cursor-pointer"
-							>{{ headerRightConfig?.group?.name }}</a
-						>
-						<div
-							v-if="
-								headerRightConfig?.group?.children &&
-								headerRightConfig?.group?.children.length > 0
-							"
-							class="absolute transition-all text-[16px] bottom-[-120px] bg-white rounded-md shadow-lg"
-							:class="`${isShow ? ' opacity-100' : 'opacity-0'}`"
-						>
-							<ul class="">
-								<li
-									v-for="item in headerRightConfig?.group?.children"
-									class="px-3 transition-bg-hover-200 cursor-pointer"
-								>
-									<a :href="item.url" target="_blank">{{ item.name }}</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+				<a class="header-link" :href="group.url" target="_blank" rel="noopener">
+					{{ group.name }}
+				</a>
+				<ul v-if="group.children?.length" class="header-submenu">
+					<li v-for="item in group.children" :key="item.url">
+						<a class="header-link" :href="item.url" target="_blank" rel="noopener">{{ item.name }}</a>
+					</li>
+				</ul>
+			</nav>
 		</div>
-	</div>
+	</header>
 </template>
 
 <script setup lang="ts">
 import { baseConfig, headerRightConfig } from '~/config/website'
+
 const { getGithubAssetUrl } = useGithubAsset()
-const baseInfo = baseConfig
-
-withDefaults(
-	defineProps<{
-		isIndex: boolean
-		showSearch?: boolean
-		headerText?: string
-	}>(),
-	{
-		showSearch: false,
-	},
-)
-
-// 控制头部变化
-const headerAnimation = (action: string) => {
-	const headerDom = document.getElementById('fre123-header')
-	const searchDom = document.getElementById('resource-menu')
-	if (headerDom) {
-		if (action == 'smaller') {
-			headerDom.classList.add('custom-size')
-			searchDom?.classList.add('hidden')
-		} else {
-			headerDom.classList.remove('custom-size')
-			searchDom?.classList.remove('hidden')
-		}
-	}
-}
-
-const isShow = ref(false)
-const showCategory = (show: boolean) => {
-	isShow.value = show
-}
-
-defineExpose({ headerAnimation })
+const group = headerRightConfig.group
 </script>
 
 <style scoped>
-#fre123-header {
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-}
-.header-transition {
-	transition: all 0.3s ease-in-out;
-}
-
-.header-logo {
-	width: 80px;
-	height: 80px;
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 110;
+	background: var(--site-glass);
+	box-shadow: 0 1px 0 rgb(41 56 80 / 7%);
+	backdrop-filter: var(--site-glass-filter);
 }
 
-.header-logo:hover {
-	transform: rotate(360deg);
+.header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	height: var(--site-header-height);
+	margin-inline: auto;
 }
 
-/* 头部固定类 */
-.custom-size {
-	padding-top: 0px;
-	padding-bottom: 0px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.header-brand {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	min-width: 0;
+	height: 100%;
+	color: var(--site-ink);
+	text-decoration: none;
 }
 
-.custom-size img {
-	width: 60px;
-	height: 60px;
+.header-brand::after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 36px;
+	height: 2px;
+	border-radius: 2px 2px 0 0;
+	background: #e5b84d;
+	content: '';
 }
 
-.custom-size .header-text {
-	height: 60px;
-	line-height: 60px;
-	font-size: 22px;
+.header-brand-mark {
+	display: grid;
+	flex: 0 0 36px;
+	place-items: center;
+	height: 36px;
+	border: 1px solid #f3e6c2;
+	border-radius: 13px;
+	background: #fff7df;
+	box-shadow: inset 0 1px #fffbef;
+}
+
+.header-brand-mark img {
+	object-fit: contain;
+}
+
+.header-brand-name {
+	overflow: hidden;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.3;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.header-brand:hover .header-brand-mark {
+	background: #ffefc4;
+}
+
+.header-links {
+	position: relative;
+	align-items: center;
+	height: 100%;
+	white-space: nowrap;
+}
+
+.header-link {
+	display: block;
+	padding: 8px 12px;
+	border-radius: 8px;
+	color: #434b56;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.header-link:hover {
+	background: #eef4fb;
+	color: #0066cc;
+}
+
+.header-brand:focus-visible,
+.header-link:focus-visible {
+	outline: 2px solid var(--site-focus);
+	outline-offset: -2px;
+	border-radius: 8px;
+}
+
+.header-submenu {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	display: none;
+	min-width: 128px;
+	padding: 4px;
+	border: 1px solid #e7ebf0;
+	border-radius: 8px;
+	background: #fafbfd;
+	box-shadow: 0 8px 20px rgb(15 23 42 / 8%);
+}
+
+.header-links:hover .header-submenu,
+.header-links:focus-within .header-submenu {
+	display: block;
 }
 </style>
