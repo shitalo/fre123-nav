@@ -30,7 +30,7 @@
 					class="directory-flyout"
 					popover="manual"
 				>
-					<div class="directory-panel">
+					<div class="directory-panel site-glass-panel">
 						<ul class="directory-submenu" :aria-label="group.group_name">
 							<li v-for="tab in group.tab_list" :key="tab.tab_name">
 								<button
@@ -170,6 +170,7 @@ onUnmounted(() => {
 		border-radius: 24px;
 		background: var(--site-glass);
 		box-shadow: var(--site-glass-shadow);
+		-webkit-backdrop-filter: var(--site-glass-filter);
 		backdrop-filter: var(--site-glass-filter);
 		overflow-y: auto;
 		scrollbar-width: thin;
@@ -249,15 +250,7 @@ onUnmounted(() => {
 	.directory-panel {
 		max-height: calc(100dvh - var(--site-header-height) - 20px);
 		padding: 9px;
-		border: 1px solid var(--site-glass-edge);
-		border-radius: 18px;
 		overflow-y: auto;
-		background: color-mix(in srgb, var(--site-glass), var(--site-surface) 38%);
-		box-shadow:
-			inset 0 1px 0 rgb(255 255 255 / 75%),
-			0 2px 5px rgb(30 45 68 / 7%),
-			0 12px 28px rgb(30 45 68 / 13%);
-		backdrop-filter: var(--site-glass-filter);
 		scrollbar-width: thin;
 	}
 

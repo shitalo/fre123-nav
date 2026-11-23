@@ -16,7 +16,7 @@
 				<a class="header-link" :href="group.url" target="_blank" rel="noopener">
 					{{ group.name }}
 				</a>
-				<ul v-if="group.children?.length" class="header-submenu">
+				<ul v-if="group.children?.length" class="header-submenu site-glass-panel">
 					<li v-for="item in group.children" :key="item.url">
 						<a class="header-link" :href="item.url" target="_blank" rel="noopener">{{ item.name }}</a>
 					</li>
@@ -38,12 +38,21 @@ const group = headerRightConfig.group
 	position: sticky;
 	top: 0;
 	z-index: 110;
+}
+
+.site-header::before {
+	position: absolute;
+	inset: 0;
 	background: var(--site-glass);
 	box-shadow: 0 1px 0 rgb(41 56 80 / 7%);
+	-webkit-backdrop-filter: var(--site-glass-filter);
 	backdrop-filter: var(--site-glass-filter);
+	content: '';
+	pointer-events: none;
 }
 
 .header-inner {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -112,22 +121,22 @@ const group = headerRightConfig.group
 .header-link {
 	display: block;
 	padding: 8px 12px;
-	border-radius: 8px;
-	color: #434b56;
+	border-radius: 14px;
+	color: var(--site-ink);
 	font-size: 14px;
 	text-decoration: none;
 }
 
-.header-link:hover {
-	background: #eef4fb;
-	color: #0066cc;
+.header-link:hover,
+.header-link:active {
+	background: var(--site-selected);
+	color: var(--site-accent);
 }
 
 .header-brand:focus-visible,
 .header-link:focus-visible {
 	outline: 2px solid var(--site-focus);
 	outline-offset: -2px;
-	border-radius: 8px;
 }
 
 .header-submenu {
@@ -135,12 +144,8 @@ const group = headerRightConfig.group
 	top: 100%;
 	right: 0;
 	display: none;
-	min-width: 128px;
-	padding: 4px;
-	border: 1px solid #e7ebf0;
-	border-radius: 8px;
-	background: #fafbfd;
-	box-shadow: 0 8px 20px rgb(15 23 42 / 8%);
+	min-width: 144px;
+	padding: 6px;
 }
 
 .header-links:hover .header-submenu,

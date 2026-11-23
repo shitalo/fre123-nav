@@ -17,7 +17,7 @@
 			>
 				{{ source.label }} {{ source.latency }}ms
 			</span>
-			<span v-if="fastestSources.length === 0" class="github-asset-status-loading">
+			<span v-if="fastestSources.length === 0" class="github-asset-status-empty">
 				暂无结果
 			</span>
 		</template>
@@ -44,20 +44,15 @@ onMounted(() => {
 	align-items: center;
 	gap: 5px;
 	flex-wrap: wrap;
-	color: #9ca3af;
+	color: var(--site-muted);
 	font-size: 11px;
 }
 
-.github-asset-status-label {
-	color: #6b7280;
-}
-
 .github-asset-status-loading {
-	background: #facc15;
-	color: #854d0e;
+	background: #fff2ce;
+	color: #734817;
 	padding: 1px 5px;
 	border-radius: 999px;
-	animation: github-asset-status-pulse 1.2s ease-in-out infinite;
 }
 
 .github-asset-status-local {
@@ -72,19 +67,19 @@ onMounted(() => {
 }
 
 .github-asset-source.current {
-	color: #2563eb;
-	border-color: #93c5fd;
-	background: #eff6ff;
+	color: var(--site-accent);
+	background: var(--site-selected);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.github-asset-status-loading {
+		animation: github-asset-status-pulse 1.4s ease-in-out infinite;
+	}
 }
 
 @keyframes github-asset-status-pulse {
-	0%,
-	100% {
-		opacity: 0.45;
-	}
-
 	50% {
-		opacity: 1;
+		background-color: #ffe6a4;
 	}
 }
 </style>

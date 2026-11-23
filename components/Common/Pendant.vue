@@ -136,8 +136,8 @@ onUnmounted(() => {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 44px;
-	height: 44px;
+	width: var(--site-floating-control-size);
+	height: var(--site-floating-control-size);
 	margin-bottom: 5px;
 	padding: 0;
 	border: 0;
@@ -150,8 +150,8 @@ onUnmounted(() => {
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
-	width: 44px;
-	height: 44px;
+	width: var(--site-floating-control-size);
+	height: var(--site-floating-control-size);
 	padding: 0;
 	border: 1px solid var(--site-glass-edge);
 	border-radius: 50%;
@@ -159,6 +159,7 @@ onUnmounted(() => {
 	color: var(--site-ink);
 	line-height: 1;
 	box-shadow: var(--site-glass-shadow);
+	-webkit-backdrop-filter: var(--site-glass-filter);
 	backdrop-filter: var(--site-glass-filter);
 	cursor: pointer;
 	transition:

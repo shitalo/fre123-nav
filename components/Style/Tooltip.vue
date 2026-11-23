@@ -1,213 +1,256 @@
 <template>
 	<div
-		class="relative"
-		@mouseenter="showToolTip"
-		@mouseleave="hideToolTip"
-		@focusin="showToolTip"
-		@focusout="hideToolTip"
+		ref="rootElement"
+		@mouseenter="showDetails"
+		@mouseleave="hideDetails"
+		@focusin="showDetails"
+		@focusout="hideDetails"
 	>
-		<slot></slot>
+		<div class="resource-preview-trigger">
+			<slot />
+		</div>
 		<div
-			ref="tooltipRef"
-			:class="[
-				tooltipVisible ? 'block' : 'hidden',
-				!tooltipReady ? 'invisible' : '',
-				tooltipPlacement === 'up' ? 'tooltip-up' : '',
-				nowrap ? 'tooltip-wrap' : 'whitespace-nowrap',
-			]"
-			:style="tooltipStyle"
+			v-if="detailsVisible"
+			class="resource-preview-bubble"
+			:class="{ 'is-above': opensAbove, invisible: !bubbleStyle }"
+			:style="bubbleStyle"
 			aria-hidden="true"
-			class="z-20 tooltip px-2 py-[3px] text-[12px] leading-[22px] text-white bg-[#323233] bg-opacity-[85%] rounded"
 		>
-			<strong v-if="tooltipTitle" class="block font-semibold">{{ tooltipTitle }}</strong>
-			{{ content }}
+			<div ref="bubbleContent" class="resource-preview-details">
+				<strong v-if="clippedTitle">{{ clippedTitle }}</strong>
+				<p v-if="description" ref="bubbleDescription" :class="{ 'is-single-line': descriptionFitsOnOneLine }">
+					{{ description }}
+				</p>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-	content: {
-		type: String,
-		default: '',
-	},
-	nowrap: {
-		type: Boolean,
-		default: false,
-	},
-	// JX-TODO 接收需要控制的 dom 节点 ID，这里先用 ID 来控制，后续可考虑优化
-	elementId: {
-		type: String,
-		default: '',
-	},
-	titleElementId: {
-		type: String,
-		default: '',
-	},
-	forceShow: {
-		type: Boolean,
-		default: false,
-	},
-	position: {
-		type: String,
-		default: 'down',
-	},
-})
-const tooltipVisible = ref(false)
-const tooltipReady = ref(false)
-const tooltipTitle = ref('')
-const tooltipPlacement = ref<'up' | 'down'>('down')
-const tooltipRef = ref<HTMLElement | null>(null)
+const props = defineProps<{
+	content: string
+	titleElementId: string
+}>()
+
+const description = computed(() => props.content.trim())
 const rootElement = ref<HTMLElement | null>(null)
-const tooltipStyle = ref<Record<string, string>>({})
+const bubbleContent = ref<HTMLElement | null>(null)
+const bubbleDescription = ref<HTMLElement | null>(null)
+const detailsVisible = ref(false)
+const clippedTitle = ref('')
+const descriptionFitsOnOneLine = ref(false)
+const opensAbove = ref(false)
+const bubbleStyle = ref<Record<string, string>>()
+let positionFrame = 0
 
-let viewportListenersAttached = false
-let positionFrame: number | null = null
+const positionBubble = () => {
+	if (!rootElement.value || !bubbleContent.value) return
 
-const updateTooltipPosition = () => {
-	if (!tooltipVisible.value || !rootElement.value || !tooltipRef.value) return
-
-	const rootRect = rootElement.value.getBoundingClientRect()
-	const tooltipElement = tooltipRef.value
-	const gap = 15
-
-	// Set the width before measuring so wrapped descriptions get their real height.
-	if (props.nowrap) {
-		tooltipElement.style.width = `${rootRect.width}px`
+	const card = rootElement.value.getBoundingClientRect()
+	const viewport = document.documentElement
+	const headerBottom = document.getElementById('fre123-header')?.getBoundingClientRect().bottom ?? 0
+	const viewportPadding = 12
+	const gap = 12
+	const topEdge = Math.max(0, headerBottom) + viewportPadding
+	const bottomEdge = viewport.clientHeight - viewportPadding
+	if (card.bottom <= topEdge || card.top >= bottomEdge) {
+		closeDetails()
+		return
 	}
 
-	const tooltipRect = tooltipElement.getBoundingClientRect()
-	const canPlaceAbove = rootRect.top >= tooltipRect.height + gap
-	const needsAbove = rootRect.bottom + tooltipRect.height + gap > window.innerHeight
-	const placement =
-		props.position === 'up'
-			? canPlaceAbove
-				? 'up'
-				: 'down'
-			: needsAbove && canPlaceAbove
-				? 'up'
-				: 'down'
+	const spaceAbove = card.top - topEdge - gap
+	const spaceBelow = bottomEdge - card.bottom - gap
+	const bubbleHeight = bubbleContent.value.scrollHeight + 2
+	opensAbove.value = bubbleHeight > spaceBelow && spaceAbove > spaceBelow
 
-	tooltipPlacement.value = placement
-
-	const tooltipWidth = props.nowrap ? rootRect.width : tooltipRect.width
-	const viewportPadding = 8
-	const minCenter = tooltipWidth / 2 + viewportPadding
-	const maxCenter = window.innerWidth - tooltipWidth / 2 - viewportPadding
-	const center = Math.min(
-		Math.max(rootRect.left + rootRect.width / 2, minCenter),
-		Math.max(minCenter, maxCenter),
-	)
-
-	tooltipStyle.value = {
-		left: `${center}px`,
-		top: `${placement === 'up' ? rootRect.top - gap : rootRect.bottom + gap}px`,
-		...(props.nowrap ? { width: `${rootRect.width}px` } : {}),
+	const width = bubbleContent.value.offsetWidth + 2
+	const anchor = card.left + card.width / 2
+	const left = Math.min(Math.max(anchor - width / 2, viewportPadding), viewport.clientWidth - viewportPadding - width)
+	bubbleStyle.value = {
+		left: `${left}px`,
+		top: `${opensAbove.value ? card.top - gap : card.bottom + gap}px`,
+		'--bubble-arrow-x': `${Math.min(Math.max(anchor - left, 20), width - 20)}px`,
+		'--bubble-content-height': `${Math.max(0, (opensAbove.value ? spaceAbove : spaceBelow) - 2)}px`,
 	}
-	tooltipReady.value = true
-}
 
-const handleViewportChange = () => {
-	if (!tooltipVisible.value || positionFrame !== null) return
+	nextTick(() => {
+		const element = bubbleDescription.value
+		if (!element) return
 
-	positionFrame = window.requestAnimationFrame(() => {
-		positionFrame = null
-		updateTooltipPosition()
+		const lineHeight = parseFloat(getComputedStyle(element).lineHeight)
+		descriptionFitsOnOneLine.value = element.offsetHeight < lineHeight * 1.5
 	})
 }
 
-const attachViewportListeners = () => {
-	if (viewportListenersAttached) return
-
-	viewportListenersAttached = true
-	window.addEventListener('scroll', handleViewportChange, true)
-	window.addEventListener('resize', handleViewportChange)
-}
-
-const detachViewportListeners = () => {
-	if (!viewportListenersAttached) return
-
-	viewportListenersAttached = false
-	window.removeEventListener('scroll', handleViewportChange, true)
-	window.removeEventListener('resize', handleViewportChange)
-	if (positionFrame !== null) {
-		window.cancelAnimationFrame(positionFrame)
-		positionFrame = null
-	}
-}
-
-const hideToolTip = (event: MouseEvent | FocusEvent) => {
-	const root = rootElement.value
-	if (event.type === 'mouseleave' && root?.querySelector(':focus-visible')) return
-	if (event.type === 'focusout' && root?.matches(':hover')) return
-
-	tooltipVisible.value = false
-	tooltipReady.value = false
-	detachViewportListeners()
+const schedulePosition = () => {
+	if (positionFrame) return
+	positionFrame = window.requestAnimationFrame(() => {
+		positionFrame = 0
+		positionBubble()
+	})
 }
 
 const isClipped = (element: HTMLElement | null) =>
 	element !== null &&
 	(element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight)
 
-const showToolTip = (event: MouseEvent | FocusEvent) => {
-	if (event.type === 'focusin' && !(event.target instanceof HTMLElement && event.target.matches(':focus-visible'))) return
-
-	rootElement.value = event.currentTarget as HTMLElement
-
-	const title = document.getElementById(props.titleElementId)
-	tooltipTitle.value = title && isClipped(title) ? title.textContent ?? '' : ''
-	const description = document.getElementById(props.elementId)
-	if (!props.forceShow && !tooltipTitle.value && !isClipped(description)) return
-
-	if (!tooltipVisible.value) {
-		tooltipReady.value = false
-	}
-	tooltipVisible.value = true
-	attachViewportListeners()
-	nextTick(updateTooltipPosition)
+const closeDetails = () => {
+	detailsVisible.value = false
+	descriptionFitsOnOneLine.value = false
+	bubbleStyle.value = undefined
+	window.removeEventListener('keydown', dismissOnEscape)
+	window.removeEventListener('scroll', schedulePosition)
+	window.removeEventListener('resize', schedulePosition)
+	window.cancelAnimationFrame(positionFrame)
+	positionFrame = 0
 }
 
-onBeforeUnmount(() => {
-	detachViewportListeners()
-})
+const dismissOnEscape = (event: KeyboardEvent) => {
+	if (event.key === 'Escape') closeDetails()
+}
+
+const showDetails = (event: MouseEvent | FocusEvent) => {
+	if (event.type === 'focusin' && !(event.target instanceof Element && event.target.matches(':focus-visible'))) return
+
+	const title = document.getElementById(props.titleElementId)
+	clippedTitle.value = title && isClipped(title) ? title.textContent ?? '' : ''
+	if (!description.value && !clippedTitle.value) return
+
+	detailsVisible.value = true
+	window.addEventListener('keydown', dismissOnEscape)
+	window.addEventListener('scroll', schedulePosition, { passive: true })
+	window.addEventListener('resize', schedulePosition)
+	nextTick(positionBubble)
+}
+
+const hideDetails = (event: MouseEvent | FocusEvent) => {
+	const root = rootElement.value
+	if (event.type === 'mouseleave' && root?.querySelector(':focus-visible')) return
+	if (event.type === 'focusout') {
+		if (root?.matches(':hover')) return
+		if (event.relatedTarget instanceof Node && root?.contains(event.relatedTarget)) return
+	}
+	closeDetails()
+}
+
+onBeforeUnmount(closeDetails)
 </script>
 
 <style scoped>
-.tooltip {
+.resource-preview-trigger {
+	position: relative;
+	display: flex;
+}
+
+.resource-preview-bubble {
+	--bubble-background: #eaf2fc;
+	--bubble-border: #b7cbe4;
+	--bubble-arrow-background: #f1f6fd;
 	position: fixed;
-	left: 0;
 	top: 0;
-	transform: translate(-50%, 0);
-	pointer-events: none;
-	will-change: transform;
-
-	&:after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translate(-50%, -100%);
-		width: 0px;
-		height: 0px;
-		border: 5px solid transparent;
-		border-bottom: 5px solid rgba(50, 50, 51, 0.85);
-	}
+	left: 0;
+	z-index: 90;
+	width: min(280px, calc(100vw - 40px));
+	border: 1px solid var(--bubble-border);
+	border-radius: 18px;
+	background: linear-gradient(160deg, rgb(255 255 255 / 45%), transparent 70%), var(--bubble-background);
+	color: var(--site-ink);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 90%),
+		0 2px 5px rgb(30 51 77 / 9%),
+		0 10px 26px rgb(30 51 77 / 17%);
+	transform-origin: var(--bubble-arrow-x) top;
 }
 
-.tooltip-up {
-	transform: translate(-50%, -100%);
-
-	&:after {
-		top: auto;
-		bottom: 0;
-		transform: translate(-50%, 100%);
-		border-bottom-color: transparent;
-		border-top-color: rgba(50, 50, 51, 0.85);
-	}
+.resource-preview-bubble::before {
+	position: absolute;
+	bottom: 100%;
+	inset-inline: 0;
+	height: 14px;
+	content: '';
 }
 
-.tooltip-wrap {
+.resource-preview-bubble::after {
+	position: absolute;
+	top: -7px;
+	left: var(--bubble-arrow-x);
+	width: 12px;
+	height: 12px;
+	border-top: 1px solid var(--bubble-border);
+	border-left: 1px solid var(--bubble-border);
+	border-top-left-radius: 3px;
+	background: var(--bubble-arrow-background);
+	transform: translateX(-50%) rotate(45deg);
+	content: '';
+}
+
+.resource-preview-bubble.is-above {
+	translate: 0 -100%;
+	transform-origin: var(--bubble-arrow-x) bottom;
+}
+
+.resource-preview-bubble.is-above::before {
+	top: 100%;
+	bottom: auto;
+}
+
+.resource-preview-bubble.is-above::after {
+	top: auto;
+	bottom: -7px;
+	background: var(--bubble-background);
+	transform: translateX(-50%) rotate(225deg);
+}
+
+.resource-preview-details {
+	max-height: var(--bubble-content-height, none);
+	padding: 10px 12px;
+	overflow: auto;
+	overscroll-behavior: contain;
+	font-size: 12px;
+	line-height: 1.55;
 	overflow-wrap: anywhere;
+}
+
+.resource-preview-details strong {
+	display: block;
+	margin-bottom: 3px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.resource-preview-details .is-single-line {
+	text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.resource-preview-bubble:not(.invisible) {
+		animation: resource-preview-in var(--site-transition, 160ms ease-out);
+	}
+}
+
+@media (prefers-reduced-transparency: no-preference) and (prefers-contrast: no-preference) {
+	@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+		.resource-preview-bubble {
+			--bubble-background: rgb(234 242 252 / 94%);
+			-webkit-backdrop-filter: var(--site-glass-filter);
+			backdrop-filter: var(--site-glass-filter);
+		}
+	}
+}
+
+@media (prefers-contrast: more) {
+	.resource-preview-bubble {
+		--bubble-background: var(--site-surface);
+		--bubble-border: var(--site-glass-edge);
+		--bubble-arrow-background: var(--site-surface);
+		background: var(--bubble-background);
+	}
+}
+
+@keyframes resource-preview-in {
+	from {
+		opacity: 0;
+		scale: 0.965;
+	}
 }
 </style>

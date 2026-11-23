@@ -43,9 +43,7 @@
 				v-for="(item, index) in currentTabData.details.slice(0, 100)"
 				:key="`${currentTabData.tab_name}-${index}-${item.url}`"
 				:content="item.description"
-				:nowrap="true"
 				:title-element-id="`resource-title-${idx}-${index}`"
-				:element-id="`desc-${idx}-${index}`"
 				class="resource-card"
 				:class="{ 'has-source': item.ori_url }"
 			>
@@ -66,7 +64,7 @@
 					</span>
 					<span class="resource-copy">
 						<span :id="`resource-title-${idx}-${index}`" class="resource-name">{{ item.title }}</span>
-						<span :id="`desc-${idx}-${index}`" class="resource-description">{{ item.description }}</span>
+						<span class="resource-description">{{ item.description }}</span>
 					</span>
 				</a>
 				<a
@@ -161,22 +159,48 @@ const vCheckIcon: ObjectDirective<HTMLImageElement, string> = {
 .resource-tab {
 	min-height: 30px;
 	padding: 5px 11px;
-	border-radius: 15px;
+	border-radius: 999px;
 	color: var(--site-muted);
 	font-size: 13px;
 	overflow-wrap: anywhere;
 }
 
-.resource-tab:hover {
-	background: rgb(255 255 255 / 48%);
-	color: var(--site-ink);
+@media (hover: hover) {
+	.resource-tab:hover {
+		background: rgb(255 255 255 / 48%);
+		color: var(--site-ink);
+	}
 }
 
 .resource-tab[aria-pressed='true'] {
 	background: var(--site-surface);
 	box-shadow: 0 1px 3px rgb(39 54 75 / 12%);
 	color: var(--site-accent);
-	font-weight: 600;
+}
+
+.resource-tab:active {
+	background: var(--site-selected);
+	color: var(--site-accent);
+}
+
+@media (pointer: coarse) {
+	.resource-tabs {
+		border-radius: 25px;
+	}
+
+	.resource-tab {
+		min-height: 44px;
+		min-width: 44px;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.resource-tab {
+		transition:
+			background-color var(--site-transition),
+			box-shadow var(--site-transition),
+			color var(--site-transition);
+	}
 }
 
 .resource-featured {
@@ -195,7 +219,7 @@ const vCheckIcon: ObjectDirective<HTMLImageElement, string> = {
 }
 
 .resource-card {
-	display: flex;
+	align-self: start;
 	min-width: 0;
 	border: 1px solid rgb(41 56 80 / 5%);
 	border-radius: 18px;

@@ -23,6 +23,8 @@ body {
   --site-glass-edge: rgb(255 255 255 / 90%);
   --site-glass-shadow: 0 1px 2px rgb(30 45 68 / 6%), 0 8px 23px rgb(30 45 68 / 8%);
   --site-glass-filter: blur(18px) saturate(155%);
+  --site-floating-control-size: 44px;
+  --site-transition: 160ms cubic-bezier(0.22, 1, 0.36, 1);
   --el-dialog-padding-header: 16px;
   --pagination-item-bg: #eeeeee;
   --pagination-item-bg--active: #646463;
@@ -33,9 +35,38 @@ body {
   --pagination-icon-color--hover: #fa8f1d；
 }
 
+.site-glass-panel {
+  border: 1px solid var(--site-glass-edge);
+  border-radius: 18px;
+  background: var(--site-surface);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 75%),
+    0 2px 5px rgb(30 45 68 / 7%),
+    0 12px 28px rgb(30 45 68 / 13%);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .site-glass-panel {
+    background: color-mix(in srgb, var(--site-glass), var(--site-surface) 38%);
+    -webkit-backdrop-filter: var(--site-glass-filter);
+    backdrop-filter: var(--site-glass-filter);
+  }
+}
+
 @media (prefers-reduced-transparency: reduce) {
   :root {
     --site-glass: #fbfcfe;
+    --site-glass-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --site-ink: #131820;
+    --site-muted: #3f4a58;
+    --site-accent: #144c94;
+    --site-glass: #fbfcfe;
+    --site-glass-edge: #7d8794;
     --site-glass-filter: none;
   }
 }

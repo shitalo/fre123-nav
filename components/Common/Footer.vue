@@ -40,6 +40,7 @@ import { footerRightConfig } from '~/config/website'
 	min-height: 72px;
 	gap: 8px 20px;
 	padding-block: 16px;
+	padding-inline-end: calc(var(--site-floating-control-size) + 12px);
 }
 
 .footer-inner a {
