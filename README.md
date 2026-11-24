@@ -21,7 +21,7 @@
 
 ## 部署
 
-本项目使用 `node v18.16.0` 版本环境 `yarn`作为包管理工具
+本项目要求 Node.js `22.12.0` 或更高版本，使用 Yarn 1 管理依赖。`.nvmrc` 指定 Node.js `22.21.1`。
 
 ```
 git clone https://github.com/fre123-com/fre123-nav.git
