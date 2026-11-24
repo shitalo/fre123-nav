@@ -63,10 +63,13 @@ const group = headerRightConfig.group
 
 .header-brand {
 	position: relative;
-	display: inline-flex;
+	display: inline-grid;
+	grid-template-columns: 36px minmax(0, 1fr);
 	align-items: center;
 	gap: 10px;
+	width: max-content;
 	min-width: 0;
+	max-width: 100%;
 	height: 100%;
 	color: var(--site-ink);
 	text-decoration: none;
@@ -85,7 +88,6 @@ const group = headerRightConfig.group
 
 .header-brand-mark {
 	display: grid;
-	flex: 0 0 36px;
 	place-items: center;
 	height: 36px;
 	border: 1px solid #f3e6c2;
@@ -99,6 +101,7 @@ const group = headerRightConfig.group
 }
 
 .header-brand-name {
+	min-width: 0;
 	overflow: hidden;
 	font-size: 18px;
 	font-weight: 700;
